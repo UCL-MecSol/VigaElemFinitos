@@ -16,7 +16,7 @@ Para este software não é necessário instalação, o mesmo é executado direta
 
 ## 2. Lista de Variáveis
 
-#### numApoios
+#### - numApoios
   Contador para número total de apoios aplicados no problema.
 
   Tipo: Integer.
@@ -104,9 +104,12 @@ Array contendo o valor da posição em X de cada nó.
 Array contendo os valores após cálculos de cada deslocamento e inclinação em cada nó.
 tipo:undefined.
 
-### ArrayForcasEReacoes = undefined; Array contendo os valores após cálculos de cada Forca e momento aplicado ou reacional, em cada nó.
-### Elast = 1; Variável contendo o valor do módulo de elasticidade que foi definido pelo usuário para o problema. (Contém valor inicial 1 para evitar erros de cálculo.)
-### Inerc = 1; Variável contendo o valor do módulo de inércia que foi definido pelo usuário para o problema. (Contém valor inicial 1 para evitar erros de cálculo.)
+### ArrayForcasEReacoes = undefined;
+Array contendo os valores após cálculos de cada Forca e momento aplicado ou reacional, em cada nó.
+### Elast = 1;
+Variável contendo o valor do módulo de elasticidade que foi definido pelo usuário para o problema. (Contém valor inicial 1 para evitar erros de cálculo.)
+### Inerc = 1;
+Variável contendo o valor do módulo de inércia que foi definido pelo usuário para o problema. (Contém valor inicial 1 para evitar erros de cálculo.)
 
 
 ### KGlobal
@@ -115,15 +118,11 @@ tipo:undefined.
   Matriz que salva a matriz de Rigidez global modificada, após manipulação dentro do código.
 ### KGlobalOriginal
   Matriz que salva a matriz de Rigidez global original, após manipulação dentro do código.
-### explicacao = ""; Variável que contém a string de explicação, que vai ser renderizada pelo MathJax, mostrando assim, o resultado do software.
+### explicacao = "";
+Variável que contém a string de explicação, que vai ser renderizada pelo MathJax, mostrando assim, o resultado do software.
 
-### MatrizCoeficientesDasEquacoes= []; Matriz contendo os coeficientes Utilizados para gerar as Equações.
-
-
-# Awesome README [![Awesome](https://cdn.rawgit.com/sindresorhus/awesome/d7305f38d29fed78fa85652e3a63e154dd8e8829/media/badge.svg)](https://github.com/sindresorhus/awesome)
-> A curated list of awesome READMEs
-
-Elements in beautiful READMEs include, but are not limited to: images, screenshots, GIFs, text formatting, etc.
+### MatrizCoeficientesDasEquacoes= [];
+Matriz contendo os coeficientes Utilizados para gerar as Equações.
 
 ## Examples
 - [ai/size-limit](https://github.com/ai/size-limit) - Project logo, clear description, screenshot, step-by-step installing instructions.
