@@ -141,20 +141,19 @@ Este software foi desenvolvido como um trabalho de conclusão de curso, toda a b
   Tipo: Imagem.
   Valor inicial: _void_.
 ```
-#### imgObj2 = new Image();
-Variável de imagem, contendo a imagem do vetor de Força.
+#### imgObj2
 ```
   Descrição: Variável de imagem, contendo a imagem do vetor de Força.
   Tipo: Imagem.
   Valor inicial: _void_.
 ```
-#### tamvig:
+#### tamvig
 ```
   Descrição: Variável que contém o valor de input do tamanho da viga proposta.
   Tipo: Integer.
   Valor inicial: 0.
   ```
-#### canvas:
+#### canvas
 ```
   Descrição: Variável contendo o objeto Canvas do FabricJS.
   Tipo: Integer.
@@ -191,7 +190,7 @@ Variável de imagem, contendo a imagem do vetor de Força.
   Tipo: Integer.
   Valor inicial: 1.
 ```
-#### Inerc = 1;
+#### Inerc
 ```
   Descrição: Variável contendo o valor do módulo de inércia que foi definido pelo usuário para o problema.
   Tipo: Integer.
