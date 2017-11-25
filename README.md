@@ -7,6 +7,9 @@ Portanto, esse trabalho se baseia em fornecer um software didático, prático, o
 ## Instalação
 Para este software não é necessário instalação, o mesmo é executado diretamente no link [viga.ucl.br](viga.ucl.br).
 
+## Base Teórica
+Este software foi desenvolvido como um trabalho de conclusão de curso, toda a base teórica e matematica se encontra no artigo tambem presente neste projeto GitHub, no link [viga.ucl.br](viga.ucl.br).
+
 ## Desenvolvido com:
 - [BootStrap](https://getbootstrap.com/) - Bootstrap. Build responsive, mobile-first projects on the web with the world's most popular front-end component library.
 - [MathJS](http://mathjs.org/) - An extensive math library for JavaScript and Node.js. It features big numbers, complex numbers, matrices, units, and a flexible expression parser.
