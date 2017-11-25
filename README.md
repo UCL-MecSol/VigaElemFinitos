@@ -135,75 +135,96 @@ Este software foi desenvolvido como um trabalho de conclusão de curso, toda a b
   Tipo: Array.
   Valor inicial: [].
 ```
-
-
 #### imgObj
-Variavel de imagem, contendo a imagem da viga inicial.
-Tipo: Imagem.
-
+```
+  Descrição: Variável de imagem, contendo a imagem da viga inicial.
+  Tipo: Imagem.
+  Valor inicial: _void_.
+```
 #### imgObj2 = new Image();
-Variavel de imagem, contendo a imagem do vetor de Força.
-
+Variável de imagem, contendo a imagem do vetor de Força.
+```
+  Descrição: Variável de imagem, contendo a imagem do vetor de Força.
+  Tipo: Imagem.
+  Valor inicial: _void_.
+```
 #### tamvig:
-Variavel que contém o valor de input do tamanho da viga proposta.
-
+```
+  Descrição: Variável que contém o valor de input do tamanho da viga proposta.
+  Tipo: Integer.
+  Valor inicial: 0.
+  ```
 #### canvas:
-Variavel contendo o objeto Canvas do FabricJS.
-
+```
+  Descrição: Variável contendo o objeto Canvas do FabricJS.
+  Tipo: Integer.
+  Valor inicial: 0.
+  ```
 #### ArrayForcasEMomentosAplicados
-Array contendo os valores de Forças e momentos em cada nó, após a transformação da viga em estrutura reticulada.
-
+```
+  Descrição: Array contendo os valores de Forças e momentos em cada nó, após a transformação da viga em estrutura reticulada.
+  Tipo: Array.
+  Valor inicial: [].
+```
 #### ArrayDivVigaSemRepeticao
-Array contendo o valor da posição em X de cada nó.
-
+```
+  Descrição: Array contendo o valor da posição em X de cada nó.
+  Tipo: Array.
+  Valor inicial: [].
+```
 #### ArrayDeDeslocamentosEInclinacoes
-Array contendo os valores após cálculos de cada deslocamento e inclinação em cada nó.
-tipo:undefined.
-
-#### ArrayForcasEReacoes = undefined;
-Array contendo os valores após cálculos de cada Forca e momento aplicado ou reacional, em cada nó.
-#### Elast = 1;
-Variável contendo o valor do módulo de elasticidade que foi definido pelo usuário para o problema. (Contém valor inicial 1 para evitar erros de cálculo.)
+```
+  Descrição: Array contendo os valores após cálculos de cada deslocamento e inclinação em cada nó.
+  tipo:undefined.
+  Tipo: Array.
+  Valor inicial: [].
+```
+#### ArrayForcasEReacoes
+```
+  Descrição: Array contendo os valores após cálculos de cada Forca e momento aplicado ou reacional, em cada nó.
+  Tipo: Array.
+  Valor inicial: undefined.
+```
+#### Elast
+```
+  Descrição: Variável contendo o valor do módulo de elasticidade que foi definido pelo usuário para o problema.
+  Tipo: Integer.
+  Valor inicial: 1.
+```
 #### Inerc = 1;
-Variável contendo o valor do módulo de inércia que foi definido pelo usuário para o problema. (Contém valor inicial 1 para evitar erros de cálculo.)
-
+```
+  Descrição: Variável contendo o valor do módulo de inércia que foi definido pelo usuário para o problema.
+  Tipo: Integer.
+  Valor inicial: 1.
+```
 
 #### KGlobal
-  Matriz contendo a matriz de Rigidez global para manipulação dentro do código.
+```
+  Descrição: Matriz contendo a matriz de Rigidez global para manipulação dentro do código.
+  Tipo: MathJS.Matrix.
+  Valor inicial: undefined.
+```
 #### KGlobalModificada
-  Matriz que salva a matriz de Rigidez global modificada, após manipulação dentro do código.
+```
+  Descrição: Matriz que salva a matriz de Rigidez global modificada, após manipulação dentro do código.
+  Tipo: MathJS.Matrix.
+  Valor inicial: undefined.
+```
 #### KGlobalOriginal
-  Matriz que salva a matriz de Rigidez global original, após manipulação dentro do código.
-#### explicacao = "";
-Variável que contém a string de explicação, que vai ser renderizada pelo MathJax, mostrando assim, o resultado do software.
-
-#### MatrizCoeficientesDasEquacoes= [];
-Matriz contendo os coeficientes Utilizados para gerar as Equações.
-
-## Examples
-- [ai/size-limit](https://github.com/ai/size-limit) - Project logo, clear description, screenshot, step-by-step installing instructions.
-
-## Articles
-- ["Art of Readme - Learn the art of writing quality READMEs."](https://github.com/noffle/art-of-readme) - *Stephen Whitmore*
-
-## Tools
-
-- [Common Readme](https://github.com/noffle/common-readme) - A common readme style for Node. Includes a guide and a readme generator.
-
-## Creating GIFs
-
-Embedding an animated gif in your README quickly demonstrates what your project does and catches the reader's eye.  Here are a few programs that can help you quickly create gifs for your project:
-
-- [Gifox](https://gifox.io) - **$4** - Cleanest UI, hotkeys, lots of advanced features
-
-
-## Contribute
-
-Contributions are always welcome!
-Please read the [contribution guidelines](contributing.md) first.
-
-## License
-
-[![CC0](https://licensebuttons.net/p/zero/1.0/88x31.png)](https://creativecommons.org/publicdomain/zero/1.0/)
-
-To the extent possible under law, [Matias Singers](http://mts.io) has waived all copyright and related or neighboring rights to this work.
+```
+  Descrição: Matriz que salva a matriz de Rigidez global original, após manipulação dentro do código.
+  Tipo: MathJS.Matrix.
+  Valor inicial: undefined.
+```
+#### explicacao
+```
+  Descrição: Variável que contém a string de explicação, que vai ser renderizada pelo MathJax, mostrando assim, o resultado do software.
+  Tipo: String.
+  Valor inicial: undefined.
+```
+#### MatrizCoeficientesDasEquacoes
+```
+  Descrição: Matriz contendo os coeficientes Utilizados para gerar as Equações.
+  Tipo: MathJS.Matrix.
+  Valor inicial: undefined.
+```
