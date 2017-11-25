@@ -39,53 +39,102 @@ Este software foi desenvolvido como um trabalho de conclusão de curso, toda a b
   Valor inicial: 0.
 ```
 #### numApoios2Grau
-Contador para número total de apoios 2º grau aplicados no problema.
 
+```
+  Descrição: Contador para número total de apoios 2º grau aplicados no problema.
+  Tipo: Integer.
+  Valor inicial: 0.
+```
 #### numApoios3Grau
-Contador para número total de apoios 3º grau aplicados no problema.
-
+```
+  Descrição: Contador para número total de apoios 3º grau aplicados no problema.
+  Tipo: Integer.
+  Valor inicial: 0.
+```
 #### numForcasAplic
-Contador para número total de Forças aplicados no problema.
-
+```
+  Descrição: Contador para número total de Forças aplicados no problema.
+  Tipo: Integer.
+  Valor inicial: 0.
+```
 #### numCarregAplic
-  Contador para número total Carregamentos aplicados no problema.
-
+```
+  Descrição: Contador para número total Carregamentos aplicados no problema.
+  Tipo: Integer.
+  Valor inicial: 0.
+```
 #### numMomentAplic
-  Contador para número total de Momentos aplicados no problema.
-
+```
+  Descrição: Contador para número total de Momentos aplicados no problema.
+  Tipo: Integer.
+  Valor inicial: 0.
+  ```
 #### Array1GrauPos
-Array contendo as posições onde foram aplicadas os Apoios de 1º grau
-
+```
+  Descrição: Array contendo as posições onde foram aplicadas os Apoios de 1º grau.
+  Tipo: Array.
+  Valor inicial: [].
+```
 #### Array2GrauPos
-Array contendo as posições onde foram aplicadas os Apoios de 2º grau
-
+```
+  Descrição: Array contendo as posições onde foram aplicadas os Apoios de 2º grau.
+  Tipo: Array.
+  Valor inicial: [].
+```
 #### Array3GrauPos
-Array contendo as posições onde foram aplicadas os Apoios de 3º grau
-
+```
+  Descrição: Array contendo as posições onde foram aplicadas os Apoios de 3º grau.
+  Tipo: Array.
+  Valor inicial: [].
+```
 #### ArrayForcaPos
-Array contendo as posições onde foram aplicadas as Forças, na respectiva ordem que foram adicionadas.
-
+```
+  Descrição: Array contendo as posições onde foram aplicadas as Forças, na respectiva ordem que foram adicionadas.
+  Tipo: Array.
+  Valor inicial: [].
+```
 #### ArrayForcaInt
-Array contendo as intensidades das Forças, na respectiva ordem que foram adicionadas.
-
+```
+  Descrição: Array contendo as intensidades das Forças, na respectiva ordem que foram adicionadas.
+  Tipo: Array.
+  Valor inicial: [].
+```
 #### ArrayCarrPosI
-Array contendo as posições iniciais onde foram aplicados carregamentos, na respectiva ordem que foram adicionadas.
-
+```
+  Descrição: Array contendo as posições iniciais onde foram aplicados carregamentos, na respectiva ordem que foram adicionadas.
+  Tipo: Array.
+  Valor inicial: [].
+```
 #### ArrayCarrPosF
-Array contendo as posições finais onde foram aplicados carregamentos, na respectiva ordem que foram adicionadas.
-
+```
+  Descrição: Array contendo as posições finais onde foram aplicados carregamentos, na respectiva ordem que foram adicionadas.
+  Tipo: Array.
+  Valor inicial: [].
+```
 #### ArrayCarrIntI
-Array contendo as intensidades iniciais dos carregamentos aplicados, na respectiva ordem que foram adicionadas.
-
+```
+  Descrição: Array contendo as intensidades iniciais dos carregamentos aplicados, na respectiva ordem que foram adicionadas.
+  Tipo: Array.
+  Valor inicial: [].
+```
 #### ArrayCarrIntF
-Array contendo as intensidades finais dos carregamentos aplicados, na respectiva ordem que foram adicionadas.
-
+```
+  Descrição: Array contendo as intensidades finais dos carregamentos aplicados, na respectiva ordem que foram adicionadas.
+  Tipo: Array.
+  Valor inicial: [].
+```
 #### ArrayMomenPos
-Array contendo as posições onde foram aplicados Momentos, na respectiva ordem que foram adicionadas.
-
+```
+  Descrição: Array contendo as posições onde foram aplicados Momentos, na respectiva ordem que foram adicionadas.
+  Tipo: Array.
+  Valor inicial: [].
+```
 #### ArrayMomenInt
-Array contendo as intensidades dos Momentos, na respectiva ordem que foram adicionadas.
-
+```
+  Descrição: Array contendo as intensidades dos Momentos, na respectiva ordem que foram adicionadas.
+  Tipo: Array.
+  Valor inicial: [].
+```
 
 
 #### imgObj
