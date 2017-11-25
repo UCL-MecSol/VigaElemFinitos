@@ -17,112 +17,112 @@ Para este software não é necessário instalação, o mesmo é executado direta
 
 ## 2. Lista de Variáveis
 
-#### - [numApoios]()
+#### - numApoios
   Contador para número total de apoios aplicados no problema.
 
   Tipo: Integer.
 
   Valor inicial: 0.
 
-### numEsforc
+#### - numEsforc
   Contador para número total de Esforços aplicados no problema.
   Tipo: Integer.
   Valor inicial: 0.
 
-### numApoios1Grau
+#### - numApoios1Grau
 Contador para número total de apoios de 1º grau aplicados no problema.
 
-### numApoios2Grau
+#### numApoios2Grau
 Contador para número total de apoios 2º grau aplicados no problema.
 
-### numApoios3Grau
+#### numApoios3Grau
 Contador para número total de apoios 3º grau aplicados no problema.
 
-### numForcasAplic
+#### numForcasAplic
 Contador para número total de Forças aplicados no problema.
 
-### numCarregAplic
+#### numCarregAplic
   Contador para número total Carregamentos aplicados no problema.
 
-### numMomentAplic
+#### numMomentAplic
   Contador para número total de Momentos aplicados no problema.
 
-### Array1GrauPos
+#### Array1GrauPos
 Array contendo as posições onde foram aplicadas os Apoios de 1º grau
 
-### Array2GrauPos
+#### Array2GrauPos
 Array contendo as posições onde foram aplicadas os Apoios de 2º grau
 
-### Array3GrauPos
+#### Array3GrauPos
 Array contendo as posições onde foram aplicadas os Apoios de 3º grau
 
-### ArrayForcaPos
+#### ArrayForcaPos
 Array contendo as posições onde foram aplicadas as Forças, na respectiva ordem que foram adicionadas.
 
-### ArrayForcaInt
+#### ArrayForcaInt
 Array contendo as intensidades das Forças, na respectiva ordem que foram adicionadas.
 
-### ArrayCarrPosI
+#### ArrayCarrPosI
 Array contendo as posições iniciais onde foram aplicados carregamentos, na respectiva ordem que foram adicionadas.
 
-### ArrayCarrPosF
+#### ArrayCarrPosF
 Array contendo as posições finais onde foram aplicados carregamentos, na respectiva ordem que foram adicionadas.
 
-### ArrayCarrIntI
+#### ArrayCarrIntI
 Array contendo as intensidades iniciais dos carregamentos aplicados, na respectiva ordem que foram adicionadas.
 
-### ArrayCarrIntF
+#### ArrayCarrIntF
 Array contendo as intensidades finais dos carregamentos aplicados, na respectiva ordem que foram adicionadas.
 
-### ArrayMomenPos
+#### ArrayMomenPos
 Array contendo as posições onde foram aplicados Momentos, na respectiva ordem que foram adicionadas.
 
-### ArrayMomenInt
+#### ArrayMomenInt
 Array contendo as intensidades dos Momentos, na respectiva ordem que foram adicionadas.
 
 
 
-### imgObj
+#### imgObj
 Variavel de imagem, contendo a imagem da viga inicial.
 Tipo: Imagem.
 
-### imgObj2 = new Image();
+#### imgObj2 = new Image();
 Variavel de imagem, contendo a imagem do vetor de Força.
 
-### tamvig:
+#### tamvig:
 Variavel que contém o valor de input do tamanho da viga proposta.
 
-### canvas:
+#### canvas:
 Variavel contendo o objeto Canvas do FabricJS.
 
-### ArrayForcasEMomentosAplicados
+#### ArrayForcasEMomentosAplicados
 Array contendo os valores de Forças e momentos em cada nó, após a transformação da viga em estrutura reticulada.
 
-### ArrayDivVigaSemRepeticao
+#### ArrayDivVigaSemRepeticao
 Array contendo o valor da posição em X de cada nó.
 
-### ArrayDeDeslocamentosEInclinacoes
+#### ArrayDeDeslocamentosEInclinacoes
 Array contendo os valores após cálculos de cada deslocamento e inclinação em cada nó.
 tipo:undefined.
 
-### ArrayForcasEReacoes = undefined;
+#### ArrayForcasEReacoes = undefined;
 Array contendo os valores após cálculos de cada Forca e momento aplicado ou reacional, em cada nó.
-### Elast = 1;
+#### Elast = 1;
 Variável contendo o valor do módulo de elasticidade que foi definido pelo usuário para o problema. (Contém valor inicial 1 para evitar erros de cálculo.)
-### Inerc = 1;
+#### Inerc = 1;
 Variável contendo o valor do módulo de inércia que foi definido pelo usuário para o problema. (Contém valor inicial 1 para evitar erros de cálculo.)
 
 
-### KGlobal
+#### KGlobal
   Matriz contendo a matriz de Rigidez global para manipulação dentro do código.
-### KGlobalModificada
+#### KGlobalModificada
   Matriz que salva a matriz de Rigidez global modificada, após manipulação dentro do código.
-### KGlobalOriginal
+#### KGlobalOriginal
   Matriz que salva a matriz de Rigidez global original, após manipulação dentro do código.
-### explicacao = "";
+#### explicacao = "";
 Variável que contém a string de explicação, que vai ser renderizada pelo MathJax, mostrando assim, o resultado do software.
 
-### MatrizCoeficientesDasEquacoes= [];
+#### MatrizCoeficientesDasEquacoes= [];
 Matriz contendo os coeficientes Utilizados para gerar as Equações.
 
 ## Examples
