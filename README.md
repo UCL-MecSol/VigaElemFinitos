@@ -20,6 +20,7 @@ Este software foi desenvolvido como um trabalho de conclusão de curso, toda a b
 
 ## 1. Lista de Variáveis
 
+
 #### - numApoios
 ```
   Descrição: Contador para número total de apoios aplicados no problema.
@@ -230,106 +231,155 @@ Este software foi desenvolvido como um trabalho de conclusão de curso, toda a b
 
 ## 2. Funções
 #### decimalPlaces(num):
+```
 Descrição: Função para arredondar os valores.
 Parâmetros: Num – Variavel sendo evaluada.
 Retorna: Valor da variável arredondada.
+```
 #### LimpaApoios():
+```
 Descrição: Função para limpeza das variáveis relacionadas ao painel de apoios, e apagar os objetos, e esvazia a Div contendo os objetos.
 Parâmetros: numApoios1Grau, numApoios2Grau, numApoios3Grau, Array1GrauPos, Array2GrauPos, Array3GrauPos e numApoios.
 Retorna: Parâmetros Limpos.
+```
 #### LimpaCargas():
+```
 Descrição: Função para limpeza das variáveis relacionadas ao painel de esforços, e apagar os objetos, e esvazia a Div contendo os objetos.
 Parâmetros: numForcasAplic, numCarregAplic, numMomentAplic, ArrayForcaPos, ArrayForcaInt, ArrayMomenPos, ArrayMomenInt, ArrayCarrPosI, ArrayCarrPosF, ArrayCarrIntI, ArrayCarrIntF e numEsforc.
 Retorna: Parâmetros Limpos.
+```
 #### addPrimGrau():
+```
 Descrição: Função para adição de objetos na Div de apoios. Aumenta o valor dos contadores do apoio de 1º grau e do contador de apoios geral em 1. Adiciona um conjunto de objetos, contendo uma pequena imagem representando o apoio adicionado no problema, v, e um botão de remoção que irá remover o conjunto de objetos.
 Parâmetros: numApoios, numApoios1Grau, divApoios.
 Retorna: Adição de um conjunto de elementos.
+```
 #### removerPrimGrau(valor):
+```
 Descrição: Função para remover o conjunto de objetos do apoio escolhido na Div de Apoios. Reduz o valor dos contadores do apoio de 1º grau e do contador de apoios geral em 1. Tem efeito inverso da função AddPrimGrau().
 Parâmetros: numApoios , numApoios1Grau, divApoios.
 Retorna: Remoção de um conjunto de elementos.
+```
 #### addSeguGrau():
+```
 Descrição: Função para adição de objetos na Div de apoios. Aumenta o valor dos contadores do apoio de 2º grau e do contador de apoios geral em 1. Adiciona um conjunto de objetos, contendo uma pequena imagem representando o apoio adicionado no problema, inputs necessários para resolução do problema, e um botão de remoção que irá remover o conjunto de objetos.
 Parâmetros: numApoios, numApoios2Grau, divApoios.
 Retorna: Adição de um conjunto de elementos.
+```
 #### removerSeguGrau(valor):
+```
 Descrição: Função para remover o conjunto de objetos do apoio escolhido na Div de Apoios. Reduz o valor dos contadores do apoio de 2º grau e do contador de apoios geral em 1. Tem efeito inverso da função addSeguGrau().
 Parâmetros: numApoios , numApoios2Grau, divApoios.
 Retorna: Remoção de um conjunto de elementos.
+```
 #### addTercGrau():
+```
 Descrição: Função para adição de objetos na Div de apoios. Aumenta o valor dos contadores do apoio de 3º grau e do contador de apoios geral em 1. Adiciona um conjunto de objetos, contendo uma pequena imagem representando o apoio adicionado no problema, inputs necessários para resolução do problema, e um botão de remoção que irá remover o conjunto de objetos.
 Parâmetros: numApoios, numApoios3Grau, divApoios.
 Retorna: Adição de um conjunto de elementos.
+```
 #### removerTercGrau(valor):
+```
 Descrição: Função para remover o conjunto de objetos do apoio escolhido na Div de Apoios. Reduz o valor dos contadores do apoio de 3º grau e do contador de apoios geral em 1. Tem efeito inverso da função addTercGrau().
 Parâmetros: numApoios , numApoios3Grau, divApoios.
 Retorna: Remoção de um conjunto de elementos.
+```
 #### addForca():
+```
 Descrição: Função para adição de objetos na Div de esforços. Aumenta o valor dos contadores de esforços e do contador de forças em 1. Adiciona um conjunto de objetos, contendo uma pequena imagem representando o esforço adicionado no problema, inputs necessários para resolução do problema, e um botão de remoção que irá remover o conjunto de objetos.
 Parâmetros: numEsforc, numForcasAplic, divCargas.
 Retorna: Adição de um conjunto de elementos.
+```
 #### removerForca(valor):
+```
 Descrição: Função para remover o conjunto de objetos do esforço escolhido na Div de esforços. Reduz o valor dos contadores de Forças e do contador de esforços em 1. Tem efeito inverso da função addForca().
 Parâmetros: numEsforc, numForcasAplic, divCargas.
 Retorna: Remoção de um conjunto de elementos.
+```
 #### addCarreg():
+```
 Descrição: Função para adição de objetos na Div de esforços. Aumenta o valor dos contadores de esforços e do contador de carregamentos em 1. Adiciona um conjunto de objetos, contendo uma pequena imagem representando o esforço adicionado no problema, inputs necessários para resolução do problema, e um botão de remoção que irá remover o conjunto de objetos.
 Parâmetros: numEsforc, numCarregAplic, divCargas.
 Retorna: Adição de um conjunto de elementos.
+```
 #### removerCarreg(valor):
+```
 Descrição: Função para remover o conjunto de objetos do esforço escolhido na Div de esforços. Reduz o valor dos contadores de Carregamentos e do contador de esforços em 1. Tem efeito inverso da função addCarreg().
 Parâmetros: numEsforc, numCarregAplic, divCargas.
 Retorna: Remoção de um conjunto de elementos.
-Descrição: Função para adição de objetos na Div de esforços. Aumenta o valor dos contadores de esforços e do contador de momentos em 1. Adiciona um conjunto de objetos, contendo uma pequena imagem representando o esforço adicionado no problema, inputs necessários para resolução do problema, e um botão de remoção que irá remover o conjunto de objetos.
+```
 #### addMoment():
+```
+Descrição: Função para adição de objetos na Div de esforços. Aumenta o valor dos contadores de esforços e do contador de momentos em 1. Adiciona um conjunto de objetos, contendo uma pequena imagem representando o esforço adicionado no problema, inputs necessários para resolução do problema, e um botão de remoção que irá remover o conjunto de objetos.
 Parâmetros: numEsforc, numMomentAplic, divCargas.
 Retorna: Adição de um conjunto de elementos.
-removerMoment(valor):
+```
+#### removerMoment(valor):
+```
 Descrição: Função para remover o conjunto de objetos do esforço escolhido na Div de esforços. Reduz o valor dos contadores de momentos e do contador de esforços em 1. Tem efeito inverso da função addMoment().
 Parâmetros: numEsforc, numMomentAplic, divCargas.
 Retorna: Remoção de um conjunto de elementos.
+```
 #### canvasincial():
+```
 Descrição: Desenha a viga inicial do Canvas utilizando o FabricJS. Carrega a imagem inicial na página e redimensiona a mesma de acordo com o tamanho do Canvas
 Parâmetros: canvas, oImg.
 Retorna: Adiciona a imagem no canvas.
+```
 #### AvaliaCondicoesIniciaisDaViga():
+```
 Descrição: Função que avalia se as restrições iniciais do problema estão sendo cumpridas. Caso não estejam, mostra uma mensagem de erro para o usuário.
 Parâmetros: numApoios, numApoios1Grau, numApoios2Grau, numApoios3Grau.
 Retorna: Chama função DesenhaProblemaProposto().
+```
 #### DesenhaProblemaProposto():
+```
 Descrição: Função que encapsula todas as funções de desenho pré-cálculo da lógica do problema.
 Parâmetros: void.
 Retorna: Chama Funções de Desenho.
+```
 #### preencheArrayEDesenhaApoios():
+```
 Descrição: Função que adiciona ao Canvas, a quantidade especificada de apoios do problema, e preenche array contendo suas posições.
 Parâmetros: Array1GrauPos, Array2GrauPos, Array3GrauPos.
 Retorna: Parâmetros populados com os valores, e Canvas com os apoios em suas posições.
+```
 #### preencheArrayEDesenhaForcas():
+```
 Descrição: Função que adiciona ao Canvas, a quantidade especificada de Forças do problema, e preenche array contendo suas posições e intensidades.
 Parâmetros: ArrayForcaPos, ArrayForcaInt, ArrayCarrPosI, ArrayCarrPosF, ArrayCarrIntI, ArrayCarrIntF, ArrayMomenPos, ArrayMomenInt.
 Retorna: Parâmetros populados com os valores, e Canvas com os apoios em suas posições.
-#### FuncaoGeraArrayDeDivisoesReduzidas(): 
+```
+#### FuncaoGeraArrayDeDivisoesReduzidas():
+```
 Descrição: Função que gera uma array com todas as posições dos nós da estrutura reticulada.
 Parâmetros: ArrayDivVigaSemRepeticao.
 Retorna: Organiza parâmetro em ordem crescente remove os valores repetidos.
-TransformaCarregamentosEmForcas(ArrayDivVigaSemRepeticao):
+```
+#### TransformaCarregamentosEmForcas(ArrayDivVigaSemRepeticao):
+```
 Descrição: Função que transforma o carregamento em forças e momento nos nós onde está aplicado.
 Parâmetros: ArrayForcasEMomentosAplicados.
 Retorna: Adiciona intensidade das forças e momentos resultantes do carregamento no parâmetro.
+```
 #### RepeticaoPreencheArray(ArrayDivVigaSemRepeticao):
+```
 Descrição: Função para preenchimento de vetor com intensidades aplicadas nos nós.
 Parâmetros: ArrayForcasEMomentosAplicados.
 Retorna: Popula array parametrizada com valores das forças e momentos aplicados em cada nó.
+```
 #### DesenhaCotas():
+```
 Descrição: Desenha as cotas da viga no Canvas.
 Parâmetros: canvas.
 Retorna: Desenhos das cotas da viga no Canvas com id dos parâmetros.
+```
 #### CalculaProblemaProposto():
+```
 Descrição: Função que inicia os cálculos da viga.
 Parâmetros: void.
 Retorna: Inicializa as funções MatrizGlobal(), RepeticaoZeraMatrizGlobal(),   CalculaCoeficientes(), mostrarExplicacao() e PlotaGrafico().
-
+```
 
 
 ## Examples
