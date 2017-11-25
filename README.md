@@ -7,26 +7,26 @@ Portanto, esse trabalho se baseia em fornecer um software didático, prático, o
 Para este software não é necessário instalação, o mesmo é executado diretamente no link [viga.ucl.br](viga.ucl.br).
 
 ## 1. Desenvolvido com:
-- [BootStrap](https://getbootstrap.com/) - Project logo, clear description, screenshot, step-by-step installing instructions.
-- [MathJS](http://mathjs.org/) - Project logo, clear description, screenshot, step-by-step installing instructions.
-- [MathJax](https://www.mathjax.org/) - Project logo, clear description, screenshot, step-by-step installing instructions.
-- [HighCharts](https://github.com/ai/size-limit) - Project logo, clear description, screenshot, step-by-step installing instructions.
-- [FabricJS](http://fabricjs.com/) - Project logo, clear description, screenshot, step-by-step installing instructions.
-- [JQuery](https://jquery.com/) - Project logo, clear description, screenshot, step-by-step installing instructions.
+- [BootStrap](https://getbootstrap.com/) - Bootstrap. Build responsive, mobile-first projects on the web with the world's most popular front-end component library.
+- [MathJS](http://mathjs.org/) - An extensive math library for JavaScript and Node.js. It features big numbers, complex numbers, matrices, units, and a flexible expression parser.
+- [MathJax](https://www.mathjax.org/) - uses CSS with web fonts or SVG, instead of bitmap images or Flash, so equations scale with surrounding text at all zoom levels.
+- [HighCharts](https://www.highcharts.com/) - Interactive JavaScript charts for your web pages.
+- [FabricJS](http://fabricjs.com/) - A powerful and simple Javascript HTML5 canvas library.
+- [JQuery](https://jquery.com/) - The Write Less, Do More, JavaScript Library.
 
 ## 2. Lista de Variáveis
 
 #### numApoios
-Contador para número total de apoios aplicados no problema.
+  Contador para número total de apoios aplicados no problema.
 
-Tipo: Integer.
+  Tipo: Integer.
 
-Valor inicial: 0.
+  Valor inicial: 0.
 
 ### numEsforc
-Contador para número total de Esforços aplicados no problema.
-Tipo: Integer.
-Valor inicial: 0.
+  Contador para número total de Esforços aplicados no problema.
+  Tipo: Integer.
+  Valor inicial: 0.
 
 ### numApoios1Grau
 Contador para número total de apoios de 1º grau aplicados no problema.
