@@ -17,16 +17,16 @@ Para este software não é necessário instalação, o mesmo é executado direta
 
 ## 2. Lista de Variáveis
 
-#### - numApoios
+####- numApoios
 ```
-  Contador para número total de apoios aplicados no problema.
+  Descrição: Contador para número total de apoios aplicados no problema.
   Tipo: Integer.
   Valor inicial: 0.
 ```
 #### - numEsforc
-  Contador para número total de Esforços aplicados no problema.
-  Tipo: Integer.
-  Valor inicial: 0.
+  **Descrição:** Contador para número total de Esforços aplicados no problema.
+  **Tipo:** Integer.
+  **Valor inicial:** 0.
 
 #### - numApoios1Grau
 Contador para número total de apoios de 1º grau aplicados no problema.
