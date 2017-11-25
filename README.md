@@ -380,6 +380,41 @@ Descrição: Função que inicia os cálculos da viga.
 Parâmetros: void.
 Retorna: Inicializa as funções MatrizGlobal(), RepeticaoZeraMatrizGlobal(),   CalculaCoeficientes(), mostrarExplicacao() e PlotaGrafico().
 ```
+#### MatrizGlobal():
+```
+Descrição: Função para gerar matriz de rigidez global referente ao problema proposto apartir da matriz de rigidez local de cada elemento (fig. 1). Faz a somatória das matrizes de rigidez local em diagonal, gerando assim a matriz de rigidez global (fig. 2)
+Parâmetros: KGlobal, KLocal.
+Retorna: Matriz de rigidez global do problema.
+```
+#### RepeticaoZeraMatrizGlobal(ArrayDivVigaSemRepeticao):
+Descrição: Função que gera a matriz de rigidez global reduzida à partir da matriz de rigidez global, possibilitando assim, a resolução do problema.
+Parâmetros: KGlobalModificada, KGlobal.
+Retorna: Matriz de rigidez global reduzida.
+#### CalculaDeslocamentosInclinacoesEEsforcos():
+Descrição: À partir da equação matricial abaixo, gera a array de deslocamentos utilizando a Matriz de rigidez local reduzida, e com a array de deslocamentos e Matriz de rigidez original gera a array contendo os esforços aplicados e as reações dos apoios.
+\left\{F\right\}=\left[K\right].{X}
+
+Parâmetros: KGlobalModificada, KGlobalOriginal, ArrayDeDeslocamentosEInclinacoes, ArrayEsforcosEReacoes.
+Retorna: Array de deslocamentos e inclinações preenchida e array de Esforços e Reações preenchida.
+#### CalculaCoeficientes(ArrayDivVigaSemRepeticao):
+Descrição: A partir da equação matricial abaixo e dos deslocamentos e inclinações de cada nó, encontra as constantes para cada elemento, e agrupa em uma matriz para gerar os gráficos.
+
+Parâmetros: MatrizValoresA, MatrizCoeficientesDasEquacoes, ArrayDeDeslocamentosEInclinacoes.
+Retorna: Matriz de coefientes preenchidas.
+#### mostrarExplicacao(explicacao):
+Descrição: Utilizando do método de renderização matemática do MathJax, a explicação das matrizes é escrita através de loop.
+Parâmetros: explicacao,
+Retorna: Cria explicação para problema proposto e salva no parâmetro definido.
+#### PlotaGrafico():
+Descrição: Utilizando um gráfico da biblioteca HighCharts, plotamos as funções abaixo para cada trecho da viga.
+v\left(x\right)=C_1+C_2.x+C_3.\ x^2+C_4.x^3
+v\prime\left(x\right)=C_2+{2.C}_3.\ x+{3.C}_4.x^2
+v^{\prime\prime}(x)={2.C}_3+{6.C}_4.x
+v^{\prime\prime\prime}(x)={6.C}_4
+Parâmetros: MatrizCoeficientesDasEquacoes.
+Retorna: Plotagem dos gráficos a partir das constantes do parâmetro.
+
+
 
 
 ## Examples
