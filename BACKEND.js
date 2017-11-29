@@ -131,7 +131,7 @@ function addSeguGrau(){
 
 	var FuncaoJqueryAdd = $(document.createElement("div")).attr("class","input-group").attr("id", "inputGroup2Grau-"+numApoios2Grau).appendTo("#divApoios");
 								$(document.createElement("div")).attr("class","input-group-addon").attr("id", "inputGroupAdd2Grau-"+numApoios2Grau).appendTo("#inputGroup2Grau-"+numApoios2Grau);
-									$(document.createElement("img")).attr("width","47").attr("height","19").attr("alt","...").attr("src","https://raw.rawgitusercontent.com/UCL-MecSol/VigaElemFinitos/master/Img/apoio%202.png").attr("id","Foto2Grau-"+numApoios2Grau).appendTo("#inputGroupAdd2Grau-"+numApoios2Grau);
+									$(document.createElement("img")).attr("width","47").attr("height","19").attr("alt","...").attr("src","https://raw.rawgitusercontent.com/UCL-MecSol/VigaElemFinitos/master/Img/apoio 2.png").attr("id","Foto2Grau-"+numApoios2Grau).appendTo("#inputGroupAdd2Grau-"+numApoios2Grau);
 								$(document.createElement("input")).attr("id","Entrada2Grau-"+numApoios2Grau).attr("class","form-control block-geral").attr("type","Number").attr("placeholder","Posicao do Apoio").appendTo("#inputGroup2Grau-"+numApoios2Grau);
 								$(document.createElement("span")).attr("class","input-group-btn").attr("id", "Span2Grau-"+numApoios2Grau).appendTo("#inputGroup2Grau-"+numApoios2Grau);
 									$(document.createElement("button")).attr("class","btn btn-default").attr("onclick","removerSeguGrau(this.id);").attr("id","Remove2Grau-"+numApoios2Grau).appendTo("#Span2Grau-"+numApoios2Grau);
@@ -294,7 +294,7 @@ function addMoment(){
 
 	var FuncaoJqueryAdd = $(document.createElement("div")).attr("class","input-group").attr("id", "inputGroupMoment-"+numMomentAplic).appendTo("#divCargas");
 								$(document.createElement("div")).attr("class","input-group-addon").attr("id", "inputGroupAddMoment-"+numMomentAplic).appendTo("#inputGroupMoment-"+numMomentAplic);
-									$(document.createElement("img")).attr("width","47").attr("height","47").attr("alt","...").attr("src","https://raw.rawgitusercontent.com/UCL-MecSol/VigaElemFinitos/master/Img/momento%20SH%20Icone.png").attr("id","FotoMoment-"+numMomentAplic).appendTo("#inputGroupAddMoment-"+numMomentAplic);
+									$(document.createElement("img")).attr("width","47").attr("height","47").attr("alt","...").attr("src","https://raw.rawgitusercontent.com/UCL-MecSol/VigaElemFinitos/master/Img/momento SH Icone.png").attr("id","FotoMoment-"+numMomentAplic).appendTo("#inputGroupAddMoment-"+numMomentAplic);
 								$(document.createElement("input")).attr("id","EntradaPosicaoMoment-"+numMomentAplic).attr("width","50%").attr("class","form-control").attr("type","Number").attr("placeholder","Posicao da Carga").appendTo("#inputGroupMoment-"+numMomentAplic);
 								$(document.createElement("input")).attr("id","EntradaIntensiMoment-"+numMomentAplic).attr("width","50%").attr("class","form-control").attr("type","Number").attr("placeholder","Intensid. da Carga").appendTo("#inputGroupMoment-"+numMomentAplic);
 								$(document.createElement("span")).attr("class","input-group-btn").attr("id", "SpanMoment-"+numMomentAplic).appendTo("#inputGroupMoment-"+numMomentAplic);
@@ -325,7 +325,7 @@ function removerMoment(valor){
 ///////////////////////////////////////////// PARTE DE INICIO DE CÁLCULOS ///////////////////////////
 
 function canvasincial() {
-  fabric.Image.fromURL('https://rawgit.com/UCL-MecSol/VigaElemFinitos/master/Img/viga%20I.png', function(oImg) {
+  fabric.Image.fromURL('https://rawgit.com/UCL-MecSol/VigaElemFinitos/master/Img/viga I.png', function(oImg) {
   	var widthcanvas = $('#canvas').width();
   	var heightcanvas = $('#canvas').height();
 
@@ -377,7 +377,7 @@ function DesenhaProblemaProposto (){
     KGlobalOriginal = math.matrix();
 
     var imgObj = new Image();
-    imgObj.src = 'https://rawgit.com/UCL-MecSol/VigaElemFinitos/master/Img/viga%20I.png';
+    imgObj.src = 'https://rawgit.com/UCL-MecSol/VigaElemFinitos/master/Img/viga I.png';
     var imgObj2 = new Image();
     imgObj2.src = 'https://rawgit.com/UCL-MecSol/VigaElemFinitos/master/Img/P.png'
 
