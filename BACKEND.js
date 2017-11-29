@@ -325,7 +325,7 @@ function removerMoment(valor){
 ///////////////////////////////////////////// PARTE DE INICIO DE CÁLCULOS ///////////////////////////
 
 function canvasincial() {
-  fabric.Image.fromURL('https://rawgit.com/UCL-MecSol/VigaElemFinitos/blob/master/Img/viga%20I.png', function(oImg) {
+  fabric.Image.fromURL('https://rawgit.com/UCL-MecSol/VigaElemFinitos/master/Img/viga%20I.png', function(oImg) {
   	var widthcanvas = $('#canvas').width();
   	var heightcanvas = $('#canvas').height();
 
@@ -377,9 +377,9 @@ function DesenhaProblemaProposto (){
     KGlobalOriginal = math.matrix();
 
     var imgObj = new Image();
-    imgObj.src = 'https://rawgit.com/UCL-MecSol/VigaElemFinitos/blob/master/Img/viga%20I.png';
+    imgObj.src = 'https://rawgit.com/UCL-MecSol/VigaElemFinitos/master/Img/viga%20I.png';
     var imgObj2 = new Image();
-    imgObj2.src = 'https://rawgit.com/UCL-MecSol/VigaElemFinitos/blob/master/Img/P.png'
+    imgObj2.src = 'https://rawgit.com/UCL-MecSol/VigaElemFinitos/master/Img/P.png'
 
 
     var widthcanvas = $('#canvas').width();
@@ -470,7 +470,7 @@ function DesenhaProblemaProposto (){
 
   	function adicionaEmLoopRolete(i){
 
-  		fabric.Image.fromURL('https://rawgit.com/UCL-MecSol/VigaElemFinitos/blob/master/Img/rolete.png', function(oImg1) {
+  		fabric.Image.fromURL('https://rawgit.com/UCL-MecSol/VigaElemFinitos/master/Img/rolete.png', function(oImg1) {
   		oImg1.scale(widthcanvas*0.0007);
 
   		oImg1.set({
@@ -484,7 +484,7 @@ function DesenhaProblemaProposto (){
 
   	function adicionaEmLoop2Grau(j){
 
-  		fabric.Image.fromURL('https://rawgit.com/UCL-MecSol/VigaElemFinitos/blob/master/Img/apoio 2.png', function(oImg2) {
+  		fabric.Image.fromURL('https://rawgit.com/UCL-MecSol/VigaElemFinitos/master/Img/apoio 2.png', function(oImg2) {
   		oImg2.scale(widthcanvas*0.0008);
 
   		oImg2.set({
@@ -499,10 +499,10 @@ function DesenhaProblemaProposto (){
   	function adicionaEmLoopEngaste(k){
   		var coef=0;
   		if (Array3GrauPos[k] == 0) {
-  			var url = 'https://rawgit.com/UCL-MecSol/VigaElemFinitos/blob/master/Img/engaste E.png'
+  			var url = 'https://rawgit.com/UCL-MecSol/VigaElemFinitos/master/Img/engaste E.png'
   		}
   		if (Array3GrauPos[k] == tamvig) {
-  			var url = 'https://rawgit.com/UCL-MecSol/VigaElemFinitos/blob/master/Img/engaste D.png'
+  			var url = 'https://rawgit.com/UCL-MecSol/VigaElemFinitos/master/Img/engaste D.png'
   		}
   		if (Array3GrauPos[k] != tamvig && Array3GrauPos[k] != 0) {
   			console.log("Engaste "+(k+1)+" na Posição Errada! Ajustada para a Posição mais próxima.")
@@ -510,12 +510,12 @@ function DesenhaProblemaProposto (){
   				if (Array3GrauPos[k] > tamvig/2) {
   					document.getElementById("Entrada3Grau-"+(k+1)).value=tamvig;
   					Array3GrauPos[k] = Number(tamvig);
-  					var url = 'https://rawgit.com/UCL-MecSol/VigaElemFinitos/blob/master/Img/engaste D.png'
+  					var url = 'https://rawgit.com/UCL-MecSol/VigaElemFinitos/master/Img/engaste D.png'
   				}
   				if (Array3GrauPos[k] <= tamvig/2) {
   					document.getElementById("Entrada3Grau-"+(k+1)).value=0;
   					Array3GrauPos[k] = 0;
-  					var url = 'https://rawgit.com/UCL-MecSol/VigaElemFinitos/blob/master/Img/engaste E.png'
+  					var url = 'https://rawgit.com/UCL-MecSol/VigaElemFinitos/master/Img/engaste E.png'
   				}
   		}
 
@@ -634,7 +634,7 @@ function DesenhaProblemaProposto (){
 
   	function adicionaEmLoopForca(i){
 
-  		fabric.Image.fromURL('https://rawgit.com/UCL-MecSol/VigaElemFinitos/blob/master/Img/P.png', function(oImg4) {
+  		fabric.Image.fromURL('https://rawgit.com/UCL-MecSol/VigaElemFinitos/master/Img/P.png', function(oImg4) {
 
   		oImg4.scale(widthcanvas*0.0007);
 
@@ -723,7 +723,7 @@ function DesenhaProblemaProposto (){
 
 
   		function LoopInterno(m) {
-  			fabric.Image.fromURL('https://rawgit.com/UCL-MecSol/VigaElemFinitos/blob/master/Img/PCarr.png', function(oImg4) {
+  			fabric.Image.fromURL('https://rawgit.com/UCL-MecSol/VigaElemFinitos/master/Img/PCarr.png', function(oImg4) {
   			oImg4.scale(widthcanvas*0.0007);
 
         var topImagem = heightcanvas*0.449-(oImg4.height*widthcanvas*0.0007);
@@ -758,7 +758,7 @@ function DesenhaProblemaProposto (){
 
   	function adicionaEmLoopMomento(k){
 
-  		fabric.Image.fromURL('https://rawgit.com/UCL-MecSol/VigaElemFinitos/blob/master/Img/momento SH canvas.png', function(oImg6) {
+  		fabric.Image.fromURL('https://rawgit.com/UCL-MecSol/VigaElemFinitos/master/Img/momento SH canvas.png', function(oImg6) {
   		oImg6.scale(widthcanvas*0.0007);
 
   		oImg6.set({
