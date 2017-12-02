@@ -98,7 +98,7 @@ function addPrimGrau(){
 
 	var FuncaoJqueryAdd = $(document.createElement("div")).attr("class","input-group").attr("id", "inputGroup1Grau-"+numApoios1Grau).appendTo("#divApoios");
 								$(document.createElement("div")).attr("class","input-group-addon").attr("id", "inputGroupAdd1Grau-"+numApoios1Grau).appendTo("#inputGroup1Grau-"+numApoios1Grau);
-									$(document.createElement("img")).attr("width","47").attr("height","19").attr("alt","...").attr("src","http://rawgit.com/UCL-MecSol/VigaElemFinitos/master/Img/rolete.png").attr("id","Foto1Grau-"+numApoios1Grau).appendTo("#inputGroupAdd1Grau-"+numApoios1Grau);
+									$(document.createElement("img")).attr("width","47").attr("height","19").attr("alt","...").attr("src","https://rawgit.com/UCL-MecSol/VigaElemFinitos/master/Img/rolete.png").attr("id","Foto1Grau-"+numApoios1Grau).appendTo("#inputGroupAdd1Grau-"+numApoios1Grau);
 								$(document.createElement("input")).attr("id","Entrada1Grau-"+numApoios1Grau).attr("class","form-control block-geral").attr("type","Number").attr("placeholder","Posicao do Apoio").appendTo("#inputGroup1Grau-"+numApoios1Grau);
 								$(document.createElement("span")).attr("class","input-group-btn").attr("id", "Span1Grau-"+numApoios1Grau).appendTo("#inputGroup1Grau-"+numApoios1Grau);
 									$(document.createElement("button")).attr("class","btn btn-default").attr("onclick","removerPrimGrau(this.id);").attr("id","Remove1Grau-"+numApoios1Grau).appendTo("#Span1Grau-"+numApoios1Grau);
@@ -167,7 +167,7 @@ function addTercGrau(){
 
 			var FuncaoJqueryAdd = $(document.createElement("div")).attr("class","input-group").attr("id", "inputGroup3Grau-"+numApoios3Grau).appendTo("#divApoios");
 										$(document.createElement("div")).attr("class","input-group-addon").attr("id", "inputGroupAdd3Grau-"+numApoios3Grau).appendTo("#inputGroup3Grau-"+numApoios3Grau);
-											$(document.createElement("img")).attr("width","47").attr("height","19").attr("alt","...").attr("src","http://rawgit.com/UCL-MecSol/VigaElemFinitos/master/Img/engasteIconeSmall.png").attr("id","Foto3Grau-"+numApoios3Grau).appendTo("#inputGroupAdd3Grau-"+numApoios3Grau);
+											$(document.createElement("img")).attr("width","47").attr("height","19").attr("alt","...").attr("src","https://rawgit.com/UCL-MecSol/VigaElemFinitos/master/Img/engasteIconeSmall.png").attr("id","Foto3Grau-"+numApoios3Grau).appendTo("#inputGroupAdd3Grau-"+numApoios3Grau);
 										$(document.createElement("input")).attr("id","Entrada3Grau-"+numApoios3Grau).attr("class","form-control block-geral").attr("type","Number").attr("placeholder","Posicao do Apoio").appendTo("#inputGroup3Grau-"+numApoios3Grau);
 										$(document.createElement("span")).attr("class","input-group-btn").attr("id", "Span3Grau-"+numApoios3Grau).appendTo("#inputGroup3Grau-"+numApoios3Grau);
 											$(document.createElement("button")).attr("class","btn btn-default").attr("onclick","removerTercGrau(this.id);").attr("id","Remove3Grau-"+numApoios3Grau).appendTo("#Span3Grau-"+numApoios3Grau);
@@ -178,7 +178,7 @@ function addTercGrau(){
 
 			var FuncaoJqueryAdd = $(document.createElement("div")).attr("class","input-group").attr("id", "inputGroup3Grau-"+numApoios3Grau).appendTo("#divApoios");
 										$(document.createElement("div")).attr("class","input-group-addon").attr("id", "inputGroupAdd3Grau-"+numApoios3Grau).appendTo("#inputGroup3Grau-"+numApoios3Grau);
-											$(document.createElement("img")).attr("width","47").attr("height","19").attr("alt","...").attr("src","http://rawgit.com/UCL-MecSol/VigaElemFinitos/master/Img/engasteIconeSmall.png").attr("id","Foto3Grau-"+numApoios3Grau).appendTo("#inputGroupAdd3Grau-"+numApoios3Grau);
+											$(document.createElement("img")).attr("width","47").attr("height","19").attr("alt","...").attr("src","https://rawgit.com/UCL-MecSol/VigaElemFinitos/master/Img/engasteIconeSmall.png").attr("id","Foto3Grau-"+numApoios3Grau).appendTo("#inputGroupAdd3Grau-"+numApoios3Grau);
 										$(document.createElement("input")).attr("id","Entrada3Grau-"+numApoios3Grau).attr("class","form-control block-geral").attr("type","Number").attr("placeholder","Posicao do Apoio").appendTo("#inputGroup3Grau-"+numApoios3Grau);
 										$(document.createElement("span")).attr("class","input-group-btn").attr("id", "Span3Grau-"+numApoios3Grau).appendTo("#inputGroup3Grau-"+numApoios3Grau);
 											$(document.createElement("button")).attr("class","btn btn-default").attr("onclick","removerTercGrau(this.id);").attr("id","Remove3Grau-"+numApoios3Grau).appendTo("#Span3Grau-"+numApoios3Grau);
@@ -220,7 +220,7 @@ function addForca(){
 
 	var FuncaoJqueryAdd = $(document.createElement("div")).attr("class","input-group").attr("id", "inputGroupForca-"+numForcasAplic).appendTo("#divCargas");
 								 $(document.createElement("div")).attr("class","input-group-addon").attr("id", "inputGroupAddForca-"+numForcasAplic).appendTo("#inputGroupForca-"+numForcasAplic);
-									 $(document.createElement("img")).attr("width","47").attr("height","47").attr("alt","...").attr("src","http://rawgit.com/UCL-MecSol/VigaElemFinitos/master/Img/PIcone.png").attr("id","FotoForca-"+numForcasAplic).appendTo("#inputGroupAddForca-"+numForcasAplic);
+									 $(document.createElement("img")).attr("width","47").attr("height","47").attr("alt","...").attr("src","https://rawgit.com/UCL-MecSol/VigaElemFinitos/master/Img/PIcone.png").attr("id","FotoForca-"+numForcasAplic).appendTo("#inputGroupAddForca-"+numForcasAplic);
 								 $(document.createElement("input")).attr("id","EntradaPosicaoForca-"+numForcasAplic).attr("width","50%").attr("class","form-control").attr("type","Number").attr("placeholder","Posicao da Carga").appendTo("#inputGroupForca-"+numForcasAplic);
 								 $(document.createElement("input")).attr("id","EntradaIntensiForca-"+numForcasAplic).attr("width","50%").attr("class","form-control").attr("type","Number").attr("placeholder","Intensid. da Carga").appendTo("#inputGroupForca-"+numForcasAplic);
 								 $(document.createElement("span")).attr("class","input-group-btn").attr("id", "SpanForca-"+numForcasAplic).appendTo("#inputGroupForca-"+numForcasAplic);
@@ -255,7 +255,7 @@ function addCarreg(){
 
 	var FuncaoJqueryAdd = $(document.createElement("div")).attr("class","input-group").attr("id", "inputGroupCarreg-"+numCarregAplic).appendTo("#divCargas");
 								$(document.createElement("div")).attr("class","input-group-addon").attr("id", "inputGroupAddCarreg-"+numCarregAplic).appendTo("#inputGroupCarreg-"+numCarregAplic);
-									$(document.createElement("img")).attr("width","47").attr("height","47").attr("alt","...").attr("src","http://rawgit.com/UCL-MecSol/VigaElemFinitos/master/Img/carregamentoIcone.png").attr("id","FotoCarreg-"+numCarregAplic).appendTo("#inputGroupAddCarreg-"+numCarregAplic);
+									$(document.createElement("img")).attr("width","47").attr("height","47").attr("alt","...").attr("src","https://rawgit.com/UCL-MecSol/VigaElemFinitos/master/Img/carregamentoIcone.png").attr("id","FotoCarreg-"+numCarregAplic).appendTo("#inputGroupAddCarreg-"+numCarregAplic);
 								$(document.createElement("input")).attr("id","EntradaPosicaoICarreg-"+numCarregAplic).attr("width","50%").attr("class","form-control-50").attr("type","Number").attr("placeholder","Posicao I").appendTo("#inputGroupCarreg-"+numCarregAplic);
 								$(document.createElement("input")).attr("id","EntradaPosicaoFCarreg-"+numCarregAplic).attr("width","50%").attr("class","form-control-50").attr("type","Number").attr("placeholder","Posicao F").appendTo("#inputGroupCarreg-"+numCarregAplic);
 								$(document.createElement("input")).attr("id","EntradaIntensiICarreg-"+numCarregAplic).attr("width","50%").attr("class","form-control-50").attr("type","Number").attr("placeholder","Intensid. I").appendTo("#inputGroupCarreg-"+numCarregAplic);
