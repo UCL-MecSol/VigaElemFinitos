@@ -900,7 +900,7 @@ function DesenhaProblemaProposto (){
   			}
   		}
 		  ///////////////////////////////////// NESSA FUNÇÃO, SAI A MATRIZ DE FORÇAS APLICADAS //////////////////
-      console.log("ArrayForcasEMomentosAplicados FINAL [E    ]"+ ArrayForcasEMomentosAplicados);
+      console.log("ArrayForcasEMomentosAplicados FINAL [E  ]"+ ArrayForcasEMomentosAplicados);
     }
 	///////////////////////////////// ESSAS 3 FUNÇÕES GERAM O VETOR COM AS FORÇAS E MOMENTOS APLICADOS NOS NÓS
 
