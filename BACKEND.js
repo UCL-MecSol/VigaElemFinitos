@@ -422,7 +422,7 @@ function DesenhaProblemaProposto (){
   			var Posicao1 = Number(document.getElementById("Entrada1Grau-"+(i+1)).value);
 
   			if(Posicao1 != ""){
-  				Array1GrauPos.push(Number(Posicao1));
+  				Array1GrauPos.push((Posicao1));
   			} else {
   				Array1GrauPos.push(0);
   			}
@@ -434,7 +434,7 @@ function DesenhaProblemaProposto (){
 
   			var Posicao2 = Number(document.getElementById("Entrada2Grau-"+(j+1)).value);
   			if(Posicao2 != ""){
-  				Array2GrauPos.push(Number(Posicao2));
+  				Array2GrauPos.push((Posicao2));
   				// console.log(Array2GrauPos[j])
   			} else {
   				Array2GrauPos.push(0);
@@ -448,7 +448,7 @@ function DesenhaProblemaProposto (){
 
   			var Posicao3 = Number(document.getElementById("Entrada3Grau-"+(k+1)).value);
   			if(Posicao3 != ""){
-  				Array3GrauPos.push(Number(Posicao3));
+  				Array3GrauPos.push((Posicao3));
   			} else {
   				Array3GrauPos.push(0);
   			}
@@ -509,7 +509,7 @@ function DesenhaProblemaProposto (){
 
   				if (Array3GrauPos[k] > tamvig/2) {
   					document.getElementById("Entrada3Grau-"+(k+1)).value=tamvig;
-  					Array3GrauPos[k] = Number(tamvig);
+  					Array3GrauPos[k] = (tamvig);
   					var url = 'https://rawgit.com/UCL-MecSol/VigaElemFinitos/master/Img/engaste D.png'
   				}
   				if (Array3GrauPos[k] <= tamvig/2) {
@@ -538,8 +538,8 @@ function DesenhaProblemaProposto (){
   			var PosicaoForca1 = Number(document.getElementById("EntradaPosicaoForca-"+(i+1)).value);
   			var IntensidadeForca1 = Number(document.getElementById("EntradaIntensiForca-"+(i+1)).value);
   			if(PosicaoForca1 != ""){
-  				ArrayForcaPos.push(Number(PosicaoForca1));
-  				ArrayForcaInt.push(Number(IntensidadeForca1));
+  				ArrayForcaPos.push((PosicaoForca1));
+  				ArrayForcaInt.push((IntensidadeForca1));
 
   			} else {
   				ArrayForcaPos.push(0);
@@ -556,10 +556,10 @@ function DesenhaProblemaProposto (){
   			var IntensidadeCarregamentoI = Number(document.getElementById("EntradaIntensiICarreg-"+(i+1)).value);
   			var IntensidadeCarregamentoF = Number(document.getElementById("EntradaIntensiFCarreg-"+(i+1)).value);
 
-  				ArrayCarrPosI.push(Number(PosicaoCarregamentoI));
-  				ArrayCarrPosF.push(Number(PosicaoCarregamentoF));
-  				ArrayCarrIntI.push(Number(IntensidadeCarregamentoI));
-  				ArrayCarrIntF.push(Number(IntensidadeCarregamentoF));
+  				ArrayCarrPosI.push((PosicaoCarregamentoI));
+  				ArrayCarrPosF.push((PosicaoCarregamentoF));
+  				ArrayCarrIntI.push((IntensidadeCarregamentoI));
+  				ArrayCarrIntF.push((IntensidadeCarregamentoF));
 
   		}
   	}
@@ -569,8 +569,8 @@ function DesenhaProblemaProposto (){
   			var PosicaoMomento1 = Number(document.getElementById("EntradaPosicaoMoment-"+(i+1)).value);
   			var IntensidadeMomento1 = Number(document.getElementById("EntradaIntensiMoment-"+(i+1)).value);
   			if(PosicaoMomento1 != ""){
-  				ArrayMomenPos.push(Number(PosicaoMomento1));
-  				ArrayMomenInt.push(Number(IntensidadeMomento1));
+  				ArrayMomenPos.push((PosicaoMomento1));
+  				ArrayMomenInt.push((IntensidadeMomento1));
 
   			} else {
   				ArrayMomenPos.push(0);
@@ -583,8 +583,8 @@ function DesenhaProblemaProposto (){
 
   	if (ArrayReduzidaForcasPos.length == 0) {
 
-  		ArrayReduzidaForcasPos.push(Number(ArrayForcaPos[0]));
-  		ArrayReduzidaForcasInt.push(Number(ArrayForcaInt[0]));
+  		ArrayReduzidaForcasPos.push((ArrayForcaPos[0]));
+  		ArrayReduzidaForcasInt.push((ArrayForcaInt[0]));
   	}
 
   	if (ArrayReduzidaForcasPos.length != 0) {
@@ -1252,7 +1252,8 @@ function CalculaProblemaProposto() {
                 },
                 tooltip: {
                     formatter: function () {
-                        return '<b>' + Highcharts.NumberFormat(this.y, 6) + "  (" + Highcharts.NumberFormat(this.x, 6) + ")  ";
+                        // return '<b>' + Highcharts.NumberFormat(this.y, 6) + "  (" + Highcharts.NumberFormat(this.x, 6) + ")  ";
+                        return '<b>' + this.y + "  (" + this.x + ")  ";
                     }
                 },
                 legend: {
@@ -1336,7 +1337,8 @@ function CalculaProblemaProposto() {
                 },
                 tooltip: {
                     formatter: function () {
-                        return '<b>' + Highcharts.NumberFormat(this.y, 6) + "  (" + Highcharts.NumberFormat(this.x, 6) + ")  ";
+                        // return '<b>' + Highcharts.NumberFormat(this.y, 6) + "  (" + Highcharts.NumberFormat(this.x, 6) + ")  ";
+                        return '<b>' + this.y + "  (" + this.x + ")  ";
                     }
                 },
                 legend: {
@@ -1418,7 +1420,8 @@ function CalculaProblemaProposto() {
                 },
                 tooltip: {
                     formatter: function () {
-                        return '<b>' + Highcharts.NumberFormat(this.y, 6) + "  (" + Highcharts.NumberFormat(this.x, 6) + ")  ";
+                        // return '<b>' + Highcharts.NumberFormat(this.y, 6) + "  (" + Highcharts.NumberFormat(this.x, 6) + ")  ";
+                        return '<b>' + this.y + "  (" + this.x + ")  ";
                     }
                 },
                 legend: {
@@ -1453,7 +1456,7 @@ function CalculaProblemaProposto() {
                           for (i = (ArrayDivVigaSemRepeticao[j])*valorDaDivisão; i <= (ArrayDivVigaSemRepeticao[(j+1)])*valorDaDivisão; i++) {
                               data.push({
                                   x: i/valorDaDivisão,
-                                  y: -(MatrizCoeficientesDasEquacoes._data[j][2]*2 + MatrizCoeficientesDasEquacoes._data[j][3]*(i-Linicial)*2*3/(valorDaDivisão))
+                                  y: -Elast*Inerc*(MatrizCoeficientesDasEquacoes._data[j][2]*2 + MatrizCoeficientesDasEquacoes._data[j][3]*(i-Linicial)*2*3/(valorDaDivisão))
                               });
                           }
                         }
@@ -1500,7 +1503,8 @@ function CalculaProblemaProposto() {
                 },
                 tooltip: {
                     formatter: function () {
-                        return '<b>' + Highcharts.NumberFormat(this.y, 6) + "  (" + Highcharts.NumberFormat(this.x, 6) + ")  ";
+                        // return '<b>' + Highcharts.NumberFormat(this.y, 6) + "  (" + Highcharts.NumberFormat(this.x, 6) + ")  ";
+                        return '<b>' + this.y + "  (" + this.x + ")  ";
                     }
                 },
                 legend: {
@@ -1535,7 +1539,7 @@ function CalculaProblemaProposto() {
                           for (i = (ArrayDivVigaSemRepeticao[j])*valorDaDivisão; i <= (ArrayDivVigaSemRepeticao[(j+1)])*valorDaDivisão; i++) {
                               data.push({
                                   x: i/valorDaDivisão,
-                                  y: -(MatrizCoeficientesDasEquacoes._data[j][3]*2*3)
+                                  y: -Elast*Inerc*(MatrizCoeficientesDasEquacoes._data[j][3]*2*3)
                               });
                           }
                         }
