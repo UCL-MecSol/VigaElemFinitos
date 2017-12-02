@@ -1108,10 +1108,10 @@ function CalculaProblemaProposto() {
     for (var l = 0; l < (ArrayDivVigaSemRepeticao.length-1); l++) {
       var LTrech = 1;
       LTrech = ArrayDivVigaSemRepeticao[(l+1)] - ArrayDivVigaSemRepeticao[l];
-      var MatrizValoresA = [[1,0,0,0],
-                            [0,1,0,0],
-                            [1,LTrech,LTrech*LTrech,LTrech*LTrech*LTrech],
-                            [0,1,2*LTrech,3*LTrech*LTrech]]
+      var MatrizValoresA = [[1,0,0,0,0,0],
+                            [0,1,0,0,0,0],
+                            [1,LTrech,LTrech*LTrech,LTrech*LTrech*LTrech,LTrech*LTrech*LTrech*LTrech,LTrech*LTrech*LTrech*LTrech*LTrech],
+                            [0,1,2*LTrech,3*LTrech*LTrech,4*LTrech*LTrech*LTrech,5*LTrech*LTrech*LTrech*LTrech]]
       ;
       var MatrizLocalDeDeslocamentosEInclinações = [];
       MatrizLocalDeDeslocamentosEInclinações = [[math.subset(ArrayDeDeslocamentosEInclinacoes, math.index((2*l),0))],[math.subset(ArrayDeDeslocamentosEInclinacoes, math.index((2*l+1),0))],[math.subset(ArrayDeDeslocamentosEInclinacoes, math.index((2*l+2),0))],[math.subset(ArrayDeDeslocamentosEInclinacoes, math.index((2*l+3),0))]]
