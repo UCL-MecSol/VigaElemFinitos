@@ -1420,7 +1420,7 @@ function CalculaProblemaProposto() {
                 },
                 tooltip: {
                     formatter: function () {
-                        // return '<b>' + Highcharts.NumberFormat(this.y, 6) + "  (" + Highcharts.NumberFormat(this.x, 6) + ")  ";
+                        //// return '<b>' + Highcharts.NumberFormat(this.y, 6) + "  (" + Highcharts.NumberFormat(this.x, 6) + ")  ";
                         return '<b>' + this.y + "  (" + this.x + ")  ";
                     }
                 },
