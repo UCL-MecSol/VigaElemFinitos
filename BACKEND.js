@@ -878,7 +878,7 @@ function DesenhaProblemaProposto (){
 		}
 
 		function RepeticaoPreencheArray(ArrayDivVigaSemRepeticao) {  //ESSA FUNÇÃO, PEGA A ArrayForcasEMomentosAplicados, E SOMA AS FORÇAS E MOMENTOS APLICADOS NOS NÓS
-		console.log("ArrayForcasEMomentosAplicados  ANTES =  "+ArrayForcasEMomentosAplicados);
+
   		if (numForcasAplic != 0 || numMomentAplic != 0) {
 
   			for (var i = 0; i < ArrayDivVigaSemRepeticao.length; i++) {
@@ -900,8 +900,7 @@ function DesenhaProblemaProposto (){
   			}
   		}
 		  ///////////////////////////////////// NESSA FUNÇÃO, SAI A MATRIZ DE FORÇAS APLICADAS //////////////////
-    console.log("ArrayForcasEMomentosAplicados  DEPOIS =  "+ArrayForcasEMomentosAplicados);
-    }
+	  }
 	///////////////////////////////// ESSAS 3 FUNÇÕES GERAM O VETOR COM AS FORÇAS E MOMENTOS APLICADOS NOS NÓS
 
 
