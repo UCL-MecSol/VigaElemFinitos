@@ -82,17 +82,15 @@
               <div class="panel-body">
 
 
-                <div id="tamanhoDiv1" style="padding: 0px;margin-bottom: 15px" class="col-sm-4">
+                <div id="tamanhoDiv1" style="padding: 0px;margin-bottom: 15px" class="col-sm-12">
                     <button style="padding: 6px" class="btn btn-default btn-no-border" width="100%">
                       <img id="tamIcone1" src="https://rawgit.com/UCL-MecSol/VigaElemFinitos/master/Img\RoleteIcone.png" alt="..."  onclick="addPrimGrau()">
                     </button>
-                  </div>
-                  <div style="padding: 0px;margin-bottom: 15px" class="col-sm-4">
+
                     <button style="padding: 6px" class="btn btn-default btn-no-border">
                       <img id="tamIcone2" src="https://rawgit.com/UCL-MecSol/VigaElemFinitos/master/Img\Apoio2Icone.png" alt="..."  onclick="addSeguGrau()">
                     </button>
-                  </div>
-                  <div style="padding: 0px;margin-bottom: 15px" class="col-sm-4">
+
                     <button style="padding: 6px" class="btn btn-default btn-no-border">
                       <img id="tamIcone3" src="https://rawgit.com/UCL-MecSol/VigaElemFinitos/master/Img\EngasteIcone.png" alt="..."  onclick="addTercGrau()">
                     </button>
@@ -117,18 +115,16 @@
             <div id="collapse-2" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="heading-2">
               <div class="panel-body">
 
-                <div style="padding: 0px;margin-bottom: 15px" id="painelBotoes" class="col-sm-4">
-                    <button style="padding: 6px" class="btn btn-default btn-no-border" width="100%">
+                <div id="tamanhoDiv2" style="padding: 0px;margin-bottom: 15px" class="col-sm-12">
+                    <button style="padding: 6px; display: inline-block" class="btn btn-default btn-no-border" width="100%">
                       <img id="tamIcone4" src="https://rawgit.com/UCL-MecSol/VigaElemFinitos/master/Img\PIcone.png" alt="..."  onclick="addForca()">
                     </button>
-                  </div>
-                  <div style="padding: 0px;margin-bottom: 15px" class="col-sm-4">
-                    <button style="padding: 6px" class="btn btn-default btn-no-border">
+
+                    <button style="padding: 6px; display: inline-block" class="btn btn-default btn-no-border">
                       <img id="tamIcone5" src="https://rawgit.com/UCL-MecSol/VigaElemFinitos/master/Img\carregamentoIcone.png" alt="..."  onclick="addCarreg()">
                     </button>
-                  </div>
-                  <div style="padding: 0px;margin-bottom: 15px; " class="col-sm-4">
-                    <button style="padding: 6px" class="btn btn-default btn-no-border">
+
+                    <button style="padding: 6px; display: inline-block" class="btn btn-default btn-no-border">
                       <img id="tamIcone6" src="https://rawgit.com/UCL-MecSol/VigaElemFinitos/master/Img\momento SH Icone.png" alt="..."  onclick="addMoment()">
                     </button>
                   </div>
@@ -336,8 +332,8 @@
 
       function resizeCanvas() {
         var widthser = $('#PainelDaCanvas').width();
-        var widthpainelbotoes = $('#painelBotoes').width();
-        var widthbotoes = widthpainelbotoes*0.75+"px";
+        var widthpainelbotoes = $('#tamanhoDiv1').width();
+        var widthbotoes = widthpainelbotoes*0.25+"px";
         var sizewindow = window.innerWidth;
         document.getElementById('tamIcone1').style.width=widthbotoes;
         document.getElementById('tamIcone1').style.height=widthbotoes;
@@ -357,18 +353,18 @@
 
         document.getElementById('tamIcone4').style.width=widthbotoes;
         document.getElementById('tamIcone4').style.height=widthbotoes;
-        document.getElementById('tamIcone4').style.maxWidth=sizewindow*0.33;
-        document.getElementById('tamIcone4').style.maxHeight=sizewindow*0.33;
+        document.getElementById('tamIcone4').style.maxWidth=sizewindow*0.18+"px";
+        document.getElementById('tamIcone4').style.maxHeight=sizewindow*0.18+"px";
 
         document.getElementById('tamIcone5').style.width=widthbotoes;
         document.getElementById('tamIcone5').style.height=widthbotoes;
-        document.getElementById('tamIcone5').style.maxWidth=sizewindow*0.33;
-        document.getElementById('tamIcone5').style.maxHeight=sizewindow*0.33;
+        document.getElementById('tamIcone5').style.maxWidth=sizewindow*0.18+"px";
+        document.getElementById('tamIcone5').style.maxHeight=sizewindow*0.18+"px";
 
         document.getElementById('tamIcone6').style.width=widthbotoes;
         document.getElementById('tamIcone6').style.height=widthbotoes;
-        document.getElementById('tamIcone6').style.maxWidth=sizewindow*0.33;
-        document.getElementById('tamIcone6').style.maxHeight=sizewindow*0.33;
+        document.getElementById('tamIcone6').style.maxWidth=sizewindow*0.18+"px";
+        document.getElementById('tamIcone6').style.maxHeight=sizewindow*0.18+"px";
 
         canvas.setHeight(window.innerHeight*0.45);
         canvas.setWidth(widthser);
