@@ -27,7 +27,11 @@ var tamvig = Number(document.getElementById("inputComprimentoViga").value);
 var canvas = new fabric.Canvas('canvas');
 
 var ArrayForcasEMomentosAplicados = [];
+var ArrayForcasEMomentosAplicadosPOSCarregamento = [];
 var ArrayDivVigaSemRepeticao = [];
+var ArrayCarregamentosPorDivViga = [];
+var ArrayCarregamentosPorDivVigaLogoApos = [];
+var ArrayDivVigaSemRepeticaoPOSCarregamento = [];
 var ArrayDeDeslocamentosEInclinacoes = undefined;
 var ArrayEsforcosEReacoes = undefined;
 
@@ -410,6 +414,7 @@ function DesenhaProblemaProposto (){
 		FuncaoGeraArrayDeDivisoesReduzidas()
 		FuncaoGeraArray()
 		RepeticaoPreencheArray(ArrayDivVigaSemRepeticao)
+    GeraArrayComCarregamentosLocais()
 		TransformaCarregamentosEmForcas(ArrayDivVigaSemRepeticao)
 		DesenhaCotas()
 	//
@@ -678,12 +683,24 @@ function DesenhaProblemaProposto (){
   			// 	selectable: false
   			// });
   			// canvas.add(rect);
+        if ((ArrayCarrIntI[j]) == (ArrayCarrIntF[j])){
+          var top =  heightcanvas*0.449-(imgObj2.height*widthcanvas*0.0007/1.35);
+          var topTo = heightcanvas*0.449-(imgObj2.height*widthcanvas*0.0007/1.35);
+        }
+        if ((ArrayCarrIntF[j]) < (ArrayCarrIntI[j])){
+          var topTo =  heightcanvas*0.449-((imgObj2.height*widthcanvas*0.0007/1.35)*(ArrayCarrIntF[j]/ArrayCarrIntI[j]));
+          var top = heightcanvas*0.449-(imgObj2.height*widthcanvas*0.0007/1.35);
+        }
+        if ((ArrayCarrIntI[j]) < (ArrayCarrIntF[j])){
+          var top =  heightcanvas*0.449-((imgObj2.height*widthcanvas*0.0007/1.35)*(ArrayCarrIntI[j]/ArrayCarrIntF[j]));
+          var topTo = heightcanvas*0.449-(imgObj2.height*widthcanvas*0.0007/1.35);
+        }
+
 
         var topDown = heightcanvas*0.449;
         var left = widthcanvas*0.0995+(ArrayCarrPosI[j]*widthviga/tamvig);
-        var top =  heightcanvas*0.449-((imgObj2.height*widthcanvas*0.0007/1.35)*(ArrayCarrIntI[j]/ArrayCarrIntF[j]));
         var leftTo = widthcanvas*0.0995+(ArrayCarrPosI[j]*widthviga/tamvig)+(distancia*widthviga/tamvig);
-        var topTo = heightcanvas*0.449-(imgObj2.height*widthcanvas*0.0007/1.35);
+
 
 
         var line1 = new fabric.Line([left,topDown,left,top], {
@@ -735,7 +752,20 @@ function DesenhaProblemaProposto (){
 
         var topDown = heightcanvas*0.449;
         var leftVetor = leftImagem + (oImg4.width*widthcanvas*0.0007/1.35);
+        // var topVetor = top - (m/quant)*(top-topTo);
+
         var topVetor = top - (m/quant)*(top-topTo);
+        var LdaSecao = (ArrayCarrPosF[j]-ArrayCarrPosI[j])*(m/(quant-1));
+
+        if (ArrayCarrIntF[j] >= ArrayCarrIntI[j]) {
+          var AlturaNoPonto = (imgObj2.height*widthcanvas*0.0007/1.35)*((ArrayCarrIntI[j]/ArrayCarrIntF[j])+(((ArrayCarrIntF[j]-ArrayCarrIntI[j])/ArrayCarrIntF[j])*((LdaSecao)/(ArrayCarrPosF[j]-ArrayCarrPosI[j]))))
+        }
+        if (ArrayCarrIntI[j] > ArrayCarrIntF[j]) {
+          var AlturaNoPonto = (imgObj2.height*widthcanvas*0.0007/1.35)*(1-(((ArrayCarrIntI[j]-ArrayCarrIntF[j]) / ArrayCarrIntI[j])*((LdaSecao)/(ArrayCarrPosF[j]-ArrayCarrPosI[j]))))
+        }
+        // var AlturaNoPonto = (imgObj2.height*widthcanvas*0.0007/1.35)*( (ArrayCarrIntI[j]/ArrayCarrIntF[j]) + ( ( (ArrayCarrIntF[j]-ArrayCarrIntI[j])/ArrayCarrIntF[j]) * ( (LdaSecao) / (ArrayCarrPosF[j]-ArrayCarrPosI[j]) ) ) )
+        var topVetor = heightcanvas*0.449 - AlturaNoPonto;
+
 
         var lineVetor = new fabric.Line([leftVetor,topVetor,leftVetor,topDown], {
           fill: 'black',
@@ -811,8 +841,100 @@ function DesenhaProblemaProposto (){
 			console.log("O VETOR DE FORÇAS E MOMENTOS FINAL LIMPA É :"+ArrayForcasEMomentosAplicados);
 		}
 
+    function GeraArrayComCarregamentosLocais() {
+      ArrayCarregamentosPorDivViga = [];
+      ArrayCarregamentosPorDivVigaLogoApos = [];
+      if (numCarregAplic > 0) {
+
+        for (var x = 0; x < ArrayDivVigaSemRepeticao.length; x++) { //AVALIA CADA PONTO
+          var PontoAvaliado = ArrayDivVigaSemRepeticao[x];
+          var ValorDoCarregamentoNoPontoAvaliado = 0;
+          ArrayCarregamentosPorDivViga.push((0));
+          ArrayCarregamentosPorDivVigaLogoApos.push((0));
+
+          for (var y = 0; y < ArrayCarrPosI.length; y++) { //AVALIA CADA CARREGAMENTO
+
+            if (PontoAvaliado >= ArrayCarrPosI[y]  && PontoAvaliado <= ArrayCarrPosF[y]) {
+              ValorDoCarregamentoNoPontoAvaliado = ArrayCarrIntI[y] + ((PontoAvaliado - ArrayCarrPosI[y])*(ArrayCarrIntF[y]-ArrayCarrIntI[y]))/(ArrayCarrPosF[y] - ArrayCarrPosI[y]);
+              ArrayCarregamentosPorDivViga[x] = math.add(ArrayCarregamentosPorDivViga[x], Number(ValorDoCarregamentoNoPontoAvaliado));
+              console.log("O VALOR É  "+ValorDoCarregamentoNoPontoAvaliado)
+            }
+            if ((PontoAvaliado+0.0001) >= ArrayCarrPosI[y]  && (PontoAvaliado+0.0001) <= ArrayCarrPosF[y]) {
+              ValorDoCarregamentoNoPontoAvaliado = ArrayCarrIntI[y] + ((PontoAvaliado - ArrayCarrPosI[y])*(ArrayCarrIntF[y]-ArrayCarrIntI[y]))/(ArrayCarrPosF[y] - ArrayCarrPosI[y]);
+              ArrayCarregamentosPorDivVigaLogoApos[x] = math.add(ArrayCarregamentosPorDivVigaLogoApos[x], Number(ValorDoCarregamentoNoPontoAvaliado));
+              console.log("O VALOR É  "+ArrayCarregamentosPorDivVigaLogoApos)
+            }
+
+          }
+        }
+
+        console.log("OS CARREGAMENTOS TOTAIS DOS TRECHOS "+ArrayDivVigaSemRepeticao+" SÃO "+ArrayCarregamentosPorDivViga)
+      }
+    }
+
+    // function DesenhaLinhaEEscreveCarregamentoAgrupado(){
+    //
+    //   var carregamentoMaximo = Math.max(ArrayCarregamentosPorDivViga)
+    //
+    //
+    //   var VariacaoDeAltura = (imgObj2.height*widthcanvas*0.0007/1.35)
+    //
+    //   var topDown = heightcanvas*0.449; //OK
+    //
+    //   for (var x = 0; x < (ArrayDivVigaSemRepeticao.length-1); x++){
+    //     if (ArrayCarregamentosPorDivViga[x] != 0 && ArrayCarregamentosPorDivViga[x+1] != 0){
+    //       var left = widthcanvas*0.0995+(ArrayDivVigaSemRepeticao[x]*widthviga/tamvig);
+    //       var leftTo = widthcanvas*0.0995+(ArrayDivVigaSemRepeticao[x+1]*widthviga/tamvig);
+    //
+    //       var TopLocal = topDown-(VariacaoDeAltura)*(ArrayCarregamentosPorDivViga[x]/carregamentoMaximo)
+    //       var TopLocalTo = topDown-(VariacaoDeAltura)*(ArrayCarregamentosPorDivViga[x+1]/carregamentoMaximo)
+    //
+    //
+    //
+    //
+    //       var LinhaPraCima = new fabric.Line([left,topDown,left,TopLocal], {
+    //         fill: 'black',
+    //         stroke: 'black',
+    //         strokeWidth: 2,
+    //         selectable: false
+    //       });
+    //       canvas.add(LinhaPraCima);
+    //
+    //       var LinhaPraFrente = new fabric.Line([left,TopLocal,leftTo,TopLocalTo], {
+    //         fill: 'black',
+    //         stroke: 'black',
+    //         strokeWidth: 2,
+    //         selectable: false
+    //       });
+    //       canvas.add(LinhaPraFrente);
+    //
+    //       var LinhaPraBaixo = new fabric.Line([leftTo,TopLocalTo,leftTo,topDown], {
+    //         fill: 'black',
+    //         stroke: 'black',
+    //         strokeWidth: 2,
+    //         selectable: false
+    //       });
+    //       canvas.add(LinhaPraBaixo);
+    //
+    //     }
+    //   }
+    //
+    //
+    //   // console.log("ENTROU PARA DESENHAR A COTA");
+    //   var TextoFabricNoCanvas = new fabric.Text(IntLabel+"N/m", {
+    //     top:heightcanvas*0.449-(imgObj2.height*widthcanvas*0.0007),
+    //     left:widthcanvas*0.0995+(ArrayCarrPosI[j]*widthviga/tamvig),
+    //     fontSize: 18*widthcanvas*0.0017,
+    //     hoverCursor: 'default',
+    //     selectable: false
+    //   });
+    //   canvas.add(TextoFabricNoCanvas);
+    // }
+
 		function TransformaCarregamentosEmForcas(ArrayDivVigaSemRepeticao){  //ESSA FUNÇÃO, PEGA A ArrayForcasEMomentosAplicados, E SOMA AS FORÇAS E MOMENTOS EQUIVALENTES DOS CARREGAMENTOS
-			var XInicial = 0;
+      ArrayDivVigaSemRepeticaoPOSCarregamento = ArrayDivVigaSemRepeticao.slice();
+      ArrayForcasEMomentosAplicadosPOSCarregamento = ArrayForcasEMomentosAplicados.slice();
+      var XInicial = 0;
 			var XFinal = 0;
 			var CInicialCarr = 0;
 			var CFinalCarr = 0;
@@ -821,6 +943,8 @@ function DesenhaProblemaProposto (){
 			var ForcaCarregTrecho = 0;
 			var XBarraEsquerda = 0;
 			var XBarraDireita = 0;
+      var NoDoCentro = 0;
+      var NosExtras = 0;
 			var FNoEsquerda = 0;
 			var FNoDireita = 0;
 
@@ -835,10 +959,13 @@ function DesenhaProblemaProposto (){
 					for (var j = 0; j < ArrayDivVigaSemRepeticao.length; j++) {
 						XInicial = ArrayDivVigaSemRepeticao[j];
             console.log("X AVALIADO EM "+XInicial)
+            console.log("X TEM QUE SER MAIOR OU IGUAL QUE "+CInicialCarr)
 						if (Number(XInicial) >= Number(CInicialCarr)) {
               console.log("SE ENTROU AQUI, ENTÃO : "+XInicial+" É MAIOR OU IGUAL QUE "+CInicialCarr)
+              console.log("X TEM QUE SER MENOR QUE "+CFinalCarr)
 							if (Number(XInicial) < Number(CFinalCarr)) { //SE O TRECHO ANALISADO É O PROXIMO E NÃO SOFRE MAIS AÇAO DO CARREGAMENTO, PASSA A ANALISAR O PROXIMO CARREGAMENTO.
-                console.log("SE ENTROU AQUI, ENTÃO : "+XInicial+" É MENOR OU IGUAL QUE "+CFinalCarr)
+                console.log("SE ENTROU AQUI, ENTÃO : "+XInicial+" É MENOR QUE "+CFinalCarr)
+
                 XFinal = ArrayDivVigaSemRepeticao[j+1];
 								Wi = 0;
 								Wf = 0;
@@ -850,21 +977,58 @@ function DesenhaProblemaProposto (){
 
 
 								Wi = math.add(ArrayCarrIntI[i], (ArrayCarrIntF[i] - ArrayCarrIntI[i])*(XInicial-CInicialCarr)/(CFinalCarr-CInicialCarr));
-								Wf = math.add(ArrayCarrIntI[i], (ArrayCarrIntF[i] - ArrayCarrIntI[i])*(XFinal-CInicialCarr)/(CFinalCarr-CInicialCarr));
+                console.log("Wi E : "+Wi)
+                Wf = math.add(ArrayCarrIntI[i], (ArrayCarrIntF[i] - ArrayCarrIntI[i])*(XFinal-CInicialCarr)/(CFinalCarr-CInicialCarr));
+                console.log("Wf E : "+Wf)
 
 								ForcaCarregTrecho = (math.add(Wi,Wf))*(math.add(XFinal,-XInicial))/2;
+                console.log("ForcaCarregTrecho E : "+ForcaCarregTrecho)
 
 								XBarraEsquerda = (math.add(XFinal,-XInicial))*(math.add((Wi/3),(2*Wf/3)))/(math.add(Wi,Wf));
 								XBarraDireita = (XFinal - XInicial - XBarraEsquerda);
 
+                NoDoCentro = XInicial+XBarraEsquerda;
+
+                console.log("XBarraEsquerda E : "+XBarraEsquerda)
+                console.log("XBarraDireita E : "+XBarraDireita)
+
 								FNoEsquerda = ForcaCarregTrecho*(XBarraDireita)/(XBarraDireita+XBarraEsquerda);
 								FNoDireita = ForcaCarregTrecho*(XBarraEsquerda)/(XBarraDireita+XBarraEsquerda);
 
-								ArrayForcasEMomentosAplicados[(2*j)] = math.add(ArrayForcasEMomentosAplicados[(2*j)], FNoEsquerda);
-								ArrayForcasEMomentosAplicados[((2*j)+2)] = math.add(ArrayForcasEMomentosAplicados[((2*j)+2)], FNoDireita);
+                console.log("ForcaCarregTrecho*XBarraEsquerda E : "+ForcaCarregTrecho*XBarraEsquerda)
+                console.log("ForcaCarregTrecho*XBarraDireita E : "+ForcaCarregTrecho*XBarraDireita*-1)
 
-								ArrayForcasEMomentosAplicados[(2*j)+1] = math.add(ArrayForcasEMomentosAplicados[(2*j)+1], (ForcaCarregTrecho*XBarraEsquerda));
-								ArrayForcasEMomentosAplicados[((2*j)+3)] = math.add(ArrayForcasEMomentosAplicados[((2*j)+3)], (ForcaCarregTrecho*XBarraDireita*(-1))); //O *(-1) É DEVIDO QUANDO A FORÇA DE CARREGAMENTO APLICADA É POSITIVA, O MOMENTO NA DIREITA É ANTI HORARIO.
+                console.log()
+                ArrayForcasEMomentosAplicadosPOSCarregamento[(2*j)+1+NosExtras*2] = math.add(ArrayForcasEMomentosAplicadosPOSCarregamento[(2*j)+1+NosExtras*2], (ForcaCarregTrecho*XBarraEsquerda));
+								ArrayForcasEMomentosAplicadosPOSCarregamento[((2*j)+3+NosExtras*2)] = math.add(ArrayForcasEMomentosAplicadosPOSCarregamento[((2*j)+3+NosExtras*2)], (ForcaCarregTrecho*XBarraDireita*(-1))); //O *(-1) É DEVIDO QUANDO A FORÇA DE CARREGAMENTO APLICADA É POSITIVA, O MOMENTO NA DIREITA É ANTI HORARIO.
+
+
+                for (var k = 0; k < ArrayDivVigaSemRepeticaoPOSCarregamento.length; k++) {
+                  if (ArrayDivVigaSemRepeticaoPOSCarregamento[k] > NoDoCentro) {
+                    if (ArrayDivVigaSemRepeticaoPOSCarregamento[k-1] < NoDoCentro) {
+                      window.alert(ArrayDivVigaSemRepeticaoPOSCarregamento.join());
+                      ArrayDivVigaSemRepeticaoPOSCarregamento.splice(k, 0, NoDoCentro);
+                      window.alert(ArrayDivVigaSemRepeticaoPOSCarregamento.join());
+
+                      window.alert(ArrayForcasEMomentosAplicadosPOSCarregamento.join());
+                      ArrayForcasEMomentosAplicadosPOSCarregamento.splice(2*k, 0, ForcaCarregTrecho);
+                      ArrayForcasEMomentosAplicadosPOSCarregamento.splice((2*k+1), 0, 0);
+                      window.alert(ArrayForcasEMomentosAplicadosPOSCarregamento.join());
+
+                    }
+                  }
+                }
+
+                NosExtras = NosExtras + 1;
+
+                // ArrayDivVigaSemRepeticaoPOSCarregamento.push((NoDoCentro));
+                // ArrayForcasEMomentosAplicadosPOSCarregamento.push((ForcaCarregTrecho));
+
+
+
+								// ArrayForcasEMomentosAplicados[(2*j)] = math.add(ArrayForcasEMomentosAplicados[(2*j)], FNoEsquerda);
+								// ArrayForcasEMomentosAplicados[((2*j)+2)] = math.add(ArrayForcasEMomentosAplicados[((2*j)+2)], FNoDireita);
+
 
 								//console.log("O VETOR DE FORÇAS E MOMENTOS FINAL É :"+ArrayForcasEMomentosAplicados);
 							}
@@ -877,23 +1041,23 @@ function DesenhaProblemaProposto (){
       console.log("======================================================================================================")
 		}
 
-		function RepeticaoPreencheArray(ArrayDivVigaSemRepeticao) {  //ESSA FUNÇÃO, PEGA A ArrayForcasEMomentosAplicados, E SOMA AS FORÇAS E MOMENTOS APLICADOS NOS NÓS
+		function RepeticaoPreencheArray(ArrayDivVigaSemRepeticaoPOSCarregamento) {  //ESSA FUNÇÃO, PEGA A ArrayForcasEMomentosAplicadosPOSCarregamento, E SOMA AS FORÇAS E MOMENTOS APLICADOS NOS NÓS
 
   		if (numForcasAplic != 0 || numMomentAplic != 0) {
 
-  			for (var i = 0; i < ArrayDivVigaSemRepeticao.length; i++) {
+  			for (var i = 0; i < ArrayDivVigaSemRepeticaoPOSCarregamento.length; i++) {
   				if (numForcasAplic != 0) {
   					for (var j = 0; j < numForcasAplic; j++) {
-  						if (ArrayDivVigaSemRepeticao[i] == ArrayForcaPos[j]) {
-  							ArrayForcasEMomentosAplicados[(2*i)] = math.add(ArrayForcasEMomentosAplicados[(2*i)], ArrayForcaInt[j]);
+  						if (ArrayDivVigaSemRepeticaoPOSCarregamento[i] == ArrayForcaPos[j]) {
+  							ArrayForcasEMomentosAplicadosPOSCarregamento[(2*i)] = math.add(ArrayForcasEMomentosAplicadosPOSCarregamento[(2*i)], ArrayForcaInt[j]);
   						}
   					}
   				}
 
   				if (numMomentAplic != 0) {
   					for (var k = 0; k < numMomentAplic; k++) {
-  						if (ArrayDivVigaSemRepeticao[i] == ArrayMomenPos[k]) {
-  							ArrayForcasEMomentosAplicados[((2*i)+1)] = math.add(ArrayForcasEMomentosAplicados[(2*i+1)], ArrayMomenInt[k]);
+  						if (ArrayDivVigaSemRepeticaoPOSCarregamento[i] == ArrayMomenPos[k]) {
+  							ArrayForcasEMomentosAplicadosPOSCarregamento[((2*i)+1)] = math.add(ArrayForcasEMomentosAplicadosPOSCarregamento[(2*i+1)], ArrayMomenInt[k]);
   						}
   					}
   				}
@@ -906,9 +1070,9 @@ function DesenhaProblemaProposto (){
 
 	function DesenhaCotas() {
 
-		var posicaoUltimaCota = ArrayDivVigaSemRepeticao.length;
+		var posicaoUltimaCota = ArrayDivVigaSemRepeticaoPOSCarregamento.length;
 		var rect4 = new fabric.Rect({
-			left: widthcanvas*0.0995+(ArrayDivVigaSemRepeticao[(posicaoUltimaCota-1)]*widthviga/tamvig),
+			left: widthcanvas*0.0995+(ArrayDivVigaSemRepeticaoPOSCarregamento[(posicaoUltimaCota-1)]*widthviga/tamvig),
 			top: heightcanvas*0.759-(0.02*widthviga),
 			fill: 'black',
 			width: 1,
@@ -918,17 +1082,17 @@ function DesenhaProblemaProposto (){
 
 		canvas.add(rect4);
 
-		for (var j = 0; j < (ArrayDivVigaSemRepeticao.length-1); j++) {
+		for (var j = 0; j < (ArrayDivVigaSemRepeticaoPOSCarregamento.length-1); j++) {
 			DesenhaDivisoriaCotas()
 			DesenhaLinhaCotas()
 		}
 
 		function DesenhaLinhaCotas(){
 			var rect2 = new fabric.Rect({
-				left: widthcanvas*0.0995+(ArrayDivVigaSemRepeticao[j]*widthviga/tamvig),
+				left: widthcanvas*0.0995+(ArrayDivVigaSemRepeticaoPOSCarregamento[j]*widthviga/tamvig),
 				top: heightcanvas*0.759,
 				fill: 'black',
-				width: ((ArrayDivVigaSemRepeticao[(j+1)]-ArrayDivVigaSemRepeticao[(j)])*widthviga/tamvig),
+				width: ((ArrayDivVigaSemRepeticaoPOSCarregamento[(j+1)]-ArrayDivVigaSemRepeticaoPOSCarregamento[(j)])*widthviga/tamvig),
 				height: 1,
 				selectable: false
 			});
@@ -938,7 +1102,7 @@ function DesenhaProblemaProposto (){
 
 		function DesenhaDivisoriaCotas(){
 			var rect3 = new fabric.Rect({
-				left: widthcanvas*0.0995+(ArrayDivVigaSemRepeticao[j]*widthviga/tamvig),
+				left: widthcanvas*0.0995+(ArrayDivVigaSemRepeticaoPOSCarregamento[j]*widthviga/tamvig),
 				top: heightcanvas*0.759-(0.02*widthviga),
 				fill: 'black',
 				width: 1,
@@ -948,14 +1112,14 @@ function DesenhaProblemaProposto (){
 			canvas.add(rect3);
 
 			// console.log("ENTROU PARA DESENHAR A COTA");
-			var TamanhoTrecho = (ArrayDivVigaSemRepeticao[j+1]-ArrayDivVigaSemRepeticao[j]);
+			var TamanhoTrecho = (ArrayDivVigaSemRepeticaoPOSCarregamento[j+1]-ArrayDivVigaSemRepeticaoPOSCarregamento[j]);
 
 
-			if (decimalPlaces(ArrayDivVigaSemRepeticao[j+1]) > decimalPlaces(ArrayDivVigaSemRepeticao[j])) {
-				var TamanhoTrechoArredondado = TamanhoTrecho.toFixed(decimalPlaces(ArrayDivVigaSemRepeticao[j+1]));
+			if (decimalPlaces(ArrayDivVigaSemRepeticaoPOSCarregamento[j+1]) > decimalPlaces(ArrayDivVigaSemRepeticaoPOSCarregamento[j])) {
+				var TamanhoTrechoArredondado = TamanhoTrecho.toFixed(decimalPlaces(ArrayDivVigaSemRepeticaoPOSCarregamento[j+1]));
 			}
-			if (decimalPlaces(ArrayDivVigaSemRepeticao[j+1]) <= decimalPlaces(ArrayDivVigaSemRepeticao[j])) {
-				var TamanhoTrechoArredondado = TamanhoTrecho.toFixed(decimalPlaces(ArrayDivVigaSemRepeticao[j]));
+			if (decimalPlaces(ArrayDivVigaSemRepeticaoPOSCarregamento[j+1]) <= decimalPlaces(ArrayDivVigaSemRepeticaoPOSCarregamento[j])) {
+				var TamanhoTrechoArredondado = TamanhoTrecho.toFixed(decimalPlaces(ArrayDivVigaSemRepeticaoPOSCarregamento[j]));
 			}
 
 
@@ -963,7 +1127,7 @@ function DesenhaProblemaProposto (){
 
 			var TextoFabricNoCanvas = new fabric.Text(TamanhoTrechoArredondado+"m", {
 				top:heightcanvas*0.759-(19*widthcanvas*0.0017),
-				left:widthcanvas*0.0995+(ArrayDivVigaSemRepeticao[j]*widthviga/tamvig)+(TamanhoTrechoArredondado*widthviga*0.45/(tamvig)),
+				left:widthcanvas*0.0995+(ArrayDivVigaSemRepeticaoPOSCarregamento[j]*widthviga/tamvig)+(TamanhoTrechoArredondado*widthviga*0.45/(tamvig)),
 				fontSize: 18*widthcanvas*0.0017,
 				hoverCursor: 'default',
 				// fontFamily: 'Comic Sans',
@@ -979,9 +1143,9 @@ function DesenhaProblemaProposto (){
 
 function CalculaProblemaProposto() {
   MatrizGlobal()
-  RepeticaoZeraMatrizGlobal(ArrayDivVigaSemRepeticao)
+  RepeticaoZeraMatrizGlobal(ArrayDivVigaSemRepeticaoPOSCarregamento)
   CalculaDeslocamentosInclinacoesEEsforcos()
-  CalculaCoeficientes(ArrayDivVigaSemRepeticao)
+  CalculaCoeficientes(ArrayDivVigaSemRepeticaoPOSCarregamento)
   mostrarExplicacao(explicacao);
   PlotaGrafico()
 
@@ -1006,14 +1170,14 @@ function CalculaProblemaProposto() {
 		//
 
     //GERA A KGlobal ZERADA
-			IndexParaGerarKGlobalDoTamanhoCerto = ((2*ArrayDivVigaSemRepeticao.length)-1);
+			IndexParaGerarKGlobalDoTamanhoCerto = ((2*ArrayDivVigaSemRepeticaoPOSCarregamento.length)-1);
 			KGlobal.subset(math.index(IndexParaGerarKGlobalDoTamanhoCerto,IndexParaGerarKGlobalDoTamanhoCerto), 0);
 		//
 
 
 		//ADICIONA VALORES NA KGlobal
-			for (var l = 0; l < (ArrayDivVigaSemRepeticao.length-1); l++) {
-				LTrech = ArrayDivVigaSemRepeticao[(l+1)] - ArrayDivVigaSemRepeticao[l];
+			for (var l = 0; l < (ArrayDivVigaSemRepeticaoPOSCarregamento.length-1); l++) {
+				LTrech = ArrayDivVigaSemRepeticaoPOSCarregamento[(l+1)] - ArrayDivVigaSemRepeticaoPOSCarregamento[l];
 				tudoB = Elast*Inerc/(LTrech*LTrech*LTrech);
 				KLocal =  [[12*tudoB, 			6*tudoB*LTrech, 			 -12*tudoB, 			6*tudoB*LTrech],
 									[6*tudoB*LTrech, 4*tudoB*LTrech*LTrech, -6*tudoB*LTrech, 2*tudoB*LTrech*LTrech],
@@ -1037,21 +1201,23 @@ function CalculaProblemaProposto() {
 	}
 
 
-	function RepeticaoZeraMatrizGlobal(ArrayDivVigaSemRepeticao) {//ESSA FUNÇÃO VAI ZERAR AS LINHAS E COLUNAS ONDE NÃO EXISTE DESLOCAMENTO VERTICAL E INCLINAÇÕES
+	function RepeticaoZeraMatrizGlobal(ArrayDivVigaSemRepeticaoPOSCarregamento) {//ESSA FUNÇÃO VAI ZERAR AS LINHAS E COLUNAS ONDE NÃO EXISTE DESLOCAMENTO VERTICAL E INCLINAÇÕES
 
 		if (numApoios1Grau != 0 || numApoios2Grau != 0 || numApoios3Grau != 0) {
 			console.log("numApoios1Grau = "+numApoios1Grau)
 			console.log("numApoios2Grau = "+numApoios2Grau)
-			for (var i = 0; i < ArrayDivVigaSemRepeticao.length; i++) {
+			for (var i = 0; i < ArrayDivVigaSemRepeticaoPOSCarregamento.length; i++) {
 
 				if (numApoios1Grau != 0) {
 					for (var j = 0; j < numApoios1Grau; j++) {
-						if (ArrayDivVigaSemRepeticao[i] == Array1GrauPos[j]) {
+						if (ArrayDivVigaSemRepeticaoPOSCarregamento[i] == Array1GrauPos[j]) {
 							for (var l = 0; l <= IndexParaGerarKGlobalDoTamanhoCerto; l++) {
 								// var z = math.subset(KGlobalModificada, math.index(2*i, 2*i));
 								KGlobalModificada.subset(math.index(2*i,l), 0); //ESSA FUNÇÃO ZERA A LINHA
 								// KGlobalModificada.subset(math.index(l,2*i), 0); //ESSA FUNÇÃO ZERA A COLUNA
 								KGlobalModificada.subset(math.index(2*i,2*i), 1); //ESSA FUNÇÃO CHAMA O VALOR DE 1
+
+                ArrayForcasEMomentosAplicadosPOSCarregamento[2*i] = 0;
 							}
 						}
 					}
@@ -1059,12 +1225,14 @@ function CalculaProblemaProposto() {
 
 				if (numApoios2Grau != 0) {
 					for (var k = 0; k < numApoios2Grau; k++) {
-						if (ArrayDivVigaSemRepeticao[i] == Array2GrauPos[k]) {
+						if (ArrayDivVigaSemRepeticaoPOSCarregamento[i] == Array2GrauPos[k]) {
 							for (var l = 0; l <= IndexParaGerarKGlobalDoTamanhoCerto; l++) {
 								// var z = math.subset(KGlobalModificada, math.index(2*i, 2*i));
 								KGlobalModificada.subset(math.index(2*i,l), 0); //ESSA FUNÇÃO ZERA A LINHA
 								// KGlobalModificada.subset(math.index(l,2*i), 0); //ESSA FUNÇÃO ZERA A COLUNA
 								KGlobalModificada.subset(math.index(2*i,2*i), 1); //ESSA FUNÇÃO CHAMA O VALOR DE 1
+
+                ArrayForcasEMomentosAplicadosPOSCarregamento[2*i] = 0;
 							}
 						}
 					}
@@ -1072,7 +1240,7 @@ function CalculaProblemaProposto() {
 
 				if (numApoios3Grau != 0) {
 					for (var k = 0; k < numApoios3Grau; k++) {
-						if (ArrayDivVigaSemRepeticao[i] == Array3GrauPos[k]) {
+						if (ArrayDivVigaSemRepeticaoPOSCarregamento[i] == Array3GrauPos[k]) {
 							for (var l = 0; l <= IndexParaGerarKGlobalDoTamanhoCerto; l++) {
 								// var z = math.subset(KGlobalModificada, math.index(2*i, 2*i));
 								// var y = math.subset(KGlobalModificada, math.index((2*i+1),(2*i+1)));
@@ -1083,6 +1251,9 @@ function CalculaProblemaProposto() {
 								KGlobalModificada.subset(math.index((2*i+1),l), 0); //ESSA FUNÇÃO ZERA A LINHA
 								// KGlobalModificada.subset(math.index(l,(2*i+1)), 0); //ESSA FUNÇÃO ZERA A COLUNA
 								KGlobalModificada.subset(math.index((2*i+1),(2*i+1)), 1); //ESSA FUNÇÃO CHAMA O VALOR DE 1
+
+                ArrayForcasEMomentosAplicadosPOSCarregamento[2*i] = 0;
+                ArrayForcasEMomentosAplicadosPOSCarregamento[2*i+1] = 0;
 							}
 						}
 					}
@@ -1091,7 +1262,7 @@ function CalculaProblemaProposto() {
 			}
 		}
 		console.log("KGlobalModificada  FINAL =  "+KGlobalModificada);
-		console.log("ArrayForcasEMomentosAplicados  FINAL =  "+ArrayForcasEMomentosAplicados);
+		console.log("ArrayForcasEMomentosAplicadosPOSCarregamento  FINAL =  "+ArrayForcasEMomentosAplicadosPOSCarregamento);
 
 		//FAZER ESSAS CONTAS AO FIM DE TUDO.
 
@@ -1099,15 +1270,15 @@ function CalculaProblemaProposto() {
 	}
 
   function CalculaDeslocamentosInclinacoesEEsforcos(){
-    ArrayDeDeslocamentosEInclinacoes = math.lusolve(KGlobalModificada, ArrayForcasEMomentosAplicados);
+    ArrayDeDeslocamentosEInclinacoes = math.lusolve(KGlobalModificada, ArrayForcasEMomentosAplicadosPOSCarregamento);
 		ArrayEsforcosEReacoes = math.multiply(KGlobalOriginal, ArrayDeDeslocamentosEInclinacoes);
   }
 
-  function CalculaCoeficientes(ArrayDivVigaSemRepeticao) {
+  function CalculaCoeficientes(ArrayDivVigaSemRepeticaoPOSCarregamento) {
     MatrizCoeficientesDasEquacoes = math.matrix();
-    for (var l = 0; l < (ArrayDivVigaSemRepeticao.length-1); l++) {
+    for (var l = 0; l < (ArrayDivVigaSemRepeticaoPOSCarregamento.length-1); l++) {
       var LTrech = 1;
-      LTrech = ArrayDivVigaSemRepeticao[(l+1)] - ArrayDivVigaSemRepeticao[l];
+      LTrech = ArrayDivVigaSemRepeticaoPOSCarregamento[(l+1)] - ArrayDivVigaSemRepeticaoPOSCarregamento[l];
       var MatrizValoresA = [[1,0,0,0],
                             [0,1,0,0],
                             [1,LTrech,LTrech*LTrech,LTrech*LTrech*LTrech],
@@ -1160,9 +1331,9 @@ function CalculaProblemaProposto() {
 
 		explicacao += ("<center><b>A MATRIZ DAS FORÇAS ABAIXO: </b></center>")
 		explicacao += ("$$  \F = \\begin{bmatrix} ")
-		for (var i = 0; i < ArrayForcasEMomentosAplicados.length; i++) {
-			explicacao += ArrayForcasEMomentosAplicados[i];
-			if (j != (ArrayForcasEMomentosAplicados.length)) {
+		for (var i = 0; i < ArrayForcasEMomentosAplicadosPOSCarregamento.length; i++) {
+			explicacao += ArrayForcasEMomentosAplicadosPOSCarregamento[i];
+			if (j != (ArrayForcasEMomentosAplicadosPOSCarregamento.length)) {
 				explicacao += (" & ")
 			}
 			explicacao += (" \\\\ ")
@@ -1171,9 +1342,9 @@ function CalculaProblemaProposto() {
 
 		explicacao += ("<center><b>A MATRIZ DE DESLOCAMENTOS E INCLINAÇÕES ABAIXO: </b></center>")
 		explicacao += ("$$  \X = \\begin{bmatrix} ")
-		for (var i = 0; i < ArrayForcasEMomentosAplicados.length; i++) {
+		for (var i = 0; i < ArrayForcasEMomentosAplicadosPOSCarregamento.length; i++) {
 			explicacao += math.subset(ArrayDeDeslocamentosEInclinacoes, math.index(i, 0));
-			if (j != (ArrayForcasEMomentosAplicados.length)) {
+			if (j != (ArrayForcasEMomentosAplicadosPOSCarregamento.length)) {
 				explicacao += (" & ")
 			}
 			explicacao += (" \\\\ ")
@@ -1182,9 +1353,9 @@ function CalculaProblemaProposto() {
 
 
 		explicacao += ("$$  \R = \\begin{bmatrix} ")
-		for (var i = 0; i < ArrayForcasEMomentosAplicados.length; i++) {
+		for (var i = 0; i < ArrayForcasEMomentosAplicadosPOSCarregamento.length; i++) {
 			explicacao += math.subset(ArrayEsforcosEReacoes, math.index(i, 0));
-			if (j != (ArrayForcasEMomentosAplicados.length)) {
+			if (j != (ArrayForcasEMomentosAplicadosPOSCarregamento.length)) {
 				explicacao += (" & ")
 			}
 			explicacao += (" \\\\ ")
@@ -1194,7 +1365,7 @@ function CalculaProblemaProposto() {
 
     explicacao += ("<center><b>A MATRIZ DE COEFICIENTES C ABAIXO: </b></center>")
     explicacao += ("$$  \C = \\begin{bmatrix} ")
-		for (var i = 0; i < (ArrayDivVigaSemRepeticao.length-1); i++) {
+		for (var i = 0; i < (ArrayDivVigaSemRepeticaoPOSCarregamento.length-1); i++) {
 			for (var j = 0; j < 4; j++) {
 				explicacao += math.subset(MatrizCoeficientesDasEquacoes, math.index(i, j));
 				if (j != (IndexParaGerarKGlobalDoTamanhoCerto)) {
@@ -1282,11 +1453,11 @@ function CalculaProblemaProposto() {
                         if (tamvig >= 10) {
                           var valorDaDivisão = (1000/tamvig)-1;
                         }
-                        for (var j = 0; j < ArrayDivVigaSemRepeticao.length-1; j++) {
-                          // console.log("L INICIAL do trecho  '"+j+"' ============"+ArrayDivVigaSemRepeticao[j])*valorDaDivisão)
-                          // console.log("L FINAL do trecho  '"+j+"' ============"+ArrayDivVigaSemRepeticao[(j+1)])*valorDaDivisão)
-                          var Linicial = (ArrayDivVigaSemRepeticao[j])*valorDaDivisão;
-                          var LFinal = (ArrayDivVigaSemRepeticao[(j+1)])*valorDaDivisão;
+                        for (var j = 0; j < ArrayDivVigaSemRepeticaoPOSCarregamento.length-1; j++) {
+                          // console.log("L INICIAL do trecho  '"+j+"' ============"+ArrayDivVigaSemRepeticaoPOSCarregamento[j])*valorDaDivisão)
+                          // console.log("L FINAL do trecho  '"+j+"' ============"+ArrayDivVigaSemRepeticaoPOSCarregamento[(j+1)])*valorDaDivisão)
+                          var Linicial = (ArrayDivVigaSemRepeticaoPOSCarregamento[j])*valorDaDivisão;
+                          var LFinal = (ArrayDivVigaSemRepeticaoPOSCarregamento[(j+1)])*valorDaDivisão;
                           for (i = Linicial; i <= LFinal; i++) {
                               data.push({
                                   x: i/valorDaDivisão,
@@ -1367,10 +1538,10 @@ function CalculaProblemaProposto() {
                         if (tamvig >= 10) {
                           var valorDaDivisão = (1000/tamvig)-1;
                         }
-                        for (var j = 0; j < ArrayDivVigaSemRepeticao.length-1; j++) {
-                          var Linicial = (ArrayDivVigaSemRepeticao[j])*valorDaDivisão;
-                          var LFinal = (ArrayDivVigaSemRepeticao[(j+1)])*valorDaDivisão;
-                          for (i = (ArrayDivVigaSemRepeticao[j])*valorDaDivisão; i <= (ArrayDivVigaSemRepeticao[(j+1)])*valorDaDivisão; i++) {
+                        for (var j = 0; j < ArrayDivVigaSemRepeticaoPOSCarregamento.length-1; j++) {
+                          var Linicial = (ArrayDivVigaSemRepeticaoPOSCarregamento[j])*valorDaDivisão;
+                          var LFinal = (ArrayDivVigaSemRepeticaoPOSCarregamento[(j+1)])*valorDaDivisão;
+                          for (i = (ArrayDivVigaSemRepeticaoPOSCarregamento[j])*valorDaDivisão; i <= (ArrayDivVigaSemRepeticaoPOSCarregamento[(j+1)])*valorDaDivisão; i++) {
                               data.push({
                                   x: i/valorDaDivisão,
                                   y: -(MatrizCoeficientesDasEquacoes._data[j][1] + MatrizCoeficientesDasEquacoes._data[j][2]*(i-Linicial)*2/(valorDaDivisão) + MatrizCoeficientesDasEquacoes._data[j][3]*(i-Linicial)*(i-Linicial)*3/(valorDaDivisão*valorDaDivisão))
@@ -1450,10 +1621,10 @@ function CalculaProblemaProposto() {
                         if (tamvig >= 10) {
                           var valorDaDivisão = (1000/tamvig)-1;
                         }
-                        for (var j = 0; j < ArrayDivVigaSemRepeticao.length-1; j++) {
-                          var Linicial = (ArrayDivVigaSemRepeticao[j])*valorDaDivisão;
-                          var LFinal = (ArrayDivVigaSemRepeticao[(j+1)])*valorDaDivisão;
-                          for (i = (ArrayDivVigaSemRepeticao[j])*valorDaDivisão; i <= (ArrayDivVigaSemRepeticao[(j+1)])*valorDaDivisão; i++) {
+                        for (var j = 0; j < ArrayDivVigaSemRepeticaoPOSCarregamento.length-1; j++) {
+                          var Linicial = (ArrayDivVigaSemRepeticaoPOSCarregamento[j])*valorDaDivisão;
+                          var LFinal = (ArrayDivVigaSemRepeticaoPOSCarregamento[(j+1)])*valorDaDivisão;
+                          for (i = (ArrayDivVigaSemRepeticaoPOSCarregamento[j])*valorDaDivisão; i <= (ArrayDivVigaSemRepeticaoPOSCarregamento[(j+1)])*valorDaDivisão; i++) {
                               data.push({
                                   x: i/valorDaDivisão,
                                   y: -Elast*Inerc*(MatrizCoeficientesDasEquacoes._data[j][2]*2 + MatrizCoeficientesDasEquacoes._data[j][3]*(i-Linicial)*2*3/(valorDaDivisão))
@@ -1533,10 +1704,10 @@ function CalculaProblemaProposto() {
                         if (tamvig >= 10) {
                           var valorDaDivisão = (1000/tamvig)-1;
                         }
-                        for (var j = 0; j < ArrayDivVigaSemRepeticao.length-1; j++) {
-                          var Linicial = (ArrayDivVigaSemRepeticao[j])*valorDaDivisão;
-                          var LFinal = (ArrayDivVigaSemRepeticao[(j+1)])*valorDaDivisão;
-                          for (i = (ArrayDivVigaSemRepeticao[j])*valorDaDivisão; i <= (ArrayDivVigaSemRepeticao[(j+1)])*valorDaDivisão; i++) {
+                        for (var j = 0; j < ArrayDivVigaSemRepeticaoPOSCarregamento.length-1; j++) {
+                          var Linicial = (ArrayDivVigaSemRepeticaoPOSCarregamento[j])*valorDaDivisão;
+                          var LFinal = (ArrayDivVigaSemRepeticaoPOSCarregamento[(j+1)])*valorDaDivisão;
+                          for (i = (ArrayDivVigaSemRepeticaoPOSCarregamento[j])*valorDaDivisão; i <= (ArrayDivVigaSemRepeticaoPOSCarregamento[(j+1)])*valorDaDivisão; i++) {
                               data.push({
                                   x: i/valorDaDivisão,
                                   y: -Elast*Inerc*(MatrizCoeficientesDasEquacoes._data[j][3]*2*3)
