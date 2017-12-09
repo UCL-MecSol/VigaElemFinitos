@@ -415,7 +415,6 @@ function DesenhaProblemaProposto (){
 		FuncaoGeraArray()
 		RepeticaoPreencheArray(ArrayDivVigaSemRepeticao)
     GeraArrayComCarregamentosLocais()
-    DesenhaLinhaEEscreveCarregamentoAgrupado()
 		TransformaCarregamentosEmForcas(ArrayDivVigaSemRepeticao)
 		DesenhaCotas()
 	//
@@ -630,7 +629,7 @@ function DesenhaProblemaProposto (){
   		var angulInt = ArrayCarrIntF[j] - ArrayCarrIntI[j]; ///VARIAVEL QUE FALA SE É TRIANGULAR OU NÃO
   		var IntLabel = math.add(ArrayCarrIntI[j],(angulInt/distancia));  /// ESCREVE O VALOR QUE FICA SOBRE O CARREGAMENTO
 
-  		// adicionaEmLoopCarreg(j)
+  		adicionaEmLoopCarreg(j)
   	}
 
   	for (var k = 0; k < numMomentAplic; k++) {
@@ -669,75 +668,75 @@ function DesenhaProblemaProposto (){
 
   	function adicionaEmLoopCarreg(j){
   		for (var m = 0; m < quant; m++) {
-  			// LoopInterno(m)
+  			LoopInterno(m)
   		}
-  		// DesenhaLinhaEEscreveCarregamento()
+  		DesenhaLinhaEEscreveCarregamento()
 
-  		// function DesenhaLinhaEEscreveCarregamento(){
-      //
-  		// 	// var rect = new fabric.Rect({
-  		// 	// 	left: widthcanvas*0.0995+(ArrayCarrPosI[j]*widthviga/tamvig),
-  		// 	// 	top: heightcanvas*0.449-(imgObj2.height*widthcanvas*0.0007/1.35),
-  		// 	// 	fill: 'black',
-  		// 	// 	width: (distancia*widthviga/tamvig),
-  		// 	// 	height: 2,
-  		// 	// 	selectable: false
-  		// 	// });
-  		// 	// canvas.add(rect);
-      //   if ((ArrayCarrIntI[j]) == (ArrayCarrIntF[j])){
-      //     var top =  heightcanvas*0.449-(imgObj2.height*widthcanvas*0.0007/1.35);
-      //     var topTo = heightcanvas*0.449-(imgObj2.height*widthcanvas*0.0007/1.35);
-      //   }
-      //   if ((ArrayCarrIntF[j]) < (ArrayCarrIntI[j])){
-      //     var topTo =  heightcanvas*0.449-((imgObj2.height*widthcanvas*0.0007/1.35)*(ArrayCarrIntF[j]/ArrayCarrIntI[j]));
-      //     var top = heightcanvas*0.449-(imgObj2.height*widthcanvas*0.0007/1.35);
-      //   }
-      //   if ((ArrayCarrIntI[j]) < (ArrayCarrIntF[j])){
-      //     var top =  heightcanvas*0.449-((imgObj2.height*widthcanvas*0.0007/1.35)*(ArrayCarrIntI[j]/ArrayCarrIntF[j]));
-      //     var topTo = heightcanvas*0.449-(imgObj2.height*widthcanvas*0.0007/1.35);
-      //   }
-      //
-      //
-      //   var topDown = heightcanvas*0.449;
-      //   var left = widthcanvas*0.0995+(ArrayCarrPosI[j]*widthviga/tamvig);
-      //   var leftTo = widthcanvas*0.0995+(ArrayCarrPosI[j]*widthviga/tamvig)+(distancia*widthviga/tamvig);
-      //
-      //
-      //
-      //   var line1 = new fabric.Line([left,topDown,left,top], {
-      //     fill: 'black',
-      //     stroke: 'black',
-      //     strokeWidth: 2,
-      //     selectable: false
-      //   });
-      //   canvas.add(line1);
-      //
-      //   var line2 = new fabric.Line([left,top,leftTo,topTo], {
-      //     fill: 'black',
-      //     stroke: 'black',
-      //     strokeWidth: 2,
-      //     selectable: false
-      //   });
-      //   canvas.add(line2);
-      //
-      //   var line3 = new fabric.Line([leftTo,topTo,leftTo,topDown], {
-      //     fill: 'black',
-      //     stroke: 'black',
-      //     strokeWidth: 2,
-      //     selectable: false
-      //   });
-      //   canvas.add(line3);
-      //
-  		// 	// console.log("ENTROU PARA DESENHAR A COTA");
-  		// 	var TextoFabricNoCanvas = new fabric.Text(IntLabel+"N/m", {
-  		// 		top:heightcanvas*0.449-(imgObj2.height*widthcanvas*0.0007),
-  		// 		left:widthcanvas*0.0995+(ArrayCarrPosI[j]*widthviga/tamvig),
-  		// 		fontSize: 18*widthcanvas*0.0017,
-  		// 		hoverCursor: 'default',
-  		// 		selectable: false
-  		// 	});
-  		// 	canvas.add(TextoFabricNoCanvas);
-  		// }
+  		function DesenhaLinhaEEscreveCarregamento(){
+
+  			// var rect = new fabric.Rect({
+  			// 	left: widthcanvas*0.0995+(ArrayCarrPosI[j]*widthviga/tamvig),
+  			// 	top: heightcanvas*0.449-(imgObj2.height*widthcanvas*0.0007/1.35),
+  			// 	fill: 'black',
+  			// 	width: (distancia*widthviga/tamvig),
+  			// 	height: 2,
+  			// 	selectable: false
+  			// });
+  			// canvas.add(rect);
+        if ((ArrayCarrIntI[j]) == (ArrayCarrIntF[j])){
+          var top =  heightcanvas*0.449-(imgObj2.height*widthcanvas*0.0007/1.35);
+          var topTo = heightcanvas*0.449-(imgObj2.height*widthcanvas*0.0007/1.35);
+        }
+        if ((ArrayCarrIntF[j]) < (ArrayCarrIntI[j])){
+          var topTo =  heightcanvas*0.449-((imgObj2.height*widthcanvas*0.0007/1.35)*(ArrayCarrIntF[j]/ArrayCarrIntI[j]));
+          var top = heightcanvas*0.449-(imgObj2.height*widthcanvas*0.0007/1.35);
+        }
+        if ((ArrayCarrIntI[j]) < (ArrayCarrIntF[j])){
+          var top =  heightcanvas*0.449-((imgObj2.height*widthcanvas*0.0007/1.35)*(ArrayCarrIntI[j]/ArrayCarrIntF[j]));
+          var topTo = heightcanvas*0.449-(imgObj2.height*widthcanvas*0.0007/1.35);
+        }
+
+
+        var topDown = heightcanvas*0.449;
+        var left = widthcanvas*0.0995+(ArrayCarrPosI[j]*widthviga/tamvig);
+        var leftTo = widthcanvas*0.0995+(ArrayCarrPosI[j]*widthviga/tamvig)+(distancia*widthviga/tamvig);
+
+
+
+        var line1 = new fabric.Line([left,topDown,left,top], {
+          fill: 'black',
+          stroke: 'black',
+          strokeWidth: 2,
+          selectable: false
+        });
+        canvas.add(line1);
+
+        var line2 = new fabric.Line([left,top,leftTo,topTo], {
+          fill: 'black',
+          stroke: 'black',
+          strokeWidth: 2,
+          selectable: false
+        });
+        canvas.add(line2);
+
+        var line3 = new fabric.Line([leftTo,topTo,leftTo,topDown], {
+          fill: 'black',
+          stroke: 'black',
+          strokeWidth: 2,
+          selectable: false
+        });
+        canvas.add(line3);
+
+  			// console.log("ENTROU PARA DESENHAR A COTA");
+  			var TextoFabricNoCanvas = new fabric.Text(IntLabel+"N/m", {
+  				top:heightcanvas*0.449-(imgObj2.height*widthcanvas*0.0007),
+  				left:widthcanvas*0.0995+(ArrayCarrPosI[j]*widthviga/tamvig),
+  				fontSize: 18*widthcanvas*0.0017,
+  				hoverCursor: 'default',
+  				selectable: false
+  			});
+  			canvas.add(TextoFabricNoCanvas);
+  		}
 
 
   		function LoopInterno(m) {
@@ -873,78 +872,64 @@ function DesenhaProblemaProposto (){
       }
     }
 
-    function DesenhaLinhaEEscreveCarregamentoAgrupado(){
-
-      var carregamentoMaximo = ArrayCarregamentosPorDivViga[0]
-      for (var i = 0; i < (ArrayCarregamentosPorDivViga.length-1); i++) {
-        if (ArrayCarregamentosPorDivViga[i+1] > carregamentoMaximo) {
-          carregamentoMaximo = ArrayCarregamentosPorDivViga[i+1];
-        }
-      }
-
-
-      var VariacaoDeAltura = (imgObj2.height*widthcanvas*0.0007/1.35)
-
-      var topDown = heightcanvas*0.449; //OK
-
-      window.alert("#######################")
-      for (var x = 0; x < (ArrayDivVigaSemRepeticao.length-1); x++){
-        window.alert("#######################  ArrayCarregamentosPorDivViga x"+ ArrayCarregamentosPorDivViga[x])
-        window.alert("#######################  ArrayCarregamentosPorDivViga x+1" + ArrayCarregamentosPorDivViga[x+1])
-
-        if (ArrayCarregamentosPorDivVigaLogoApos[x] != 0 || ArrayCarregamentosPorDivViga[x+1] != 0){
-          var left = widthcanvas*0.0995+(ArrayDivVigaSemRepeticao[x]*widthviga/tamvig);
-          var leftTo = widthcanvas*0.0995+(ArrayDivVigaSemRepeticao[x+1]*widthviga/tamvig);
-
-          window.alert("####################### LEFT = "+left)
-          window.alert("####################### leftTo = "+leftTo)
-          window.alert("####################### VariacaoDeAltura = "+VariacaoDeAltura)
-          window.alert("####################### carregamentoMaximo = "+carregamentoMaximo)
-          var TopLocal = topDown-(VariacaoDeAltura)*(ArrayCarregamentosPorDivVigaLogoApos[x]/carregamentoMaximo)
-          var TopLocalTo = topDown-(VariacaoDeAltura)*(ArrayCarregamentosPorDivViga[x+1]/carregamentoMaximo)
-          window.alert("####################### TopLocal = "+TopLocal)
-          window.alert("####################### TopLocalTo = "+TopLocalTo)
-
-
-
-          var LinhaPraCima = new fabric.Line([left,topDown,left,TopLocal], {
-            fill: 'black',
-            stroke: 'black',
-            strokeWidth: 2,
-            selectable: false
-          });
-          canvas.add(LinhaPraCima);
-
-          var LinhaPraFrente = new fabric.Line([left,TopLocal,leftTo,TopLocalTo], {
-            fill: 'black',
-            stroke: 'black',
-            strokeWidth: 2,
-            selectable: false
-          });
-          canvas.add(LinhaPraFrente);
-
-          var LinhaPraBaixo = new fabric.Line([leftTo,TopLocalTo,leftTo,topDown], {
-            fill: 'black',
-            stroke: 'black',
-            strokeWidth: 2,
-            selectable: false
-          });
-          canvas.add(LinhaPraBaixo);
-
-        }
-      }
-
-
-      // // console.log("ENTROU PARA DESENHAR A COTA");
-      // var TextoFabricNoCanvas = new fabric.Text(IntLabel+"N/m", {
-      //   top:heightcanvas*0.449-(imgObj2.height*widthcanvas*0.0007),
-      //   left:widthcanvas*0.0995+(ArrayCarrPosI[j]*widthviga/tamvig),
-      //   fontSize: 18*widthcanvas*0.0017,
-      //   hoverCursor: 'default',
-      //   selectable: false
-      // });
-      // canvas.add(TextoFabricNoCanvas);
-    }
+    // function DesenhaLinhaEEscreveCarregamentoAgrupado(){
+    //
+    //   var carregamentoMaximo = Math.max(ArrayCarregamentosPorDivViga)
+    //
+    //
+    //   var VariacaoDeAltura = (imgObj2.height*widthcanvas*0.0007/1.35)
+    //
+    //   var topDown = heightcanvas*0.449; //OK
+    //
+    //   for (var x = 0; x < (ArrayDivVigaSemRepeticao.length-1); x++){
+    //     if (ArrayCarregamentosPorDivViga[x] != 0 && ArrayCarregamentosPorDivViga[x+1] != 0){
+    //       var left = widthcanvas*0.0995+(ArrayDivVigaSemRepeticao[x]*widthviga/tamvig);
+    //       var leftTo = widthcanvas*0.0995+(ArrayDivVigaSemRepeticao[x+1]*widthviga/tamvig);
+    //
+    //       var TopLocal = topDown-(VariacaoDeAltura)*(ArrayCarregamentosPorDivViga[x]/carregamentoMaximo)
+    //       var TopLocalTo = topDown-(VariacaoDeAltura)*(ArrayCarregamentosPorDivViga[x+1]/carregamentoMaximo)
+    //
+    //
+    //
+    //
+    //       var LinhaPraCima = new fabric.Line([left,topDown,left,TopLocal], {
+    //         fill: 'black',
+    //         stroke: 'black',
+    //         strokeWidth: 2,
+    //         selectable: false
+    //       });
+    //       canvas.add(LinhaPraCima);
+    //
+    //       var LinhaPraFrente = new fabric.Line([left,TopLocal,leftTo,TopLocalTo], {
+    //         fill: 'black',
+    //         stroke: 'black',
+    //         strokeWidth: 2,
+    //         selectable: false
+    //       });
+    //       canvas.add(LinhaPraFrente);
+    //
+    //       var LinhaPraBaixo = new fabric.Line([leftTo,TopLocalTo,leftTo,topDown], {
+    //         fill: 'black',
+    //         stroke: 'black',
+    //         strokeWidth: 2,
+    //         selectable: false
+    //       });
+    //       canvas.add(LinhaPraBaixo);
+    //
+    //     }
+    //   }
+    //
+    //
+    //   // console.log("ENTROU PARA DESENHAR A COTA");
+    //   var TextoFabricNoCanvas = new fabric.Text(IntLabel+"N/m", {
+    //     top:heightcanvas*0.449-(imgObj2.height*widthcanvas*0.0007),
+    //     left:widthcanvas*0.0995+(ArrayCarrPosI[j]*widthviga/tamvig),
+    //     fontSize: 18*widthcanvas*0.0017,
+    //     hoverCursor: 'default',
+    //     selectable: false
+    //   });
+    //   canvas.add(TextoFabricNoCanvas);
+    // }
 
 		function TransformaCarregamentosEmForcas(ArrayDivVigaSemRepeticao){  //ESSA FUNÇÃO, PEGA A ArrayForcasEMomentosAplicados, E SOMA AS FORÇAS E MOMENTOS EQUIVALENTES DOS CARREGAMENTOS
       ArrayDivVigaSemRepeticaoPOSCarregamento = ArrayDivVigaSemRepeticao.slice();
