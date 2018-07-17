@@ -1253,7 +1253,7 @@ function CalculaProblemaProposto() {
                 tooltip: {
                     formatter: function () {
                         // return '<b>' + Highcharts.NumberFormat(this.y, 6) + "  (" + Highcharts.NumberFormat(this.x, 6) + ")  ";
-                        return '<b>' + this.y + "  (" + this.x + ")  ";
+                        return '<b>' + this.y + "m  (" + this.x + ")  ";
                     }
                 },
                 legend: {
@@ -1421,7 +1421,7 @@ function CalculaProblemaProposto() {
                 tooltip: {
                     formatter: function () {
                         //// return '<b>' + Highcharts.NumberFormat(this.y, 6) + "  (" + Highcharts.NumberFormat(this.x, 6) + ")  ";
-                        return '<b>' + this.y + "  (" + this.x + ")  ";
+                        return '<b>' + this.y + "N.m  (" + this.x + ")  ";
                     }
                 },
                 legend: {
@@ -1493,7 +1493,7 @@ function CalculaProblemaProposto() {
                 },
                 yAxis: {
                     title: {
-                        text: 'Força Cortante'
+                        text: 'Esforço Cortante'
                     },
                     plotLines: [{
                         value: 0,
@@ -1504,7 +1504,7 @@ function CalculaProblemaProposto() {
                 tooltip: {
                     formatter: function () {
                         // return '<b>' + Highcharts.NumberFormat(this.y, 6) + "  (" + Highcharts.NumberFormat(this.x, 6) + ")  ";
-                        return '<b>' + this.y + "  (" + this.x + ")  ";
+                        return '<b>' + this.y + "N  (" + this.x + ")  ";
                     }
                 },
                 legend: {
