@@ -5,7 +5,7 @@ Durante sua formação acadêmica e na vida profissional, muitas vezes o Engenhe
 Portanto, esse trabalho se baseia em fornecer um software didático, prático, open-source para dimensionamento e cálculos, que possa suprir a necessidade de ambos os usuários.
 
 ## Instalação
-Para este software não é necessário instalação, o mesmo é executado diretamente no link [viga.ucl.br](viga.ucl.br).
+Para este software não é necessário instalação, o mesmo é executado diretamente no link [UCL-MecSol.github.io/VigaElemFinitos/](ucl-mecsol.github.io/VigaElemFinitos/).
 
 ## Base Teórica
 Este software foi desenvolvido como um trabalho de conclusão de curso, toda a base teórica e matematica se encontra no artigo tambem presente neste projeto GitHub, no link [viga.ucl.br](viga.ucl.br).
@@ -425,27 +425,20 @@ Retorna: Plotagem dos gráficos a partir das constantes do parâmetro.
 
 
 
-## Examples
+## Exemplos
 - [ai/size-limit](https://github.com/ai/size-limit) - Project logo, clear description, screenshot, step-by-step installing instructions.
 
-## Articles
-- ["Art of Readme - Learn the art of writing quality READMEs."](https://github.com/noffle/art-of-readme) - *Stephen Whitmore*
+## Artigo Base
+- ["SOFTWARE ACADÊMICO PARA RESOLUÇÃO DE VIGA GENÉRICA PELO MÉTODO DOS ELEMENTOS FINITOS"](UCL-MecSol.github.io/SOFTWARE ACADÊMICO PARA RESOLUÇÃO DE VIGA GENÉRICA PELO MÉTODO DOS ELEMENTOS FINITOS.pdf) - *Luan H. Sirtoli, Jean C. Ferreira*
 
 ## Tools
 
 - [Common Readme](https://github.com/noffle/common-readme) - A common readme style for Node. Includes a guide and a readme generator.
 
-## Creating GIFs
 
-Embedding an animated gif in your README quickly demonstrates what your project does and catches the reader's eye.  Here are a few programs that can help you quickly create gifs for your project:
+## Desenvolvedores
 
-- [Gifox](https://gifox.io) - **$4** - Cleanest UI, hotkeys, lots of advanced features
-
-
-## Contribute
-
-Contributions are always welcome!
-Please read the [contribution guidelines](contributing.md) first.
+.
 
 ## License
 
