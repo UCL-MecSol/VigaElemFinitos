@@ -429,7 +429,7 @@ Retorna: Plotagem dos gráficos a partir das constantes do parâmetro.
 - [ai/size-limit](https://github.com/ai/size-limit) - Project logo, clear description, screenshot, step-by-step installing instructions.
 
 ## Artigo Base
-- ["SOFTWARE ACADÊMICO PARA RESOLUÇÃO DE VIGA GENÉRICA PELO MÉTODO DOS ELEMENTOS FINITOS"](UCL-MecSol.github.io/SOFTWARE ACADÊMICO PARA RESOLUÇÃO DE VIGA GENÉRICA PELO MÉTODO DOS ELEMENTOS FINITOS.pdf) - *Luan H. Sirtoli, Jean C. Ferreira*
+- ["SOFTWARE ACADÊMICO PARA RESOLUÇÃO DE VIGA GENÉRICA PELO MÉTODO DOS ELEMENTOS FINITOS"](https://UCL-MecSol.github.io/SOFTWARE ACADÊMICO PARA RESOLUÇÃO DE VIGA GENÉRICA PELO MÉTODO DOS ELEMENTOS FINITOS.pdf) - *Luan H. Sirtoli, Jean C. Ferreira*
 
 ## Tools
 
