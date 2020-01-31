@@ -2,6 +2,45 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:400,700');
 @import url('https://fonts.googleapis.com/css?family=Merriweather:400,700');
 
+html, body {
+  width: 100%;
+  height: 100%;
+  margin: 0px;
+  border: 0;
+}
+body {
+  padding-left: 0.4vw !important;
+  padding-right: 0.4vw !important;
+}
+.panel-body{padding: 1.2vw !important;}
+.container-fluid{padding: 1.2vw !important;}
+.MathJax_SVG_Display{
+  margin-left: 10px;
+  margin-right: 10px;
+}
+.navbar-inverse{
+  top: -21px;
+  left: -6px;
+  width: 100vw;
+  margin-bottom: -13px;
+  border-radius: 0px;
+}
+.navbar-inverse > .container-fluid{
+  padding: 0px 12px !important;
+}
+.navbar-nav > .active > a{
+  background-color: #0808086b !important;
+}
+.navbar-nav {
+  font-size: 14px;
+}
+.modal-body > .table{
+  margin-bottom: 0px;
+}
+.table > thead > tr > th, .table > tbody > tr > th, .table > tfoot > tr > th, .table > thead > tr > td, .table > tbody > tr > td, .table > tfoot > tr > td {
+  padding: 7px 8px;
+}
+
 body {
   background-color: rgb(245, 245, 245);
   font-family: "Open Sans", sans-serif;
@@ -33,6 +72,10 @@ h1 {
     border: 1px solid #ccc;
     box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
     transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+}
+
+.input-group {
+  margin-top: -1px;  
 }
 
 .glyphicon-2linhas {

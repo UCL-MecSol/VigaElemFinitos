@@ -98,8 +98,8 @@ function addPrimGrau(){
 
 	var FuncaoJqueryAdd = $(document.createElement("div")).attr("class","input-group").attr("id", "inputGroup1Grau-"+numApoios1Grau).appendTo("#divApoios");
 								$(document.createElement("div")).attr("class","input-group-addon").attr("id", "inputGroupAdd1Grau-"+numApoios1Grau).appendTo("#inputGroup1Grau-"+numApoios1Grau);
-									$(document.createElement("img")).attr("width","47").attr("height","19").attr("alt","...").attr("src","https://ucl-mecsol.github.io/VigaElemFinitos/Img/rolete.png").attr("id","Foto1Grau-"+numApoios1Grau).appendTo("#inputGroupAdd1Grau-"+numApoios1Grau);
-								$(document.createElement("input")).attr("id","Entrada1Grau-"+numApoios1Grau).attr("class","form-control block-geral").attr("type","Number").attr("placeholder","Posicao do Apoio").appendTo("#inputGroup1Grau-"+numApoios1Grau);
+									$(document.createElement("img")).attr("width","47").attr("height","19").attr("alt","...").attr("src","Img/rolete.png").attr("id","Foto1Grau-"+numApoios1Grau).appendTo("#inputGroupAdd1Grau-"+numApoios1Grau);
+								$(document.createElement("input")).attr("id","Entrada1Grau-"+numApoios1Grau).attr("class","form-control block-geral").attr("type","Number").attr("placeholder","Posição do Apoio").appendTo("#inputGroup1Grau-"+numApoios1Grau);
 								$(document.createElement("span")).attr("class","input-group-btn").attr("id", "Span1Grau-"+numApoios1Grau).appendTo("#inputGroup1Grau-"+numApoios1Grau);
 									$(document.createElement("button")).attr("class","btn btn-default").attr("onclick","removerPrimGrau(this.id);").attr("id","Remove1Grau-"+numApoios1Grau).appendTo("#Span1Grau-"+numApoios1Grau);
 										$(document.createElement("span")).attr("class","glyphicon glyphicon-remove").attr("id",numApoios1Grau).appendTo("#Remove1Grau-"+numApoios1Grau);
@@ -131,8 +131,8 @@ function addSeguGrau(){
 
 	var FuncaoJqueryAdd = $(document.createElement("div")).attr("class","input-group").attr("id", "inputGroup2Grau-"+numApoios2Grau).appendTo("#divApoios");
 								$(document.createElement("div")).attr("class","input-group-addon").attr("id", "inputGroupAdd2Grau-"+numApoios2Grau).appendTo("#inputGroup2Grau-"+numApoios2Grau);
-									$(document.createElement("img")).attr("width","47").attr("height","19").attr("alt","...").attr("src","https://ucl-mecsol.github.io/VigaElemFinitos/Img/apoio 2.png").attr("id","Foto2Grau-"+numApoios2Grau).appendTo("#inputGroupAdd2Grau-"+numApoios2Grau);
-								$(document.createElement("input")).attr("id","Entrada2Grau-"+numApoios2Grau).attr("class","form-control block-geral").attr("type","Number").attr("placeholder","Posicao do Apoio").appendTo("#inputGroup2Grau-"+numApoios2Grau);
+									$(document.createElement("img")).attr("width","47").attr("height","19").attr("alt","...").attr("src","Img/apoio 2.png").attr("id","Foto2Grau-"+numApoios2Grau).appendTo("#inputGroupAdd2Grau-"+numApoios2Grau);
+								$(document.createElement("input")).attr("id","Entrada2Grau-"+numApoios2Grau).attr("class","form-control block-geral").attr("type","Number").attr("placeholder","Posição do Apoio").appendTo("#inputGroup2Grau-"+numApoios2Grau);
 								$(document.createElement("span")).attr("class","input-group-btn").attr("id", "Span2Grau-"+numApoios2Grau).appendTo("#inputGroup2Grau-"+numApoios2Grau);
 									$(document.createElement("button")).attr("class","btn btn-default").attr("onclick","removerSeguGrau(this.id);").attr("id","Remove2Grau-"+numApoios2Grau).appendTo("#Span2Grau-"+numApoios2Grau);
 										$(document.createElement("span")).attr("class","glyphicon glyphicon-remove").attr("id",numApoios2Grau).appendTo("#Remove2Grau-"+numApoios2Grau);
@@ -167,8 +167,8 @@ function addTercGrau(){
 
 			var FuncaoJqueryAdd = $(document.createElement("div")).attr("class","input-group").attr("id", "inputGroup3Grau-"+numApoios3Grau).appendTo("#divApoios");
 										$(document.createElement("div")).attr("class","input-group-addon").attr("id", "inputGroupAdd3Grau-"+numApoios3Grau).appendTo("#inputGroup3Grau-"+numApoios3Grau);
-											$(document.createElement("img")).attr("width","47").attr("height","19").attr("alt","...").attr("src","https://ucl-mecsol.github.io/VigaElemFinitos/Img/engasteIconeSmall.png").attr("id","Foto3Grau-"+numApoios3Grau).appendTo("#inputGroupAdd3Grau-"+numApoios3Grau);
-										$(document.createElement("input")).attr("id","Entrada3Grau-"+numApoios3Grau).attr("class","form-control block-geral").attr("type","Number").attr("placeholder","Posicao do Apoio").appendTo("#inputGroup3Grau-"+numApoios3Grau);
+											$(document.createElement("img")).attr("width","47").attr("height","19").attr("alt","...").attr("src","Img/engasteIconeSmall.png").attr("id","Foto3Grau-"+numApoios3Grau).appendTo("#inputGroupAdd3Grau-"+numApoios3Grau);
+										$(document.createElement("input")).attr("id","Entrada3Grau-"+numApoios3Grau).attr("class","form-control block-geral").attr("type","Number").attr("placeholder","Posição do Apoio").appendTo("#inputGroup3Grau-"+numApoios3Grau);
 										$(document.createElement("span")).attr("class","input-group-btn").attr("id", "Span3Grau-"+numApoios3Grau).appendTo("#inputGroup3Grau-"+numApoios3Grau);
 											$(document.createElement("button")).attr("class","btn btn-default").attr("onclick","removerTercGrau(this.id);").attr("id","Remove3Grau-"+numApoios3Grau).appendTo("#Span3Grau-"+numApoios3Grau);
 												$(document.createElement("span")).attr("class","glyphicon glyphicon-remove").attr("id",numApoios3Grau).appendTo("#Remove3Grau-"+numApoios3Grau);
@@ -178,8 +178,8 @@ function addTercGrau(){
 
 			var FuncaoJqueryAdd = $(document.createElement("div")).attr("class","input-group").attr("id", "inputGroup3Grau-"+numApoios3Grau).appendTo("#divApoios");
 										$(document.createElement("div")).attr("class","input-group-addon").attr("id", "inputGroupAdd3Grau-"+numApoios3Grau).appendTo("#inputGroup3Grau-"+numApoios3Grau);
-											$(document.createElement("img")).attr("width","47").attr("height","19").attr("alt","...").attr("src","https://ucl-mecsol.github.io/VigaElemFinitos/Img/engasteIconeSmall.png").attr("id","Foto3Grau-"+numApoios3Grau).appendTo("#inputGroupAdd3Grau-"+numApoios3Grau);
-										$(document.createElement("input")).attr("id","Entrada3Grau-"+numApoios3Grau).attr("class","form-control block-geral").attr("type","Number").attr("placeholder","Posicao do Apoio").appendTo("#inputGroup3Grau-"+numApoios3Grau);
+											$(document.createElement("img")).attr("width","47").attr("height","19").attr("alt","...").attr("src","Img/engasteIconeSmall.png").attr("id","Foto3Grau-"+numApoios3Grau).appendTo("#inputGroupAdd3Grau-"+numApoios3Grau);
+										$(document.createElement("input")).attr("id","Entrada3Grau-"+numApoios3Grau).attr("class","form-control block-geral").attr("type","Number").attr("placeholder","Posição do Apoio").appendTo("#inputGroup3Grau-"+numApoios3Grau);
 										$(document.createElement("span")).attr("class","input-group-btn").attr("id", "Span3Grau-"+numApoios3Grau).appendTo("#inputGroup3Grau-"+numApoios3Grau);
 											$(document.createElement("button")).attr("class","btn btn-default").attr("onclick","removerTercGrau(this.id);").attr("id","Remove3Grau-"+numApoios3Grau).appendTo("#Span3Grau-"+numApoios3Grau);
 												$(document.createElement("span")).attr("class","glyphicon glyphicon-remove").attr("id",numApoios3Grau).appendTo("#Remove3Grau-"+numApoios3Grau);
@@ -220,8 +220,8 @@ function addForca(){
 
 	var FuncaoJqueryAdd = $(document.createElement("div")).attr("class","input-group").attr("id", "inputGroupForca-"+numForcasAplic).appendTo("#divCargas");
 								 $(document.createElement("div")).attr("class","input-group-addon").attr("id", "inputGroupAddForca-"+numForcasAplic).appendTo("#inputGroupForca-"+numForcasAplic);
-									 $(document.createElement("img")).attr("width","47").attr("height","47").attr("alt","...").attr("src","https://ucl-mecsol.github.io/VigaElemFinitos/Img/PIcone.png").attr("id","FotoForca-"+numForcasAplic).appendTo("#inputGroupAddForca-"+numForcasAplic);
-								 $(document.createElement("input")).attr("id","EntradaPosicaoForca-"+numForcasAplic).attr("width","50%").attr("class","form-control").attr("type","Number").attr("placeholder","Posicao da Carga").appendTo("#inputGroupForca-"+numForcasAplic);
+									 $(document.createElement("img")).attr("width","47").attr("height","47").attr("alt","...").attr("src","Img/PIcone.png").attr("id","FotoForca-"+numForcasAplic).appendTo("#inputGroupAddForca-"+numForcasAplic);
+								 $(document.createElement("input")).attr("id","EntradaPosiçãoForca-"+numForcasAplic).attr("width","50%").attr("class","form-control").attr("type","Number").attr("placeholder","Posição da Carga").appendTo("#inputGroupForca-"+numForcasAplic);
 								 $(document.createElement("input")).attr("id","EntradaIntensiForca-"+numForcasAplic).attr("width","50%").attr("class","form-control").attr("type","Number").attr("placeholder","Intensid. da Carga").appendTo("#inputGroupForca-"+numForcasAplic);
 								 $(document.createElement("span")).attr("class","input-group-btn").attr("id", "SpanForca-"+numForcasAplic).appendTo("#inputGroupForca-"+numForcasAplic);
 									 $(document.createElement("button")).attr("class","btn btn-default").attr("id","RemoveForca-"+numForcasAplic).attr("onclick","removerForca(this.id);").appendTo("#SpanForca-"+numForcasAplic);
@@ -239,7 +239,7 @@ function removerForca(valor){
 		$("#inputGroupForca-"+(i)).attr("id", "inputGroupForca-"+(i-1));
 		$("#inputGroupAddForca-"+(i)).attr("id", "inputGroupAddForca-"+(i-1));
 		$("#FotoForca-"+(i)).attr("id", "FotoForca-"+(i-1));
-		$("#EntradaPosicaoForca-"+(i)).attr("id", "EntradaPosicaoForca-"+(i-1));
+		$("#EntradaPosiçãoForca-"+(i)).attr("id", "EntradaPosiçãoForca-"+(i-1));
 		$("#EntradaIntensiForca-"+(i)).attr("id", "EntradaIntensiForca-"+(i-1));
 		$("#SpanForca-"+(i)).attr("id", "SpanForca-"+(i-1));
 		$("#RemoveForca-"+(i)).attr("id", "RemoveForca-"+(i-1));
@@ -255,9 +255,9 @@ function addCarreg(){
 
 	var FuncaoJqueryAdd = $(document.createElement("div")).attr("class","input-group").attr("id", "inputGroupCarreg-"+numCarregAplic).appendTo("#divCargas");
 								$(document.createElement("div")).attr("class","input-group-addon").attr("id", "inputGroupAddCarreg-"+numCarregAplic).appendTo("#inputGroupCarreg-"+numCarregAplic);
-									$(document.createElement("img")).attr("width","47").attr("height","47").attr("alt","...").attr("src","https://ucl-mecsol.github.io/VigaElemFinitos/Img/carregamentoIcone.png").attr("id","FotoCarreg-"+numCarregAplic).appendTo("#inputGroupAddCarreg-"+numCarregAplic);
-								$(document.createElement("input")).attr("id","EntradaPosicaoICarreg-"+numCarregAplic).attr("width","50%").attr("class","form-control-50").attr("type","Number").attr("placeholder","Posicao I").appendTo("#inputGroupCarreg-"+numCarregAplic);
-								$(document.createElement("input")).attr("id","EntradaPosicaoFCarreg-"+numCarregAplic).attr("width","50%").attr("class","form-control-50").attr("type","Number").attr("placeholder","Posicao F").appendTo("#inputGroupCarreg-"+numCarregAplic);
+									$(document.createElement("img")).attr("width","47").attr("height","47").attr("alt","...").attr("src","Img/carregamentoIcone.png").attr("id","FotoCarreg-"+numCarregAplic).appendTo("#inputGroupAddCarreg-"+numCarregAplic);
+								$(document.createElement("input")).attr("id","EntradaPosiçãoICarreg-"+numCarregAplic).attr("width","50%").attr("class","form-control-50").attr("type","Number").attr("placeholder","Posição I").appendTo("#inputGroupCarreg-"+numCarregAplic);
+								$(document.createElement("input")).attr("id","EntradaPosiçãoFCarreg-"+numCarregAplic).attr("width","50%").attr("class","form-control-50").attr("type","Number").attr("placeholder","Posição F").appendTo("#inputGroupCarreg-"+numCarregAplic);
 								$(document.createElement("input")).attr("id","EntradaIntensiICarreg-"+numCarregAplic).attr("width","50%").attr("class","form-control-50").attr("type","Number").attr("placeholder","Intensid. I").appendTo("#inputGroupCarreg-"+numCarregAplic);
 								$(document.createElement("input")).attr("id","EntradaIntensiFCarreg-"+numCarregAplic).attr("width","50%").attr("class","form-control-50").attr("type","Number").attr("placeholder","Intensid. F").appendTo("#inputGroupCarreg-"+numCarregAplic);
 								$(document.createElement("span")).attr("class","input-group-btn").attr("id", "SpanCarreg-"+numCarregAplic).appendTo("#inputGroupCarreg-"+numCarregAplic);
@@ -276,8 +276,8 @@ function removerCarreg(valor){
 		$("#inputGroupCarreg-"+(i)).attr("id", "inputGroupCarreg-"+(i-1));
 		$("#inputGroupAddCarreg-"+(i)).attr("id", "inputGroupAddCarreg-"+(i-1));
 		$("#FotoCarreg-"+(i)).attr("id", "FotoCarreg-"+(i-1));
-		$("#EntradaPosicaoICarreg-"+(i)).attr("id", "EntradaPosicaoICarreg-"+(i-1));
-		$("#EntradaPosicaoFCarreg-"+(i)).attr("id", "EntradaPosicaoFCarreg-"+(i-1));
+		$("#EntradaPosiçãoICarreg-"+(i)).attr("id", "EntradaPosiçãoICarreg-"+(i-1));
+		$("#EntradaPosiçãoFCarreg-"+(i)).attr("id", "EntradaPosiçãoFCarreg-"+(i-1));
 		$("#EntradaIntensiICarreg-"+(i)).attr("id", "EntradaIntensiICarreg-"+(i-1));
 		$("#EntradaIntensiFCarreg-"+(i)).attr("id", "EntradaIntensiFCarreg-"+(i-1));
 		$("#SpanCarreg-"+(i)).attr("id", "SpanCarreg-"+(i-1));
@@ -294,8 +294,8 @@ function addMoment(){
 
 	var FuncaoJqueryAdd = $(document.createElement("div")).attr("class","input-group").attr("id", "inputGroupMoment-"+numMomentAplic).appendTo("#divCargas");
 								$(document.createElement("div")).attr("class","input-group-addon").attr("id", "inputGroupAddMoment-"+numMomentAplic).appendTo("#inputGroupMoment-"+numMomentAplic);
-									$(document.createElement("img")).attr("width","47").attr("height","47").attr("alt","...").attr("src","https://ucl-mecsol.github.io/VigaElemFinitos/Img/momento SH Icone.png").attr("id","FotoMoment-"+numMomentAplic).appendTo("#inputGroupAddMoment-"+numMomentAplic);
-								$(document.createElement("input")).attr("id","EntradaPosicaoMoment-"+numMomentAplic).attr("width","50%").attr("class","form-control").attr("type","Number").attr("placeholder","Posicao da Carga").appendTo("#inputGroupMoment-"+numMomentAplic);
+									$(document.createElement("img")).attr("width","47").attr("height","47").attr("alt","...").attr("src","Img/momento SH Icone.png").attr("id","FotoMoment-"+numMomentAplic).appendTo("#inputGroupAddMoment-"+numMomentAplic);
+								$(document.createElement("input")).attr("id","EntradaPosiçãoMoment-"+numMomentAplic).attr("width","50%").attr("class","form-control").attr("type","Number").attr("placeholder","Posição da Carga").appendTo("#inputGroupMoment-"+numMomentAplic);
 								$(document.createElement("input")).attr("id","EntradaIntensiMoment-"+numMomentAplic).attr("width","50%").attr("class","form-control").attr("type","Number").attr("placeholder","Intensid. da Carga").appendTo("#inputGroupMoment-"+numMomentAplic);
 								$(document.createElement("span")).attr("class","input-group-btn").attr("id", "SpanMoment-"+numMomentAplic).appendTo("#inputGroupMoment-"+numMomentAplic);
 									$(document.createElement("button")).attr("class","btn btn-default").attr("id","RemoveMoment-"+numMomentAplic).attr("onclick","removerMoment(this.id);").appendTo("#SpanMoment-"+numMomentAplic);
@@ -313,7 +313,7 @@ function removerMoment(valor){
 		$("#inputGroupMoment-"+(i)).attr("id", "inputGroupMoment-"+(i-1));
 		$("#inputGroupAddMoment-"+(i)).attr("id", "inputGroupAddMoment-"+(i-1));
 		$("#FotoMoment-"+(i)).attr("id", "FotoMoment-"+(i-1));
-		$("#EntradaPosicaoMoment-"+(i)).attr("id", "EntradaPosicaoMoment-"+(i-1));
+		$("#EntradaPosiçãoMoment-"+(i)).attr("id", "EntradaPosiçãoMoment-"+(i-1));
 		$("#EntradaIntensiMoment-"+(i)).attr("id", "EntradaIntensiMoment-"+(i-1));
 		$("#SpanMoment-"+(i)).attr("id", "SpanMoment-"+(i-1));
 		$("#RemoveMoment-"+(i)).attr("id", "RemoveMoment-"+(i-1));
@@ -325,7 +325,7 @@ function removerMoment(valor){
 ///////////////////////////////////////////// PARTE DE INICIO DE CÁLCULOS ///////////////////////////
 
 function canvasincial() {
-  fabric.Image.fromURL('https://ucl-mecsol.github.io/VigaElemFinitos/Img/viga I.png', function(oImg) {
+  fabric.Image.fromURL('Img/viga I.png', function(oImg) {
   	var widthcanvas = $('#canvas').width();
   	var heightcanvas = $('#canvas').height();
 
@@ -377,9 +377,9 @@ function DesenhaProblemaProposto (){
     KGlobalOriginal = math.matrix();
 
     var imgObj = new Image();
-    imgObj.src = 'https://ucl-mecsol.github.io/VigaElemFinitos/Img/viga I.png';
+    imgObj.src = 'Img/viga I.png';
     var imgObj2 = new Image();
-    imgObj2.src = 'https://ucl-mecsol.github.io/VigaElemFinitos/Img/P.png'
+    imgObj2.src = 'Img/P.png'
 
 
     var widthcanvas = $('#canvas').width();
@@ -419,10 +419,10 @@ function DesenhaProblemaProposto (){
   	if (numApoios1Grau != 0) {
   		for (var i = 0; i < numApoios1Grau; i++) {
 
-  			var Posicao1 = Number(document.getElementById("Entrada1Grau-"+(i+1)).value);
+  			var Posição1 = Number(document.getElementById("Entrada1Grau-"+(i+1)).value);
 
-  			if(Posicao1 != ""){
-  				Array1GrauPos.push(Number(Posicao1));
+  			if(Posição1 != ""){
+  				Array1GrauPos.push(Number(Posição1));
   			} else {
   				Array1GrauPos.push(0);
   			}
@@ -432,9 +432,9 @@ function DesenhaProblemaProposto (){
   	if (numApoios2Grau != 0) {
   		for (var j = 0; j < numApoios2Grau; j++) {
 
-  			var Posicao2 = Number(document.getElementById("Entrada2Grau-"+(j+1)).value);
-  			if(Posicao2 != ""){
-  				Array2GrauPos.push(Number(Posicao2));
+  			var Posição2 = Number(document.getElementById("Entrada2Grau-"+(j+1)).value);
+  			if(Posição2 != ""){
+  				Array2GrauPos.push(Number(Posição2));
   				// console.log(Array2GrauPos[j])
   			} else {
   				Array2GrauPos.push(0);
@@ -446,9 +446,9 @@ function DesenhaProblemaProposto (){
   	if (numApoios3Grau != 0) {
   		for (var k = 0; k < numApoios3Grau; k++) {
 
-  			var Posicao3 = Number(document.getElementById("Entrada3Grau-"+(k+1)).value);
-  			if(Posicao3 != ""){
-  				Array3GrauPos.push(Number(Posicao3));
+  			var Posição3 = Number(document.getElementById("Entrada3Grau-"+(k+1)).value);
+  			if(Posição3 != ""){
+  				Array3GrauPos.push(Number(Posição3));
   			} else {
   				Array3GrauPos.push(0);
   			}
@@ -470,7 +470,7 @@ function DesenhaProblemaProposto (){
 
   	function adicionaEmLoopRolete(i){
 
-  		fabric.Image.fromURL('https://ucl-mecsol.github.io/VigaElemFinitos/Img/rolete.png', function(oImg1) {
+  		fabric.Image.fromURL('Img/rolete.png', function(oImg1) {
   		oImg1.scale(widthcanvas*0.0007);
 
   		oImg1.set({
@@ -484,7 +484,7 @@ function DesenhaProblemaProposto (){
 
   	function adicionaEmLoop2Grau(j){
 
-  		fabric.Image.fromURL('https://ucl-mecsol.github.io/VigaElemFinitos/Img/apoio 2.png', function(oImg2) {
+  		fabric.Image.fromURL('Img/apoio 2.png', function(oImg2) {
   		oImg2.scale(widthcanvas*0.0008);
 
   		oImg2.set({
@@ -499,10 +499,10 @@ function DesenhaProblemaProposto (){
   	function adicionaEmLoopEngaste(k){
   		var coef=0;
   		if (Array3GrauPos[k] == 0) {
-  			var url = 'https://ucl-mecsol.github.io/VigaElemFinitos/Img/engaste E.png'
+  			var url = 'Img/engaste E.png'
   		}
   		if (Array3GrauPos[k] == tamvig) {
-  			var url = 'https://ucl-mecsol.github.io/VigaElemFinitos/Img/engaste D.png'
+  			var url = 'Img/engaste D.png'
   		}
   		if (Array3GrauPos[k] != tamvig && Array3GrauPos[k] != 0) {
   			console.log("Engaste "+(k+1)+" na Posição Errada! Ajustada para a Posição mais próxima.")
@@ -510,12 +510,12 @@ function DesenhaProblemaProposto (){
   				if (Array3GrauPos[k] > tamvig/2) {
   					document.getElementById("Entrada3Grau-"+(k+1)).value=tamvig;
   					Array3GrauPos[k] = Number(tamvig);
-  					var url = 'https://ucl-mecsol.github.io/VigaElemFinitos/Img/engaste D.png'
+  					var url = 'Img/engaste D.png'
   				}
   				if (Array3GrauPos[k] <= tamvig/2) {
   					document.getElementById("Entrada3Grau-"+(k+1)).value=0;
   					Array3GrauPos[k] = 0;
-  					var url = 'https://ucl-mecsol.github.io/VigaElemFinitos/Img/engaste E.png'
+  					var url = 'Img/engaste E.png'
   				}
   		}
 
@@ -535,10 +535,10 @@ function DesenhaProblemaProposto (){
 
   	if (numForcasAplic != 0) {
   		for (var i = 0; i < numForcasAplic; i++) {
-  			var PosicaoForca1 = Number(document.getElementById("EntradaPosicaoForca-"+(i+1)).value);
+  			var PosiçãoForca1 = Number(document.getElementById("EntradaPosiçãoForca-"+(i+1)).value);
   			var IntensidadeForca1 = Number(document.getElementById("EntradaIntensiForca-"+(i+1)).value);
-  			if(PosicaoForca1 != ""){
-  				ArrayForcaPos.push(Number(PosicaoForca1));
+  			if(PosiçãoForca1 != ""){
+  				ArrayForcaPos.push(Number(PosiçãoForca1));
   				ArrayForcaInt.push(Number(IntensidadeForca1));
 
   			} else {
@@ -551,13 +551,13 @@ function DesenhaProblemaProposto (){
 
   	if (numCarregAplic != 0) {
   		for (var i = 0; i < numCarregAplic; i++) {
-  			var PosicaoCarregamentoI = Number(document.getElementById("EntradaPosicaoICarreg-"+(i+1)).value);
-  			var PosicaoCarregamentoF = Number(document.getElementById("EntradaPosicaoFCarreg-"+(i+1)).value);
+  			var PosiçãoCarregamentoI = Number(document.getElementById("EntradaPosiçãoICarreg-"+(i+1)).value);
+  			var PosiçãoCarregamentoF = Number(document.getElementById("EntradaPosiçãoFCarreg-"+(i+1)).value);
   			var IntensidadeCarregamentoI = Number(document.getElementById("EntradaIntensiICarreg-"+(i+1)).value);
   			var IntensidadeCarregamentoF = Number(document.getElementById("EntradaIntensiFCarreg-"+(i+1)).value);
 
-  				ArrayCarrPosI.push(Number(PosicaoCarregamentoI));
-  				ArrayCarrPosF.push(Number(PosicaoCarregamentoF));
+  				ArrayCarrPosI.push(Number(PosiçãoCarregamentoI));
+  				ArrayCarrPosF.push(Number(PosiçãoCarregamentoF));
   				ArrayCarrIntI.push(Number(IntensidadeCarregamentoI));
   				ArrayCarrIntF.push(Number(IntensidadeCarregamentoF));
 
@@ -566,10 +566,10 @@ function DesenhaProblemaProposto (){
 
   	if (numMomentAplic != 0) {
   		for (var i = 0; i < numMomentAplic; i++) {
-  			var PosicaoMomento1 = Number(document.getElementById("EntradaPosicaoMoment-"+(i+1)).value);
+  			var PosiçãoMomento1 = Number(document.getElementById("EntradaPosiçãoMoment-"+(i+1)).value);
   			var IntensidadeMomento1 = Number(document.getElementById("EntradaIntensiMoment-"+(i+1)).value);
-  			if(PosicaoMomento1 != ""){
-  				ArrayMomenPos.push(Number(PosicaoMomento1));
+  			if(PosiçãoMomento1 != ""){
+  				ArrayMomenPos.push(Number(PosiçãoMomento1));
   				ArrayMomenInt.push(Number(IntensidadeMomento1));
 
   			} else {
@@ -634,7 +634,7 @@ function DesenhaProblemaProposto (){
 
   	function adicionaEmLoopForca(i){
 
-  		fabric.Image.fromURL('https://ucl-mecsol.github.io/VigaElemFinitos/Img/P.png', function(oImg4) {
+  		fabric.Image.fromURL('Img/P.png', function(oImg4) {
 
   		oImg4.scale(widthcanvas*0.0007);
 
@@ -723,7 +723,7 @@ function DesenhaProblemaProposto (){
 
 
   		function LoopInterno(m) {
-  			fabric.Image.fromURL('https://ucl-mecsol.github.io/VigaElemFinitos/Img/PCarr.png', function(oImg4) {
+  			fabric.Image.fromURL('Img/PCarr.png', function(oImg4) {
   			oImg4.scale(widthcanvas*0.0007);
 
         var topImagem = heightcanvas*0.449-(oImg4.height*widthcanvas*0.0007);
@@ -758,7 +758,7 @@ function DesenhaProblemaProposto (){
 
   	function adicionaEmLoopMomento(k){
 
-  		fabric.Image.fromURL('https://ucl-mecsol.github.io/VigaElemFinitos/Img/momento SH canvas.png', function(oImg6) {
+  		fabric.Image.fromURL('Img/momento SH canvas.png', function(oImg6) {
   		oImg6.scale(widthcanvas*0.0007);
 
   		oImg6.set({
@@ -811,7 +811,8 @@ function DesenhaProblemaProposto (){
 			console.log("O VETOR DE FORÇAS E MOMENTOS FINAL LIMPA É :"+ArrayForcasEMomentosAplicados);
 		}
 
-		function TransformaCarregamentosEmForcas(ArrayDivVigaSemRepeticao){  //ESSA FUNÇÃO, PEGA A ArrayForcasEMomentosAplicados, E SOMA AS FORÇAS E MOMENTOS EQUIVALENTES DOS CARREGAMENTOS
+		function TransformaCarregamentosEmForcas(ArrayDivVigaSemRepeticao){
+      //ESSA FUNÇÃO, PEGA A ArrayForcasEMomentosAplicados, E SOMA AS FORÇAS E MOMENTOS EQUIVALENTES DOS CARREGAMENTOS
 			var XInicial = 0;
 			var XFinal = 0;
 			var CInicialCarr = 0;
@@ -877,7 +878,8 @@ function DesenhaProblemaProposto (){
       console.log("======================================================================================================")
 		}
 
-		function RepeticaoPreencheArray(ArrayDivVigaSemRepeticao) {  //ESSA FUNÇÃO, PEGA A ArrayForcasEMomentosAplicados, E SOMA AS FORÇAS E MOMENTOS APLICADOS NOS NÓS
+		function RepeticaoPreencheArray(ArrayDivVigaSemRepeticao) {  
+      //ESSA FUNÇÃO, PEGA A ArrayForcasEMomentosAplicados, E SOMA AS FORÇAS E MOMENTOS APLICADOS NOS NÓS
 
   		if (numForcasAplic != 0 || numMomentAplic != 0) {
 
@@ -906,9 +908,9 @@ function DesenhaProblemaProposto (){
 
 	function DesenhaCotas() {
 
-		var posicaoUltimaCota = ArrayDivVigaSemRepeticao.length;
+		var PosiçãoUltimaCota = ArrayDivVigaSemRepeticao.length;
 		var rect4 = new fabric.Rect({
-			left: widthcanvas*0.0995+(ArrayDivVigaSemRepeticao[(posicaoUltimaCota-1)]*widthviga/tamvig),
+			left: widthcanvas*0.0995+(ArrayDivVigaSemRepeticao[(PosiçãoUltimaCota-1)]*widthviga/tamvig),
 			top: heightcanvas*0.759-(0.02*widthviga),
 			fill: 'black',
 			width: 1,
@@ -1037,7 +1039,8 @@ function CalculaProblemaProposto() {
 	}
 
 
-	function RepeticaoZeraMatrizGlobal(ArrayDivVigaSemRepeticao) {//ESSA FUNÇÃO VAI ZERAR AS LINHAS E COLUNAS ONDE NÃO EXISTE DESLOCAMENTO VERTICAL E INCLINAÇÕES
+	function RepeticaoZeraMatrizGlobal(ArrayDivVigaSemRepeticao) {
+    //ESSA FUNÇÃO VAI ZERAR AS LINHAS E COLUNAS ONDE NÃO EXISTE DESLOCAMENTO VERTICAL E INCLINAÇÕES
 
 		if (numApoios1Grau != 0 || numApoios2Grau != 0 || numApoios3Grau != 0) {
 			console.log("numApoios1Grau = "+numApoios1Grau)
@@ -1130,8 +1133,8 @@ function CalculaProblemaProposto() {
 		//
 		// console.log("KGlobalModificada  = "+KGlobalModificada)
 		// console.log("IndexParaGerarKGlobalDoTamanhoCerto  = "+IndexParaGerarKGlobalDoTamanhoCerto)
-    explicacao += ("<center><b>A MATRIZ GLOBAL ORIGINAL ABAIXO: </b></center>")
-		explicacao += ("$$  \K_g = \\begin{bmatrix} ")
+    explicacao += ("<div style='display: inline-flex;width: 100%;margin-top: 20px;'><div style='width: 100%;'><center><b style='font-size: large;'>A MATRIZ GLOBAL ORIGINAL ABAIXO: </b></center></div><button class='btn btn-default btn-zoom-up'><span class='glyphicon glyphicon-plus'></span></button><button class='btn btn-default btn-zoom-down'><span class='glyphicon glyphicon-minus'></span></button></div>")
+		explicacao += ("<div style='border: 1px solid #ccc;margin-top: 5px;overflow: auto;' id='matriz1'> $$  \K_g = \\begin{bmatrix} ")
 		for (var i = 0; i <= IndexParaGerarKGlobalDoTamanhoCerto; i++) {
 			for (var j = 0; j <= IndexParaGerarKGlobalDoTamanhoCerto; j++) {
 				explicacao += math.subset(KGlobalOriginal, math.index(i, j));
@@ -1141,11 +1144,10 @@ function CalculaProblemaProposto() {
 			}
 			explicacao += (" \\\\ ")
 		}
-		explicacao += ("\\end{bmatrix} $$ ")
+    explicacao += ("\\end{bmatrix} $$ </div>")
 
-
-		explicacao += ("<center><b>A MATRIZ GLOBAL ABAIXO (CASO 1 E CASO 2): </b></center>")
-		explicacao += ("$$  \K_g = \\begin{bmatrix} ")
+    explicacao += ("<div style='display: inline-flex;width: 100%;margin-top: 20px;'><div style='width: 100%;'><center><b style='font-size: large;'>A MATRIZ GLOBAL ABAIXO (CASO 1 E CASO 2): </b></center></div><button class='btn btn-default btn-zoom-up'><span class='glyphicon glyphicon-plus'></span></button><button class='btn btn-default btn-zoom-down'><span class='glyphicon glyphicon-minus'></span></button></div>")
+    explicacao += ("<div style='border: 1px solid #ccc;margin-top: 5px;overflow: auto;' id='matriz2'> $$  \K_g = \\begin{bmatrix} ")
 		for (var i = 0; i <= IndexParaGerarKGlobalDoTamanhoCerto; i++) {
 			for (var j = 0; j <= IndexParaGerarKGlobalDoTamanhoCerto; j++) {
 				explicacao += math.subset(KGlobalModificada, math.index(i, j));
@@ -1155,11 +1157,10 @@ function CalculaProblemaProposto() {
 			}
 			explicacao += (" \\\\ ")
 		}
-		explicacao += ("\\end{bmatrix} $$ ")
+    explicacao += ("\\end{bmatrix} $$ </div>")
 
-
-		explicacao += ("<center><b>A MATRIZ DAS FORÇAS ABAIXO: </b></center>")
-		explicacao += ("$$  \F = \\begin{bmatrix} ")
+    explicacao += ("<div style='display: inline-flex;width: 100%;margin-top: 20px;'><div style='width: 100%;'><center><b style='font-size: large;'>A MATRIZ DAS FORÇAS ABAIXO: </b></center></div><button class='btn btn-default btn-zoom-up'><span class='glyphicon glyphicon-plus'></span></button><button class='btn btn-default btn-zoom-down'><span class='glyphicon glyphicon-minus'></span></button></div>")
+    explicacao += ("<div style='border: 1px solid #ccc;margin-top: 5px;overflow: auto;' id='matriz3'> $$  \F = \\begin{bmatrix} ")
 		for (var i = 0; i < ArrayForcasEMomentosAplicados.length; i++) {
 			explicacao += ArrayForcasEMomentosAplicados[i];
 			if (j != (ArrayForcasEMomentosAplicados.length)) {
@@ -1167,10 +1168,10 @@ function CalculaProblemaProposto() {
 			}
 			explicacao += (" \\\\ ")
 		}
-		explicacao += ("\\end{bmatrix} $$ ")
+    explicacao += ("\\end{bmatrix} $$ </div>")
 
-		explicacao += ("<center><b>A MATRIZ DE DESLOCAMENTOS E INCLINAÇÕES ABAIXO: </b></center>")
-		explicacao += ("$$  \X = \\begin{bmatrix} ")
+    explicacao += ("<div style='display: inline-flex;width: 100%;margin-top: 20px;'><div style='width: 100%;'><center><b style='font-size: large;'>A MATRIZ DE DESLOCAMENTOS E INCLINAÇÕES ABAIXO: </b></center></div><button class='btn btn-default btn-zoom-up'><span class='glyphicon glyphicon-plus'></span></button><button class='btn btn-default btn-zoom-down'><span class='glyphicon glyphicon-minus'></span></button></div>")
+    explicacao += ("<div style='border: 1px solid #ccc;margin-top: 5px;overflow: auto;' id='matriz4'> $$  \X = \\begin{bmatrix} ")
 		for (var i = 0; i < ArrayForcasEMomentosAplicados.length; i++) {
 			explicacao += math.subset(ArrayDeDeslocamentosEInclinacoes, math.index(i, 0));
 			if (j != (ArrayForcasEMomentosAplicados.length)) {
@@ -1178,10 +1179,10 @@ function CalculaProblemaProposto() {
 			}
 			explicacao += (" \\\\ ")
 		}
-		explicacao += ("\\end{bmatrix} $$ ")
+    explicacao += ("\\end{bmatrix} $$ </div>")
 
 
-		explicacao += ("$$  \R = \\begin{bmatrix} ")
+    explicacao += ("<div style='border: 1px solid #ccc;margin-top: 5px;overflow: auto;' id='matriz4'> $$  \R = \\begin{bmatrix} ")
 		for (var i = 0; i < ArrayForcasEMomentosAplicados.length; i++) {
 			explicacao += math.subset(ArrayEsforcosEReacoes, math.index(i, 0));
 			if (j != (ArrayForcasEMomentosAplicados.length)) {
@@ -1189,11 +1190,11 @@ function CalculaProblemaProposto() {
 			}
 			explicacao += (" \\\\ ")
 		}
-		explicacao += ("\\end{bmatrix} $$ ")
+    explicacao += ("\\end{bmatrix} $$ </div>")
 
 
-    explicacao += ("<center><b>A MATRIZ DE COEFICIENTES C ABAIXO: </b></center>")
-    explicacao += ("$$  \C = \\begin{bmatrix} ")
+    explicacao += ("<div style='display: inline-flex;width: 100%;margin-top: 20px;'><div style='width: 100%;'><center><b style='font-size: large;'>A MATRIZ DE COEFICIENTES C ABAIXO: </b></center></div><button class='btn btn-default btn-zoom-up'><span class='glyphicon glyphicon-plus'></span></button><button class='btn btn-default btn-zoom-down'><span class='glyphicon glyphicon-minus'></span></button></div>")
+    explicacao += ("<div style='border: 1px solid #ccc;margin-top: 5px;overflow: auto;' id='matriz4'> $$  \C = \\begin{bmatrix} ")
 		for (var i = 0; i < (ArrayDivVigaSemRepeticao.length-1); i++) {
 			for (var j = 0; j < 4; j++) {
 				explicacao += math.subset(MatrizCoeficientesDasEquacoes, math.index(i, j));
@@ -1203,7 +1204,7 @@ function CalculaProblemaProposto() {
 			}
 			explicacao += (" \\\\ ")
 		}
-		explicacao += ("\\end{bmatrix} $$ ")
+		explicacao += ("\\end{bmatrix} $$ </div>")
 
 
 		var divExplicacao = document.getElementById("texto-explicacao");
@@ -1211,7 +1212,15 @@ function CalculaProblemaProposto() {
 		divExplicacao.innerHTML += explicacao;
 		divExplicacao.innerHTML += "</h4>";
 
-		MathJax.Hub.Queue(["Typeset",MathJax.Hub]);
+    MathJax.Hub.Config({
+      CommonHTML: { linebreaks: { width: "93vw" } },
+      "HTML-CSS": { linebreaks: { width: "93vw" } },
+             SVG: { linebreaks: { width: "93vw" } }
+    });
+		MathJax.Hub.Queue(
+      ["setRenderer",MathJax.Hub,"SVG"],
+      ["Typeset",MathJax.Hub]
+    );
 
 		// console.log("Elast  = "+Elast+" & Inerc = "+Inerc)
 	}
@@ -1551,6 +1560,26 @@ function CalculaProblemaProposto() {
 
     });
 
-  }
+	}
+	$(".btn-zoom-up").on("click",function(){
+		var idSelecionado = $(this).parent().next().attr("id");
+		zoomUp(idSelecionado)
+	});
+	$(".btn-zoom-down").on("click",function(){
+		var idSelecionado = $(this).parent().next().attr("id");
+		zoomDown(idSelecionado)
+	});
+	function zoomDown(idSelecionado) {
+		var boxWidth = $("#"+idSelecionado).children(".MathJax_SVG_Display").children("span").children("svg").css("max-width");
+		if (boxWidth == "none") {
+			$("#"+idSelecionado).children(".MathJax_SVG_Display").children("span").children("svg").css("max-width","88vw")
+		}
+	}
+	function zoomUp(idSelecionado) {
+		var boxWidth = $("#"+idSelecionado).children(".MathJax_SVG_Display").children("span").children("svg").css("max-width");
+		if (boxWidth != "none") {
+			$("#"+idSelecionado).children(".MathJax_SVG_Display").children("span").children("svg").css("max-width","none")
+		}
+	}
 
 }
