@@ -979,6 +979,47 @@ function DesenhaProblemaProposto (){
 
 }
 
+/*
+API PARA RECEBER DADOS DO USUARIO E RETORNAR UM JSON CONTENDO OS RESULTADOS CALCULADOS
+PARA CHAMAR A FUNÇÃO, BASTA DECLARAR UMA VARIAVEL CONTENDO UM OBJETO JSON E INSTERIR NA FUNCAO
+function CalculaProblemaProposto(jsonDadosEntrada={
+	apoios:{
+		num1grau: [Posição1,Posição2,Posição3...],
+		num2grau: [Posição1,Posição2,Posição3...],
+		num3grau: [Posição1,Posição2],
+	},
+	esforcos:{
+		esf1grau: [
+			{posicao: Posição1, carga: Carga1},
+			{posicao: Posição2, carga: Carga2},
+			{posicao: Posição3, carga: Carga3},
+			...
+		],
+		esf2grau: [
+			{posicao: Posição1, carga: Carga1},
+			{posicao: Posição2, carga: Carga2},
+			{posicao: Posição3, carga: Carga3},
+			...
+		],
+		esf3grau: [
+			{posicaoInicial: Posição1Inicial, posicaoFinal: Posição1Final, cargaInicial: Carga1Inicial, cargaFinal: Carga1Final},
+			{posicaoInicial: Posição2Inicial, posicaoFinal: Posição2Final, cargaInicial: Carga2Inicial, cargaFinal: Carga2Final},
+			{posicaoInicial: Posição3Inicial, posicaoFinal: Posição3Final, cargaInicial: Carga3Inicial, cargaFinal: Carga3Final},
+			...
+		]
+	},
+	propriedades{
+		comprimento: ComprimentoDaViga,
+		inercia: ValorMomentodeInercia,
+		elasticidade: valorModulodeElasticidade
+	}
+}){
+RETURN JSON FILE
+}
+
+var BLABLABLA = CalculaProblemaProposto(jsonDadosEntrada);
+
+*/
 function CalculaProblemaProposto() {
   MatrizGlobal()
   RepeticaoZeraMatrizGlobal(ArrayDivVigaSemRepeticao)
@@ -1037,8 +1078,6 @@ function CalculaProblemaProposto() {
 		KGlobalModificada = undefined;
 		KGlobalModificada = KGlobal; // KGlobalModificada COPIA A KGlobal
 	}
-
-
 	function RepeticaoZeraMatrizGlobal(ArrayDivVigaSemRepeticao) {
     //ESSA FUNÇÃO VAI ZERAR AS LINHAS E COLUNAS ONDE NÃO EXISTE DESLOCAMENTO VERTICAL E INCLINAÇÕES
 
@@ -1100,12 +1139,10 @@ function CalculaProblemaProposto() {
 
 
 	}
-
   function CalculaDeslocamentosInclinacoesEEsforcos(){
     ArrayDeDeslocamentosEInclinacoes = math.lusolve(KGlobalModificada, ArrayForcasEMomentosAplicados);
 		ArrayEsforcosEReacoes = math.multiply(KGlobalOriginal, ArrayDeDeslocamentosEInclinacoes);
   }
-
   function CalculaCoeficientes(ArrayDivVigaSemRepeticao) {
     MatrizCoeficientesDasEquacoes = math.matrix();
     for (var l = 0; l < (ArrayDivVigaSemRepeticao.length-1); l++) {
@@ -1127,8 +1164,6 @@ function CalculaProblemaProposto() {
       }
     }
   }
-
-
 	function mostrarExplicacao(explicacao){
 		//
 		// console.log("KGlobalModificada  = "+KGlobalModificada)
@@ -1182,7 +1217,7 @@ function CalculaProblemaProposto() {
     explicacao += ("\\end{bmatrix} $$ </div>")
 
 
-    explicacao += ("<div style='border: 1px solid #ccc;margin-top: 5px;overflow: auto;' id='matriz4'> $$  \R = \\begin{bmatrix} ")
+    explicacao += ("<div style='border: 1px solid #ccc;margin-top: 5px;overflow: auto;' id='matriz5'> $$  \R = \\begin{bmatrix} ")
 		for (var i = 0; i < ArrayForcasEMomentosAplicados.length; i++) {
 			explicacao += math.subset(ArrayEsforcosEReacoes, math.index(i, 0));
 			if (j != (ArrayForcasEMomentosAplicados.length)) {
@@ -1194,7 +1229,7 @@ function CalculaProblemaProposto() {
 
 
     explicacao += ("<div style='display: inline-flex;width: 100%;margin-top: 20px;'><div style='width: 100%;'><center><b style='font-size: large;'>A MATRIZ DE COEFICIENTES C ABAIXO: </b></center></div><button class='btn btn-default btn-zoom-up'><span class='glyphicon glyphicon-plus'></span></button><button class='btn btn-default btn-zoom-down'><span class='glyphicon glyphicon-minus'></span></button></div>")
-    explicacao += ("<div style='border: 1px solid #ccc;margin-top: 5px;overflow: auto;' id='matriz4'> $$  \C = \\begin{bmatrix} ")
+    explicacao += ("<div style='border: 1px solid #ccc;margin-top: 5px;overflow: auto;' id='matriz6'> $$  \C = \\begin{bmatrix} ")
 		for (var i = 0; i < (ArrayDivVigaSemRepeticao.length-1); i++) {
 			for (var j = 0; j < 4; j++) {
 				explicacao += math.subset(MatrizCoeficientesDasEquacoes, math.index(i, j));
@@ -1243,7 +1278,7 @@ function CalculaProblemaProposto() {
 
                 },
                 title: {
-                    text: "Grafico de v(x)"
+                    text: "Gráfico de v(x)"
                 },
                 xAxis: {
                     type: 'X da viga',
@@ -1328,7 +1363,7 @@ function CalculaProblemaProposto() {
 
                 },
                 title: {
-                    text: "Grafico de v'(x)"
+                    text: "Gráfico de v'(x)"
                 },
                 xAxis: {
                     type: 'X da viga',
@@ -1411,7 +1446,7 @@ function CalculaProblemaProposto() {
 
                 },
                 title: {
-                    text: "Grafico de v''(x)"
+                    text: "Gráfico de v''(x)"
                 },
                 xAxis: {
                     type: 'X da viga',
@@ -1494,7 +1529,7 @@ function CalculaProblemaProposto() {
 
                 },
                 title: {
-                    text: "Grafico de v'''(x)"
+                    text: "Gráfico de v'''(x)"
                 },
                 xAxis: {
                     type: 'X da viga',
@@ -1561,25 +1596,33 @@ function CalculaProblemaProposto() {
     });
 
 	}
-	$(".btn-zoom-up").on("click",function(){
-		var idSelecionado = $(this).parent().next().attr("id");
-		zoomUp(idSelecionado)
-	});
-	$(".btn-zoom-down").on("click",function(){
-		var idSelecionado = $(this).parent().next().attr("id");
-		zoomDown(idSelecionado)
-	});
-	function zoomDown(idSelecionado) {
-		var boxWidth = $("#"+idSelecionado).children(".MathJax_SVG_Display").children("span").children("svg").css("max-width");
-		if (boxWidth == "none") {
-			$("#"+idSelecionado).children(".MathJax_SVG_Display").children("span").children("svg").css("max-width","88vw")
-		}
-	}
-	function zoomUp(idSelecionado) {
-		var boxWidth = $("#"+idSelecionado).children(".MathJax_SVG_Display").children("span").children("svg").css("max-width");
-		if (boxWidth != "none") {
-			$("#"+idSelecionado).children(".MathJax_SVG_Display").children("span").children("svg").css("max-width","none")
-		}
-	}
+}
 
+$(".btn-zoom-up").on("click",function(){
+	var idSelecionado = $(this).parent().next().attr("id");
+	zoomUp(idSelecionado)
+});
+$(".btn-zoom-down").on("click",function(){
+	var idSelecionado = $(this).parent().next().attr("id");
+	zoomDown(idSelecionado)
+});
+$("#materiaisSugeridos").children().children().on("click",function(){
+	var materialClicado = $(this).attr("value");
+	insereValor(materialClicado)
+});
+
+function insereValor(valor) {
+	$("#inputElasticidade").val(valor);
+}
+function zoomDown(idSelecionado) {
+	var boxWidth = $("#"+idSelecionado).children(".MathJax_SVG_Display").children("span").children("svg").css("max-width");
+	if (boxWidth == "none") {
+		$("#"+idSelecionado).children(".MathJax_SVG_Display").children("span").children("svg").css("max-width","88vw")
+	}
+}
+function zoomUp(idSelecionado) {
+	var boxWidth = $("#"+idSelecionado).children(".MathJax_SVG_Display").children("span").children("svg").css("max-width");
+	if (boxWidth != "none") {
+		$("#"+idSelecionado).children(".MathJax_SVG_Display").children("span").children("svg").css("max-width","none")
+	}
 }

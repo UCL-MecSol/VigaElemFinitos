@@ -57,8 +57,9 @@
             <li class="active"><a href="#">Página Inicial <span class="sr-only">(current)</span></a></li>
             <li><a role="button" data-toggle="modal" data-target="#modalLogDeVersao">Log de Versões</a></li>
             <li><a href="#">Api de Integração</a></li>
-            <li><a href="#">GitHub</a></li>
+            <li><a href="https://github.com/ucl-mecsol/VigaElemFinitos/">GitHub</a></li>
             <li><a href="#">Base Teórica</a></li>
+            <li><a href="#">Valid. Teórica</a></li>
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Opções <span class="caret"></span></a>
               <ul class="dropdown-menu">
@@ -176,7 +177,7 @@
                 <div id="PainelDaCanvas" class="panel-body">
 
                   <canvas id="canvas" style='position:absolute;'></canvas>
-                  <button class="btn btn-primary btn-block" style="border-top-right-radius: 0px;border-top-left-radius: 0px;" type="button" name="button" onclick="CalculaProblemaProposto()"><b> Resolver! </b></button>
+                  <a href="#row2headingOne" class="btn btn-primary btn-block" style="border-top-right-radius: 0px;border-top-left-radius: 0px;" type="button" name="button" onclick="CalculaProblemaProposto()"><b> Resolver! </b></a>
 
                 </div>
               </div>
@@ -204,12 +205,44 @@
 
                       <p>
                         <b>Momento de Inércia (m^4)</b>
-                        <input id="inputInercia" type="number" class="form-control" width="40%" placeholder="Inércia da Viga em Metros^4">
+                        <div class="input-group btn-group" role="group">
+                          <input id="inputInercia" type="number" class="form-control" width="40%" placeholder="Inércia da Viga em Metros^4">
+                          <div class="input-group-btn" role="group">
+                            <button type="button" class="btn btn-default" aria-haspopup="true" data-toggle="modal" data-target="#ModalCalculadora">
+                              Calculadora
+                            </button>
+                          </div>
+                        </div>
                       </p>
 
                       <p>
                         <b>Módulo de Elasticidade (GPa)</b>
-                        <input id="inputElasticidade" type="number" class="form-control" width="40%" placeholder="Elasticidade da Viga em GPa">
+                        <div class="input-group btn-group" role="group">
+                          <!-- <span class="input-group-addon">$</span> -->
+                          <!-- <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)"> -->
+                          <input id="inputElasticidade" type="number" class="form-control" width="40%" placeholder="Elasticidade da Viga em GPa">
+                          <!-- <span role="button" class="input-group-addon">.00</span> -->
+                          <div class="input-group-btn" role="group">
+                            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                              Materiais
+                              <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu" id="materiaisSugeridos">
+                              <li><a role="button" value="200">Aço Comum</a></li>
+                              <li><a role="button" value="70">Alumínio</a></li>
+                              <li><a role="button" value="65">Vidro</a></li>
+                              <li><a role="button" value="30">Concreto</a></li>
+                              <li><a role="button" value="13">Madeira</a></li>
+                              <li><a role="button" value="3">Poliestireno</a></li>
+                            </ul>
+                          </div>
+                        </div>
+                        <!-- <div class="btn-group" role="group" aria-label="...">
+                          <button type="button" class="btn btn-default">1</button>
+                          <button type="button" class="btn btn-default">2</button>
+                        
+                          
+                        </div> -->
                       </p>
 
                       <p><button class="btn btn-primary btn-block btn-lg" type="button" name="button" onclick="LimpaCanvas();canvasincial();DesenhaProblemaProposto();">Desenhe sua Viga!</button></p>
@@ -236,33 +269,29 @@
                   <ul class="list-group">
                     <li class="list-group-item btn-group-vertical">
                       <!-- <p> -->
-                        <button class="btn btn-default btn-sm btn-block" type="button" name="button">
+                        <a href="#matriz1" class="btn btn-default btn-sm btn-block" type="button" name="button">
                           Matriz Global
-                        </button>
-                        <button class="btn btn-default btn-sm btn-block" type="button" name="button">
+                        </a>
+                        <a href="#matriz3" class="btn btn-default btn-sm btn-block" type="button" name="button">
                           Esforços
-                        </button>
-                        <button class="btn btn-default btn-sm btn-block" type="button" name="button">
+                        </a>
+                        <a href="#matriz6" class="btn btn-default btn-sm btn-block" type="button" name="button">
                           Matriz de Coeficientes
-                        </button>
-                        <button class="btn btn-default btn-sm btn-block" type="button" name="button">
+                        </a>
+                        <a href="#container" class="btn btn-default btn-sm btn-block" type="button" name="button">
                           Gráfico de Deslocamentos [ v(x) ]
-                        </button>
-                        <button class="btn btn-default btn-sm btn-block" type="button" name="button">
+                        </a>
+                        <a href="#container2" class="btn btn-default btn-sm btn-block" type="button" name="button">
                           Gráfico de Inclinação [ v'(x) ]
-                        </button>
-                        <button class="btn btn-default btn-sm btn-block" type="button" name="button">
+                        </a>
+                        <a href="#container3" class="btn btn-default btn-sm btn-block" type="button" name="button">
                           Gráfico de Momentos Aplicados [ v''(x) ]
-                        </button>
-                        <button class="btn btn-default btn-sm btn-block" type="button" name="button">
+                        </a>
+                        <a href="#container4" class="btn btn-default btn-sm btn-block" type="button" name="button">
                           Matriz de Esforços Cortantes [ v'''(x) ]
-                        </button>
+                        </a>
                       <!-- </p> -->
                     </li>
-                    <!-- <li class="list-group-item">
-                      <p><button class="btn btn-primary btn-block btn-md" type="button" name="button" style="width: 49%, display: inline-block" data-toggle="modal" data-target="#ModalCalculadora">Calculadora de Inércia</button></p>
-                      <p><button class="btn btn-primary btn-block btn-md" type="button" name="button" style="width: 49%, display: inline-block" data-toggle="modal" data-target="#ModalMateriais">Materiais Padrão</button></p>
-                    </li> -->
                   </ul>
                 <!-- </div> -->
               </div>
@@ -290,6 +319,7 @@
                     <div id="texto-explicacao">
                     </div>
 
+                    <!-- <a href="#deslocamentos"></a> -->
                     <div id="container" style="min-width: 90%; margin: 0 auto;margin-top: 40px;"></div>
                     <div id="container2" style="min-width: 90%; margin: 0 auto;margin-top: 40px;"></div>
                     <div id="container3" style="min-width: 90%; margin: 0 auto;margin-top: 40px;"></div>
@@ -310,7 +340,7 @@
 
 
     <!-- Modal CALCULADORA-->
-    <!-- <div class="modal fade bs-example-modal-lg" id="ModalCalculadora" tabindex="-1" role="dialog" aria-labelledby="ModalCalculadoraLabel">
+    <div class="modal fade bs-example-modal-lg" id="ModalCalculadora" tabindex="-1" role="dialog" aria-labelledby="ModalCalculadoraLabel">
       <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
           <div class="modal-header">
@@ -344,8 +374,8 @@
               <div role="tabpanel" class="tab-pane" id="VigaI">Viga I</div>
               <div role="tabpanel" class="tab-pane" id="VigaH">Viga H</div>
               <div role="tabpanel" class="tab-pane" id="VigaRetangular">...</div> -->
-              <!-- <div role="tabpanel" class="tab-pane" id="Viga Retangular Tubular">...</div> -->
-            <!-- </div>
+              <div role="tabpanel" class="tab-pane" id="Viga Retangular Tubular">...</div>
+            </div>
           </div>
 
           <script>
@@ -361,7 +391,7 @@
           </div>
         </div>
       </div>
-    </div> -->
+    </div>
 
 
     <!-- Modal MATERIAIS -->
@@ -409,6 +439,16 @@
               </thead>
               <tbody>
                 <tr>
+                  <th scope="row">1.0.3</th>
+                  <td>Adição de Materiais Sugeridos para o Módulo de Elasticidade</td>
+                  <td>03/02/2020</td>
+                </tr>
+                <tr>
+                  <th scope="row">1.0.2</th>
+                  <td>Implementação da Funcionalidade da Barra de Rolagem</td>
+                  <td>02/02/2020</td>
+                </tr>
+                <tr>
                   <th scope="row">1.0.1</th>
                   <td>Implementação dos botões de Zoom dos Resultados</td>
                   <td>31/01/2020</td>
@@ -444,16 +484,8 @@
                 </thead>
                 <tbody>
                   <tr>
-                    <th scope="row">1.0.2</th>
-                    <td>Implementação da Funcionalidade da Barra de Rolagem</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">1.0.3</th>
-                    <td>Implementação da impressão da sessão Resultados</td>
-                  </tr>
-                  <tr>
                     <th scope="row">1.0.4</th>
-                    <td>Adição de Materiais Sugeridos para o Módulo de Elasticidade</td>
+                    <td>Implementação da impressão da sessão Resultados</td>
                   </tr>
                   <tr>
                     <th scope="row">1.1.0</th>
@@ -541,6 +573,7 @@
         resizeCanvas();
       })();
     </script>
+    <script src="https://unpkg.com/jspdf@latest/dist/jspdf.min.js"></script>
 
   </body>
 </html>
