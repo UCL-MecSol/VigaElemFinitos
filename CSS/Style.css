@@ -1,72 +1,81 @@
 /* Fonts from Google Fonts - more at https://fonts.google.com */
-@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,700');
-@import url('https://fonts.googleapis.com/css?family=Merriweather:400,700');
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:400,700");
+@import url("https://fonts.googleapis.com/css?family=Merriweather:400,700");
 
-html, body {
-  width: 100%;
-  height: 100%;
-  margin: 0px;
-  scroll-behavior: smooth;
-  border: 0;
+html,
+body {
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+    scroll-behavior: smooth;
+    border: 0;
 }
 body {
-  padding-left: 0.4vw !important;
-  padding-right: 0.4vw !important;
+    padding-left: 0.4vw !important;
+    padding-right: 0.4vw !important;
 }
-.panel-body{padding: 1.2vw !important;}
-.container-fluid{padding: 1.2vw !important;}
-.MathJax_SVG_Display{
-  margin-left: 10px;
-  margin-right: 10px;
+.panel-body {
+    padding: 1.2vw !important;
 }
-.navbar-inverse{
-  top: -21px;
-  left: -6px;
-  width: 100vw;
-  margin-bottom: -13px;
-  border-radius: 0px;
+.container-fluid {
+    padding: 1.2vw !important;
 }
-.navbar-inverse > .container-fluid{
-  padding: 0px 12px !important;
+.MathJax_SVG_Display {
+    margin-left: 10px;
+    margin-right: 10px;
 }
-.navbar-nav > .active > a{
-  background-color: #0808086b !important;
+.navbar-inverse {
+    top: -21px;
+    left: -6px;
+    width: 100vw;
+    margin-bottom: -13px;
+    border-radius: 0px;
+}
+.navbar-inverse > .container-fluid {
+    padding: 0px 12px !important;
+}
+.navbar-nav > .active > a {
+    background-color: #0808086b !important;
 }
 .navbar-nav {
-  font-size: 14px;
+    font-size: 14px;
 }
-.modal-body > .table{
-  margin-bottom: 0px;
+.modal-body > .table {
+    margin-bottom: 0px;
 }
-.table > thead > tr > th, .table > tbody > tr > th, .table > tfoot > tr > th, .table > thead > tr > td, .table > tbody > tr > td, .table > tfoot > tr > td {
-  padding: 7px 8px;
+.table > thead > tr > th,
+.table > tbody > tr > th,
+.table > tfoot > tr > th,
+.table > thead > tr > td,
+.table > tbody > tr > td,
+.table > tfoot > tr > td {
+    padding: 7px 8px;
 }
 .dropdown-menu {
-  left: unset !important;
-  right: 0 !important;
+    left: unset !important;
+    right: 0 !important;
 }
-
 
 /* ABAIXO, INICIA O CSS ORIGINAL DO BOOTSTRAP */
 body {
-  background-color: rgb(245, 245, 245);
-  font-family: "Open Sans", sans-serif;
-  padding: 20px 5px;
-  font-size: 13px;
-  margin: 0;
-  color: #444;
+    background-color: rgb(245, 245, 245);
+    font-family: "Open Sans", sans-serif;
+    padding: 20px 5px;
+    font-size: 13px;
+    margin: 0;
+    color: #444;
 }
 
 h1 {
-  font-family: "Merriweather", serif;
-  font-size: 32px;
+    font-family: "Merriweather", serif;
+    font-size: 32px;
 }
-.form-control-50{
-      position: relative;
-      z-index: 2;
-      float: left;
-      width: 50%;
-      margin-bottom: 0;
+.form-control-50 {
+    position: relative;
+    z-index: 2;
+    float: left;
+    width: 50%;
+    margin-bottom: 0;
 }
 .input-group .form-control-50 {
     height: 34px;
@@ -77,19 +86,19 @@ h1 {
     background-color: #fff;
     background-image: none;
     border: 1px solid #ccc;
-    box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
-    transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+    transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
 }
 
 .input-group {
-  margin-top: -1px;  
+    margin-top: -1px;
 }
 
 .glyphicon-2linhas {
     position: relative;
     top: 1px;
     display: inline-block;
-    font-family: 'Glyphicons Halflings';
+    font-family: "Glyphicons Halflings";
     font-style: normal;
     font-weight: 400;
     line-height: 3.9;
@@ -101,31 +110,83 @@ h1 {
     content: "\e014";
 }
 
-.btn-no-border{
-  border: 0px;
+.btn-no-border {
+    border: 0px;
 }
 
-.perc100-px{
-width: calc(100% - 1px);
+.perc100-px {
+    width: calc(100% - 1px);
 }
 
-.block-geral{
-  display: block;
-  width: 100%;
+.block-geral {
+    display: block;
+    width: 100%;
 }
 
-.inline-block-adicionar{
-  display: inline-block;
-  width: 25%;
-  padding-left: 3px;
+.inline-block-adicionar {
+    display: inline-block;
+    width: 25%;
+    padding-left: 3px;
 }
 
-@import url('//maxcdn.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css');
+@import url("//maxcdn.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css");
 
 .panel-default > .bg-info {
     background: rgb(226, 226, 226); /*color: #fff;*/
 }
 
 canvas {
-    border:1px solid #000;
+    border: 1px solid #000;
+}
+
+#tamanhoDiv1,
+#tamanhoDiv2 {
+    padding: 0px;
+    margin-bottom: 15px;
+    overflow: hidden;
+    display: flex;
+}
+#tamanhoDiv1 > button,
+#tamanhoDiv2 > button {
+    padding: 6px;
+    flex-grow: 1;
+}
+.colunaLateral,
+.colunaPrincipal {
+    padding: 0px 5px;
+}
+.seccoes{
+	display: flex;
+	width: 100%;
+	z-index: 2;
+	background: transparent;
+}
+.seccoes li{
+	flex-grow: 1;
+	max-width: 1fr;
+	width: 100%;
+	height: 100%;
+	margin: 3px;
+	z-index: 2;
+	background: transparent;
+}
+.seccoes button:hover, .seccoes button:active, .seccoes button:focus, .seccoes button:target, .seccoes button::backdrop{
+	background: rgba(0,0,0,0.1) !important;
+	outline: none !important;
+	box-shadow: none !important;
+}
+.seccoes button{
+	padding: 4px;
+	width: inherit;
+	height: inherit;
+	display: flex;
+	z-index: 2;
+	background: transparent;
+}
+.seccoes img{
+	/* max-width: 60px; */
+	width: inherit;
+	/* height: inherit; */
+	margin: auto;
+	z-index: -1;
 }
