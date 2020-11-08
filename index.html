@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="apple-mobile-web-app-capable" content="yes">
     <title>Viga - Elementos Finitos</title>
 
     <!-- Bootstrap -->
@@ -15,67 +17,58 @@
     <script type="text/javascript" src="JS/fabricExtensions.js"></script>
     <script type="text/javascript" src="JS/moment.js"></script>
 
-    <script type="text/x-mathjax-config"> <!-- Biblioteca para escrever equação com LaTeX -->
-      MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
-      MathJax.Hub.Config({
-      CommonHTML: { linebreaks: { automatic: true } },
-      "HTML-CSS": { linebreaks: { automatic: true } },
-             SVG: { linebreaks: { automatic: true } }
-      });
-      MathJax.Hub.Register.StartupHook("End Jax",function () {
-        var BROWSER = MathJax.Hub.Browser;
-        var jax = "HTML-CSS";
-        if (BROWSER.isMSIE && BROWSER.hasMathPlayer) jax = "NativeMML";
-        return MathJax.Hub.setRenderer(jax);
-      });
+    <script type="text/x-mathjax-config">
+        <!-- Biblioteca para escrever equação com LaTeX -->
+        MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}}); MathJax.Hub.Config({ CommonHTML: { linebreaks: { automatic: true } }, "HTML-CSS": { linebreaks: { automatic: true } }, SVG: { linebreaks: { automatic: true } } }); MathJax.Hub.Register.StartupHook("End
+        Jax",function () { var BROWSER = MathJax.Hub.Browser; var jax = "HTML-CSS"; if (BROWSER.isMSIE && BROWSER.hasMathPlayer) jax = "NativeMML"; return MathJax.Hub.setRenderer(jax); });
     </script>
 
-    <script type="text/javascript" async
-      src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML">
+    <script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML">
     </script>
 
 
-  </head>
-  <body onload="canvasincial();startcanvas();">
+</head>
+
+<body onload="canvasincial();startcanvas();">
 
     <nav class="navbar navbar-inverse">
-      <div class="container-fluid">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
             <span class="sr-only">Toggle navigation</span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">Montagem de Viga Elementos Finitos</a>
-        </div>
-    
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-          <ul class="nav navbar-nav">
-            <li class="active"><a href="#">Página Inicial <span class="sr-only">(current)</span></a></li>
-            <li><a role="button" data-toggle="modal" data-target="#modalLogDeVersao">Log de Versões</a></li>
-            <li><a href="#">Api de Integração</a></li>
-            <li><a href="https://github.com/ucl-mecsol/VigaElemFinitos/">GitHub</a></li>
-            <li><a href="#">Base Teórica</a></li>
-            <li><a href="#">Valid. Teórica</a></li>
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Opções <span class="caret"></span></a>
-              <ul class="dropdown-menu">
-                <li><a href="#">Baixar Imagem da Viga</a></li>
-                <li><a href="#">Baixar PDF de Resultados</a></li>
-                <!-- <li><a href="#">Something else here</a></li> -->
-                <!-- <li role="separator" class="divider"></li>
+                <a class="navbar-brand" href="#" style="font-size: 1.75rem;">Montagem de Viga Elementos Finitos</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="#">Página Inicial <span class="sr-only">(current)</span></a></li>
+                    <li><a role="button" data-toggle="modal" data-target="#modalLogDeVersao">Log de Versões</a></li>
+                    <li><a href="#">Api de Integração</a></li>
+                    <li><a href="https://github.com/ucl-mecsol/VigaElemFinitos/">GitHub</a></li>
+                    <li><a href="#">Base Teórica</a></li>
+                    <li><a href="#">Valid. Teórica</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Opções <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Baixar Imagem da Viga</a></li>
+                            <li><a href="#">Baixar PDF de Resultados</a></li>
+                            <!-- <li><a href="#">Something else here</a></li> -->
+                            <!-- <li role="separator" class="divider"></li>
                 <li><a href="#">Separated link</a></li>
                 <li role="separator" class="divider"></li>
                 <li><a href="#">One more separated link</a></li> -->
-              </ul>
-            </li>
-          </ul>
-          <ul class="nav navbar-nav navbar-right">
-            <li><a href="#" style="font-size: 18px">#### Vigas Simuladas!</a></li>
-            <!-- <li class="dropdown">
+                        </ul>
+                    </li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#" style="font-size: 18px">#### Vigas Simuladas!</a></li>
+                    <!-- <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
               <ul class="dropdown-menu">
                 <li><a href="#">Action</a></li>
@@ -85,253 +78,259 @@
                 <li><a href="#">Separated link</a></li>
               </ul>
             </li> -->
-          </ul>
-        </div><!-- /.navbar-collapse -->
-      </div><!-- /.container-fluid -->
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
     </nav>
 
     <div class="container-fluid">
 
-      <div class="row">
+        <div class="row">
 
-        <div class="col-md-3">
-          <div class="panel-group" role="tablist" aria-multiselectable="true">
-            <div class="panel panel-default">
-              <div class="panel-heading bg-info" role="tab" id="headingOne">
-                <h4 class="panel-title">
-                  <a role="button" data-toggle="collapse" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                    <b>Adicione novos Apoios!</b>
-                  </a>
-                </h4>
-              </div>
-              <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
-                <div class="panel-body">
+            <div class="col-md-3">
+                <div class="panel-group" role="tablist" aria-multiselectable="true">
+                    <div class="panel panel-default">
+                        <div class="panel-heading bg-info" role="tab" id="headingOne">
+                            <h4 class="panel-title">
+                                <a role="button" data-toggle="collapse" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                    <b>Adicione novos Apoios!</b>
+                                </a>
+                            </h4>
+                        </div>
+                        <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+                            <div class="panel-body">
 
 
-                  <div id="tamanhoDiv1" style="padding: 0px;margin-bottom: 15px; overflow: hidden" class="col-sm-12">
-                      <button style="padding: 6px; width: calc(33% - 2px)" class="btn btn-default btn-no-border">
+                                <div id="tamanhoDiv1" style="padding: 0px;margin-bottom: 15px; overflow: hidden" class="col-sm-12">
+                                    <button style="padding: 6px; width: calc(33% - 2px)" class="btn btn-default btn-no-border">
                         <img id="tamIcone1" src="Img/RoleteIcone.png" alt="..."  onclick="addPrimGrau()">
                       </button>
 
-                      <button style="padding: 6px; width: calc(33% - 2px)" class="btn btn-default btn-no-border">
+                                    <button style="padding: 6px; width: calc(33% - 2px)" class="btn btn-default btn-no-border">
                         <img id="tamIcone2" src="Img/Apoio2Icone.png" alt="..."  onclick="addSeguGrau()">
                       </button>
 
-                      <button style="padding: 6px; width: calc(33% - 2px)" class="btn btn-default btn-no-border">
+                                    <button style="padding: 6px; width: calc(33% - 2px)" class="btn btn-default btn-no-border">
                         <img id="tamIcone3" src="Img/EngasteIcone.png" alt="..."  onclick="addTercGrau()">
                       </button>
+                                </div>
+
+                                <p>
+                                    <div class="" id="divApoios"></div>
+                                </p>
+                                <p><button id="limpaApoios" class="btn btn-danger btn-block" type="button" name="button" onclick="LimpaApoios();">Apagar todos os Apoios</button></p>
+
+                            </div>
+                        </div>
                     </div>
 
-                  <p><div class="" id="divApoios"></div></p>
-                  <p><button id="limpaApoios" class="btn btn-danger btn-block" type="button" name="button" onclick="LimpaApoios();">Apagar todos os Apoios</button></p>
 
-                </div>
-              </div>
-            </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading bg-info" role="tab" id="heading-2">
+                            <h4 class="panel-title">
+                                <a role="button" data-toggle="collapse" href="#collapse-2" aria-expanded="true" aria-controls="collapse-2">
+                                    <b>Adicione novas Cargas!</b>
+                                </a>
+                            </h4>
+                        </div>
+                        <div id="collapse-2" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="heading-2">
+                            <div class="panel-body">
 
-
-            <div class="panel panel-default">
-              <div class="panel-heading bg-info" role="tab" id="heading-2">
-                <h4 class="panel-title">
-                  <a role="button" data-toggle="collapse" href="#collapse-2" aria-expanded="true" aria-controls="collapse-2">
-                    <b>Adicione novas Cargas!</b>
-                  </a>
-                </h4>
-              </div>
-              <div id="collapse-2" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="heading-2">
-                <div class="panel-body">
-
-                  <div id="tamanhoDiv2" style="padding: 0px;margin-bottom: 15px" class="col-sm-12">
-                      <button style="padding: 6px; display: inline-block; width: calc(33% - 2px)" class="btn btn-default btn-no-border">
+                                <div id="tamanhoDiv2" style="padding: 0px;margin-bottom: 15px" class="col-sm-12">
+                                    <button style="padding: 6px; display: inline-block; width: calc(33% - 2px)" class="btn btn-default btn-no-border">
                         <img id="tamIcone4" src="Img/PIcone.png" alt="..."  onclick="addForca()">
                       </button>
 
-                      <button style="padding: 6px; display: inline-block; width: calc(33% - 2px)" class="btn btn-default btn-no-border">
+                                    <button style="padding: 6px; display: inline-block; width: calc(33% - 2px)" class="btn btn-default btn-no-border">
                         <img id="tamIcone5" src="Img/carregamentoIcone.png" alt="..."  onclick="addCarreg()">
                       </button>
 
-                      <button style="padding: 6px; display: inline-block; width: calc(33% - 2px)" class="btn btn-default btn-no-border">
+                                    <button style="padding: 6px; display: inline-block; width: calc(33% - 2px)" class="btn btn-default btn-no-border">
                         <img id="tamIcone6" src="Img/momento SH Icone.png" alt="..."  onclick="addMoment()">
                       </button>
+                                </div>
+
+                                <p>
+                                    <div class="" id="divCargas"></div>
+                                </p>
+                                <p><button id="limpaCargas" class="btn btn-danger btn-block" type="button" name="button" onclick="LimpaCargas();">Apagar todas as Cargas</button></p>
+                            </div>
+                        </div>
                     </div>
-
-                  <p><div class="" id="divCargas"></div></p>
-                  <p><button id="limpaCargas" class="btn btn-danger btn-block" type="button" name="button" onclick="LimpaCargas();">Apagar todas as Cargas</button></p>
                 </div>
-              </div>
             </div>
-          </div>
-        </div>
 
-        <div class="col-md-6">
-          <div class="panel-group" role="tablist" aria-multiselectable="true">
-            <div class="panel panel-default">
-              <div class="panel-heading bg-info" role="tab" id="heading2">
-                <h4 class="panel-title">
-                  <a role="button" data-toggle="collapse" href="#collapse2" aria-expanded="true" aria-controls="collapse2">
-                    <b>Montagem da viga</b>
-                  </a>
-                </h4>
-              </div>
-              <div id="collapse2" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="heading2">
-                <div id="PainelDaCanvas" class="panel-body">
+            <div class="col-md-6">
+                <div class="panel-group" role="tablist" aria-multiselectable="true">
+                    <div class="panel panel-default">
+                        <div class="panel-heading bg-info" role="tab" id="heading2">
+                            <h4 class="panel-title">
+                                <a role="button" data-toggle="collapse" href="#collapse2" aria-expanded="true" aria-controls="collapse2">
+                                    <b>Montagem da viga</b>
+                                </a>
+                            </h4>
+                        </div>
+                        <div id="collapse2" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="heading2">
+                            <div id="PainelDaCanvas" class="panel-body">
 
-                  <canvas id="canvas" style='position:absolute;'></canvas>
-                  <a href="#row2headingOne" class="btn btn-primary btn-block" style="border-top-right-radius: 0px;border-top-left-radius: 0px;" type="button" name="button" onclick="CalculaProblemaProposto()"><b> Resolver! </b></a>
+                                <canvas id="canvas" style='position:absolute;'></canvas>
+                                <a href="#row2headingOne" class="btn btn-primary btn-block" style="border-top-right-radius: 0px;border-top-left-radius: 0px;" type="button" name="button" onclick="CalculaProblemaProposto()"><b> Resolver! </b></a>
 
+                            </div>
+                        </div>
+                    </div>
                 </div>
-              </div>
             </div>
-          </div>
-        </div>
 
-        <div class="col-md-3">
-          <div class="panel-group" role="tablist" aria-multiselectable="true">
-            <div class="panel panel-default">
-              <div class="panel-heading bg-info" role="tab" id="heading3">
-                <h4 class="panel-title">
-                  <a role="button" data-toggle="collapse" href="#collapse3" aria-expanded="true" aria-controls="collapse3">
-                    <b>Montagem do Perfil</b>
-                  </a>
-                </h4>
-              </div>
-              <div id="collapse3" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="heading3">
-                  <ul class="list-group">
-                    <li class="list-group-item">
-                      <p>
-                        <b>Comprimento da Viga (m)</b>
-                        <input id="inputComprimentoViga" type="number" class="form-control" width="40%" placeholder="Comprimento da Viga em Metros">
-                      </p>
+            <div class="col-md-3">
+                <div class="panel-group" role="tablist" aria-multiselectable="true">
+                    <div class="panel panel-default">
+                        <div class="panel-heading bg-info" role="tab" id="heading3">
+                            <h4 class="panel-title">
+                                <a role="button" data-toggle="collapse" href="#collapse3" aria-expanded="true" aria-controls="collapse3">
+                                    <b>Montagem do Perfil</b>
+                                </a>
+                            </h4>
+                        </div>
+                        <div id="collapse3" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="heading3">
+                            <ul class="list-group">
+                                <li class="list-group-item">
+                                    <p>
+                                        <b>Comprimento da Viga (m)</b>
+                                        <input id="inputComprimentoViga" type="number" class="form-control" width="40%" placeholder="Comprimento da Viga em Metros">
+                                    </p>
 
-                      <p>
-                        <b>Momento de Inércia (m^4)</b>
-                        <div class="input-group btn-group" role="group">
-                          <input id="inputInercia" type="number" class="form-control" width="40%" placeholder="Inércia da Viga em Metros^4">
-                          <div class="input-group-btn" role="group">
-                            <button type="button" class="btn btn-default" aria-haspopup="true" data-toggle="modal" data-target="#ModalCalculadora">
+                                    <p>
+                                        <b>Momento de Inércia (m^4)</b>
+                                        <div class="input-group btn-group" role="group">
+                                            <input id="inputInercia" type="number" class="form-control" width="40%" placeholder="Inércia da Viga em Metros^4">
+                                            <div class="input-group-btn" role="group">
+                                                <button type="button" class="btn btn-default" aria-haspopup="true" data-toggle="modal" data-target="#ModalCalculadora">
                               Calculadora
                             </button>
-                          </div>
-                        </div>
-                      </p>
+                                            </div>
+                                        </div>
+                                    </p>
 
-                      <p>
-                        <b>Módulo de Elasticidade (GPa)</b>
-                        <div class="input-group btn-group" role="group">
-                          <!-- <span class="input-group-addon">$</span> -->
-                          <!-- <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)"> -->
-                          <input id="inputElasticidade" type="number" class="form-control" width="40%" placeholder="Elasticidade da Viga em GPa">
-                          <!-- <span role="button" class="input-group-addon">.00</span> -->
-                          <div class="input-group-btn" role="group">
-                            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <p>
+                                        <b>Módulo de Elasticidade (GPa)</b>
+                                        <div class="input-group btn-group" role="group">
+                                            <!-- <span class="input-group-addon">$</span> -->
+                                            <!-- <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)"> -->
+                                            <input id="inputElasticidade" type="number" class="form-control" width="40%" placeholder="Elasticidade da Viga em GPa">
+                                            <!-- <span role="button" class="input-group-addon">.00</span> -->
+                                            <div class="input-group-btn" role="group">
+                                                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                               Materiais
                               <span class="caret"></span>
                             </button>
-                            <ul class="dropdown-menu" id="materiaisSugeridos">
-                              <li><a role="button" value="200">Aço Comum</a></li>
-                              <li><a role="button" value="70">Alumínio</a></li>
-                              <li><a role="button" value="65">Vidro</a></li>
-                              <li><a role="button" value="30">Concreto</a></li>
-                              <li><a role="button" value="13">Madeira</a></li>
-                              <li><a role="button" value="3">Poliestireno</a></li>
-                            </ul>
-                          </div>
-                        </div>
-                        <!-- <div class="btn-group" role="group" aria-label="...">
+                                                <ul class="dropdown-menu" id="materiaisSugeridos">
+                                                    <li><a role="button" value="200">Aço Comum</a></li>
+                                                    <li><a role="button" value="70">Alumínio</a></li>
+                                                    <li><a role="button" value="65">Vidro</a></li>
+                                                    <li><a role="button" value="30">Concreto</a></li>
+                                                    <li><a role="button" value="13">Madeira</a></li>
+                                                    <li><a role="button" value="3">Poliestireno</a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <!-- <div class="btn-group" role="group" aria-label="...">
                           <button type="button" class="btn btn-default">1</button>
                           <button type="button" class="btn btn-default">2</button>
                         
                           
                         </div> -->
-                      </p>
+                                    </p>
 
-                      <p><button class="btn btn-primary btn-block btn-lg" type="button" name="button" onclick="LimpaCanvas();canvasincial();DesenhaProblemaProposto();">Desenhe sua Viga!</button></p>
+                                    <p><button class="btn btn-primary btn-block btn-lg" type="button" name="button" onclick="LimpaCanvas();canvasincial();DesenhaProblemaProposto();">Desenhe sua Viga!</button></p>
 
-                    </li>
-                    <!-- <li class="list-group-item">
+                                </li>
+                                <!-- <li class="list-group-item">
                       <p><button class="btn btn-primary btn-block btn-md" type="button" name="button" style="width: 49%, display: inline-block" data-toggle="modal" data-target="#ModalCalculadora">Calculadora de Inércia</button></p>
                       <p><button class="btn btn-primary btn-block btn-md" type="button" name="button" style="width: 49%, display: inline-block" data-toggle="modal" data-target="#ModalMateriais">Materiais Padrão</button></p>
                     </li> -->
-                  </ul>
-                <!-- </div> -->
-              </div>
-            </div>
-
-            <div class="panel panel-default">
-              <div class="panel-heading bg-info" role="tab" id="heading4">
-                <h4 class="panel-title">
-                  <a role="button" data-toggle="collapse" href="#collapse4" aria-expanded="true" aria-controls="collapse4">
-                    <b>Rolagem para Seção</b>
-                  </a>
-                </h4>
-              </div>
-              <div id="collapse4" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="heading4">
-                  <ul class="list-group">
-                    <li class="list-group-item btn-group-vertical">
-                      <!-- <p> -->
-                        <a href="#matriz1" class="btn btn-default btn-sm btn-block" type="button" name="button">
-                          Matriz Global
-                        </a>
-                        <a href="#matriz3" class="btn btn-default btn-sm btn-block" type="button" name="button">
-                          Esforços
-                        </a>
-                        <a href="#matriz6" class="btn btn-default btn-sm btn-block" type="button" name="button">
-                          Matriz de Coeficientes
-                        </a>
-                        <a href="#container" class="btn btn-default btn-sm btn-block" type="button" name="button">
-                          Gráfico de Deslocamentos [ v(x) ]
-                        </a>
-                        <a href="#container2" class="btn btn-default btn-sm btn-block" type="button" name="button">
-                          Gráfico de Inclinação [ v'(x) ]
-                        </a>
-                        <a href="#container3" class="btn btn-default btn-sm btn-block" type="button" name="button">
-                          Gráfico de Momentos Aplicados [ v''(x) ]
-                        </a>
-                        <a href="#container4" class="btn btn-default btn-sm btn-block" type="button" name="button">
-                          Matriz de Esforços Cortantes [ v'''(x) ]
-                        </a>
-                      <!-- </p> -->
-                    </li>
-                  </ul>
-                <!-- </div> -->
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="row">
-
-          <div class="col-md-12">
-            <div class="panel-group" role="tablist" aria-multiselectable="true">
-              <div class="panel panel-default">
-                <div class="panel-heading bg-info" role="tab" id="row2headingOne">
-                  <h4 class="panel-title">
-                    <a role="button" data-toggle="collapse" href="#row2collapseOne" aria-expanded="true" aria-controls="row2collapseOne">
-                      <b>Resultado dos Cálculos!</b>
-                    </a>
-                  </h4>
-                </div>
-                <div id="row2collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="row2headingOne">
-                  <div class="panel-body">
-
-
-                    <div id="texto-explicacao">
+                            </ul>
+                            <!-- </div> -->
+                        </div>
                     </div>
 
-                    <!-- <a href="#deslocamentos"></a> -->
-                    <div id="container" style="min-width: 90%; margin: 0 auto;margin-top: 40px;"></div>
-                    <div id="container2" style="min-width: 90%; margin: 0 auto;margin-top: 40px;"></div>
-                    <div id="container3" style="min-width: 90%; margin: 0 auto;margin-top: 40px;"></div>
-                    <div id="container4" style="min-width: 90%; margin: 0 auto;margin-top: 40px;"></div>
-
-
-                  </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading bg-info" role="tab" id="heading4">
+                            <h4 class="panel-title">
+                                <a role="button" data-toggle="collapse" href="#collapse4" aria-expanded="true" aria-controls="collapse4">
+                                    <b>Rolagem para Seção</b>
+                                </a>
+                            </h4>
+                        </div>
+                        <div id="collapse4" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="heading4">
+                            <ul class="list-group">
+                                <li class="list-group-item btn-group-vertical">
+                                    <!-- <p> -->
+                                    <a href="#matriz1" class="btn btn-default btn-sm btn-block" type="button" name="button">
+                          Matriz Global
+                        </a>
+                                    <a href="#matriz3" class="btn btn-default btn-sm btn-block" type="button" name="button">
+                          Esforços
+                        </a>
+                                    <a href="#matriz6" class="btn btn-default btn-sm btn-block" type="button" name="button">
+                          Matriz de Coeficientes
+                        </a>
+                                    <a href="#container" class="btn btn-default btn-sm btn-block" type="button" name="button">
+                          Gráfico de Deslocamentos [ v(x) ]
+                        </a>
+                                    <a href="#container2" class="btn btn-default btn-sm btn-block" type="button" name="button">
+                          Gráfico de Inclinação [ v'(x) ]
+                        </a>
+                                    <a href="#container3" class="btn btn-default btn-sm btn-block" type="button" name="button">
+                          Gráfico de Momentos Aplicados [ v''(x) ]
+                        </a>
+                                    <a href="#container4" class="btn btn-default btn-sm btn-block" type="button" name="button">
+                          Matriz de Esforços Cortantes [ v'''(x) ]
+                        </a>
+                                    <!-- </p> -->
+                                </li>
+                            </ul>
+                            <!-- </div> -->
+                        </div>
+                    </div>
                 </div>
-              </div>
             </div>
-          </div>
-      </div>
+        </div>
+
+        <div class="row">
+
+            <div class="col-md-12">
+                <div class="panel-group" role="tablist" aria-multiselectable="true">
+                    <div class="panel panel-default">
+                        <div class="panel-heading bg-info" role="tab" id="row2headingOne">
+                            <h4 class="panel-title">
+                                <a role="button" data-toggle="collapse" href="#row2collapseOne" aria-expanded="true" aria-controls="row2collapseOne">
+                                    <b>Resultado dos Cálculos!</b>
+                                </a>
+                            </h4>
+                        </div>
+                        <div id="row2collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="row2headingOne">
+                            <div class="panel-body">
+
+
+                                <div id="texto-explicacao">
+                                </div>
+
+                                <!-- <a href="#deslocamentos"></a> -->
+                                <div id="container" style="min-width: 90%; margin: 0 auto;margin-top: 40px;"></div>
+                                <div id="container2" style="min-width: 90%; margin: 0 auto;margin-top: 40px;"></div>
+                                <div id="container3" style="min-width: 90%; margin: 0 auto;margin-top: 40px;"></div>
+                                <div id="container4" style="min-width: 90%; margin: 0 auto;margin-top: 40px;"></div>
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
     </div>
 
@@ -341,56 +340,57 @@
 
     <!-- Modal CALCULADORA-->
     <div class="modal fade bs-example-modal-lg" id="ModalCalculadora" tabindex="-1" role="dialog" aria-labelledby="ModalCalculadoraLabel">
-      <div class="modal-dialog modal-lg" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <h4 class="modal-title" id="ModalCalculadoraLabel">Modal title</h4>
-          </div>
-          <div class="modal-body">
-            Calculadora
-            <div class="row">
-              <ul class="nav nav-tabs" role="tablist">
-                <li role="presentation"><button type="button" class="btn btn-default" href="#VigaI" aria-controls="VigaI" role="tab" data-toggle="tab">
-                  <img src="file:///Img/Imagens/Imagens Temporarias/secao-transversal-I-e1406825272180.jpg" alt=""></button></li></li>
-                <li role="presentation"><button type="button" class="btn btn-default" href="#VigaH" aria-controls="VigaH" role="tab" data-toggle="tab">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="ModalCalculadoraLabel">Modal title</h4>
+                </div>
+                <div class="modal-body">
+                    Calculadora
+                    <div class="row">
+                        <ul class="nav nav-tabs" role="tablist">
+                            <li role="presentation"><button type="button" class="btn btn-default" href="#VigaI" aria-controls="VigaI" role="tab" data-toggle="tab">
                   <img src="file:///Img/Imagens/Imagens Temporarias/secao-transversal-I-e1406825272180.jpg" alt=""></button></li>
-                <li role="presentation"><button type="button" class="btn btn-default" href="#VigaRetangular" aria-controls="VigaRetangular" role="tab" data-toggle="tab">
+                            </li>
+                            <li role="presentation"><button type="button" class="btn btn-default" href="#VigaH" aria-controls="VigaH" role="tab" data-toggle="tab">
+                  <img src="file:///Img/Imagens/Imagens Temporarias/secao-transversal-I-e1406825272180.jpg" alt=""></button></li>
+                            <li role="presentation"><button type="button" class="btn btn-default" href="#VigaRetangular" aria-controls="VigaRetangular" role="tab" data-toggle="tab">
                   <img src="file:///Img/Imagens/Imagens Temporarias/seccao-transversal-retangular-e1406825573410.jpg" alt=""></button></li>
-                <li role="presentation"><button type="button" class="btn btn-default" href="#Viga Retangular Tubular" aria-controls="Viga Retangular Tubular" role="tab" data-toggle="tab">
+                            <li role="presentation"><button type="button" class="btn btn-default" href="#Viga Retangular Tubular" aria-controls="Viga Retangular Tubular" role="tab" data-toggle="tab">
                   <img src="file:///Img/Imagens/Imagens Temporarias/secao-transversal-tubular-retangular-e1406825178498.jpg" alt=""></button></li>
-                <li role="presentation"><button type="button" class="btn btn-default" href="#Viga I" aria-controls="Viga I" role="tab" data-toggle="tab">
+                            <li role="presentation"><button type="button" class="btn btn-default" href="#Viga I" aria-controls="Viga I" role="tab" data-toggle="tab">
                   <img src="file:///Img/Imagens/Imagens Temporarias/secao-transversal-circular-cheia.jpg" alt=""></button></li>
-                <li role="presentation"><button type="button" class="btn btn-default" href="#Viga I" aria-controls="Viga I" role="tab" data-toggle="tab">
+                            <li role="presentation"><button type="button" class="btn btn-default" href="#Viga I" aria-controls="Viga I" role="tab" data-toggle="tab">
                   <img src="file:///Img/Imagens/Imagens Temporarias/secao-transversal-circular-vazada-e1406825255997.jpg" alt=""></button></li>
-                <li role="presentation"><button type="button" class="btn btn-default" href="#Viga I" aria-controls="Viga I" role="tab" data-toggle="tab">
+                            <li role="presentation"><button type="button" class="btn btn-default" href="#Viga I" aria-controls="Viga I" role="tab" data-toggle="tab">
                   <img src="file:///Img/Imagens/Imagens Temporarias/secao-transversal-C-e1406825295678.jpg" alt=""></button></li>
-                <li role="presentation"><button type="button" class="btn btn-default" href="#Viga I" aria-controls="Viga I" role="tab" data-toggle="tab">
+                            <li role="presentation"><button type="button" class="btn btn-default" href="#Viga I" aria-controls="Viga I" role="tab" data-toggle="tab">
                   <img src="file:///Img/Imagens/Imagens Temporarias/secao-transversal-T-e1406825311501.jpg" alt=""></button></li>
-              </ul>
-            </div>
-            <div class="tab-content">
-              <div role="tabpanel" class="tab-pane active" id="home">Clique em um botão e escolha seu Perfil!</div>
-              <div role="tabpanel" class="tab-pane" id="VigaI">Viga I</div>
-              <div role="tabpanel" class="tab-pane" id="VigaH">Viga H</div>
-              <div role="tabpanel" class="tab-pane" id="VigaRetangular">...</div> -->
-              <div role="tabpanel" class="tab-pane" id="Viga Retangular Tubular">...</div>
-            </div>
-          </div>
+                        </ul>
+                    </div>
+                    <div class="tab-content">
+                        <div role="tabpanel" class="tab-pane active" id="home">Clique em um botão e escolha seu Perfil!</div>
+                        <div role="tabpanel" class="tab-pane" id="VigaI">Viga I</div>
+                        <div role="tabpanel" class="tab-pane" id="VigaH">Viga H</div>
+                        <div role="tabpanel" class="tab-pane" id="VigaRetangular">...</div> -->
+                        <div role="tabpanel" class="tab-pane" id="Viga Retangular Tubular">...</div>
+                    </div>
+                </div>
 
-          <script>
-            $('#myTabs a').click(function (e) {
-            e.preventDefault()
-            $(this).tab('show')
-            })
-          </script>
+                <script>
+                    $('#myTabs a').click(function(e) {
+                        e.preventDefault()
+                        $(this).tab('show')
+                    })
+                </script>
 
-          <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary">Save changes</button>
-          </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+            </div>
         </div>
-      </div>
     </div>
 
 
@@ -420,50 +420,50 @@
 
     <!-- Modal -->
     <div class="modal fade" id="modalLogDeVersao" tabindex="-1" role="dialog" aria-labelledby="modalLogDeVersaoLabel">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <h4 class="modal-title" id="modalLogDeVersaoLabel">Log de Versões</h4>
-          </div>
-          <div class="modal-body" style="overflow-y: auto;max-height: 75vh;">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="modalLogDeVersaoLabel">Log de Versões</h4>
+                </div>
+                <div class="modal-body" style="overflow-y: auto;max-height: 75vh;">
 
-            <table class="table">
-              <caption>Funcionalidades Implementadas.</caption>
-              <thead>
-                <tr>
-                  <th style="width: 12%;">#</th>
-                  <th>Funcionalidade</th>
-                  <th>Data</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <th scope="row">1.0.3</th>
-                  <td>Adição de Materiais Sugeridos para o Módulo de Elasticidade</td>
-                  <td>03/02/2020</td>
-                </tr>
-                <tr>
-                  <th scope="row">1.0.2</th>
-                  <td>Implementação da Funcionalidade da Barra de Rolagem</td>
-                  <td>02/02/2020</td>
-                </tr>
-                <tr>
-                  <th scope="row">1.0.1</th>
-                  <td>Implementação dos botões de Zoom dos Resultados</td>
-                  <td>31/01/2020</td>
-                </tr>
-                <tr>
-                  <th scope="row">1.0.0</th>
-                  <td>Versão Atual da Plataforma, contendo:
-                    <ul>
-                      <li>Gerador de Imagem da Viga</li>
-                      <li>Funcionalidade esperada do Software</li>
-                    </ul>
-                  <td>23/12/2017</td>
-                  </td>
-                </tr>
-                <!-- <tr>
+                    <table class="table">
+                        <caption>Funcionalidades Implementadas.</caption>
+                        <thead>
+                            <tr>
+                                <th style="width: 12%;">#</th>
+                                <th>Funcionalidade</th>
+                                <th>Data</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">1.0.3</th>
+                                <td>Adição de Materiais Sugeridos para o Módulo de Elasticidade</td>
+                                <td>03/02/2020</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">1.0.2</th>
+                                <td>Implementação da Funcionalidade da Barra de Rolagem</td>
+                                <td>02/02/2020</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">1.0.1</th>
+                                <td>Implementação dos botões de Zoom dos Resultados</td>
+                                <td>31/01/2020</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">1.0.0</th>
+                                <td>Versão Atual da Plataforma, contendo:
+                                    <ul>
+                                        <li>Gerador de Imagem da Viga</li>
+                                        <li>Funcionalidade esperada do Software</li>
+                                    </ul>
+                                    <td>23/12/2017</td>
+                                </td>
+                            </tr>
+                            <!-- <tr>
                   <th scope="row">0.0.2</th>
                   <td>Jacob</td>
                 </tr>
@@ -471,63 +471,63 @@
                   <th scope="row">0.0.1</th>
                   <td>Larry</td>
                 </tr> -->
-              </tbody>
-            </table>
+                        </tbody>
+                    </table>
 
-            <table class="table">
-                <caption>Funcionalidades Previstas.</caption>
-                <thead>
-                  <tr>
-                    <th style="width: 12%;">#</th>
-                    <th>Funcionalidade</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <th scope="row">1.0.4</th>
-                    <td>Implementação da impressão da sessão Resultados</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">1.1.0</th>
-                    <td>Liberação do Front-End ao Público</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">1.1.1</th>
-                    <td>Inserção da API de Integração via Funções</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">1.1.2</th>
-                    <td>API de Integração do conteúdo (DOM) da página</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">1.1.3</th>
-                    <td>Input de inserção de dados da API diretamente na página</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">1.2.0</th>
-                    <td>Liberação do Back-End ao Público</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">1.2.1</th>
-                    <td>Integração de servidor com a plataforma</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">2.0.0</th>
-                    <td>Lançamento da Renovação Oficial da Plataforma</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">2.0.1</th>
-                    <td>Adição da nova funcionalidade de "Circulo de Mohr"</td>
-                  </tr>
-                </tbody>
-              </table>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
-            <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
-          </div>
+                    <table class="table">
+                        <caption>Funcionalidades Previstas.</caption>
+                        <thead>
+                            <tr>
+                                <th style="width: 12%;">#</th>
+                                <th>Funcionalidade</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">1.0.4</th>
+                                <td>Implementação da impressão da sessão Resultados</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">1.1.0</th>
+                                <td>Liberação do Front-End ao Público</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">1.1.1</th>
+                                <td>Inserção da API de Integração via Funções</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">1.1.2</th>
+                                <td>API de Integração do conteúdo (DOM) da página</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">1.1.3</th>
+                                <td>Input de inserção de dados da API diretamente na página</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">1.2.0</th>
+                                <td>Liberação do Back-End ao Público</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">1.2.1</th>
+                                <td>Integração de servidor com a plataforma</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">2.0.0</th>
+                                <td>Lançamento da Renovação Oficial da Plataforma</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">2.0.1</th>
+                                <td>Adição da nova funcionalidade de "Circulo de Mohr"</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+                    <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+                </div>
+            </div>
         </div>
-      </div>
     </div>
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
@@ -547,40 +547,41 @@
     <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.debug.js" integrity="sha384-NaWTHo/8YCBYJ59830LTz/P4aQZK1sS0SneOgAvhsIl3zBu8r9RevNg5lHCHAuQ/" crossorigin="anonymous"></script> -->
 
     <script>
-      (function startcanvas(){
+        (function startcanvas() {
 
-        window.addEventListener('load', resizeCanvas, false);
-        window.addEventListener('resize', resizeCanvas, false);
+            window.addEventListener('load', resizeCanvas, false);
+            window.addEventListener('resize', resizeCanvas, false);
 
-        function resizeCanvas() {
-          var widthser = $('#PainelDaCanvas').width();
-          var widthpainelbotoes = $('#tamanhoDiv1').width();
-          var collapseWidth = $('#collapseOne').width();
+            function resizeCanvas() {
+                var widthser = $('#PainelDaCanvas').width();
+                var widthpainelbotoes = $('#tamanhoDiv1').width();
+                var collapseWidth = $('#collapseOne').width();
 
-          var widthbotoes = widthpainelbotoes*0.25+"px";
-          var sizewindow = window.innerWidth;
+                var widthbotoes = widthpainelbotoes * 0.25 + "px";
+                var sizewindow = window.innerWidth;
 
 
-          document.getElementById('tamIcone1').setAttribute('style', 'width:'+widthbotoes+';'+'height:'+widthbotoes+';'+'max-Width:'+sizewindow*0.18+"px"+';'+'max-Height:'+sizewindow*0.18+"px"+';');
-          document.getElementById('tamIcone2').setAttribute('style', 'width:'+widthbotoes+';'+'height:'+widthbotoes+';'+'max-Width:'+sizewindow*0.18+"px"+';'+'max-Height:'+sizewindow*0.18+"px"+';');
-          document.getElementById('tamIcone3').setAttribute('style', 'width:'+widthbotoes+';'+'height:'+widthbotoes+';'+'max-Width:'+sizewindow*0.18+"px"+';'+'max-Height:'+sizewindow*0.18+"px"+';');
-          document.getElementById('tamIcone4').setAttribute('style', 'width:'+widthbotoes+';'+'height:'+widthbotoes+';'+'max-Width:'+sizewindow*0.18+"px"+';'+'max-Height:'+sizewindow*0.18+"px"+';');
-          document.getElementById('tamIcone5').setAttribute('style', 'width:'+widthbotoes+';'+'height:'+widthbotoes+';'+'max-Width:'+sizewindow*0.18+"px"+';'+'max-Height:'+sizewindow*0.18+"px"+';');
-          document.getElementById('tamIcone6').setAttribute('style', 'width:'+widthbotoes+';'+'height:'+widthbotoes+';'+'max-Width:'+sizewindow*0.18+"px"+';'+'max-Height:'+sizewindow*0.18+"px"+';');
+                document.getElementById('tamIcone1').setAttribute('style', 'width:' + widthbotoes + ';' + 'height:' + widthbotoes + ';' + 'max-Width:' + sizewindow * 0.18 + "px" + ';' + 'max-Height:' + sizewindow * 0.18 + "px" + ';');
+                document.getElementById('tamIcone2').setAttribute('style', 'width:' + widthbotoes + ';' + 'height:' + widthbotoes + ';' + 'max-Width:' + sizewindow * 0.18 + "px" + ';' + 'max-Height:' + sizewindow * 0.18 + "px" + ';');
+                document.getElementById('tamIcone3').setAttribute('style', 'width:' + widthbotoes + ';' + 'height:' + widthbotoes + ';' + 'max-Width:' + sizewindow * 0.18 + "px" + ';' + 'max-Height:' + sizewindow * 0.18 + "px" + ';');
+                document.getElementById('tamIcone4').setAttribute('style', 'width:' + widthbotoes + ';' + 'height:' + widthbotoes + ';' + 'max-Width:' + sizewindow * 0.18 + "px" + ';' + 'max-Height:' + sizewindow * 0.18 + "px" + ';');
+                document.getElementById('tamIcone5').setAttribute('style', 'width:' + widthbotoes + ';' + 'height:' + widthbotoes + ';' + 'max-Width:' + sizewindow * 0.18 + "px" + ';' + 'max-Height:' + sizewindow * 0.18 + "px" + ';');
+                document.getElementById('tamIcone6').setAttribute('style', 'width:' + widthbotoes + ';' + 'height:' + widthbotoes + ';' + 'max-Width:' + sizewindow * 0.18 + "px" + ';' + 'max-Height:' + sizewindow * 0.18 + "px" + ';');
 
-          canvas.setHeight(window.innerHeight*0.45);
-          canvas.setWidth(widthser);
-          canvas.renderAll();
-          canvas.clear();
-          canvasincial()
-          DesenhaProblemaProposto()
-        }
+                canvas.setHeight(window.innerHeight * 0.45);
+                canvas.setWidth(widthser);
+                canvas.renderAll();
+                canvas.clear();
+                canvasincial()
+                DesenhaProblemaProposto()
+            }
 
-        // resize on init
-        resizeCanvas();
-      })();
+            // resize on init
+            resizeCanvas();
+        })();
     </script>
     <script src="https://unpkg.com/jspdf@latest/dist/jspdf.min.js"></script>
 
-  </body>
+</body>
+
 </html>
