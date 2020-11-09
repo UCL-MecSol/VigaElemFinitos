@@ -15,7 +15,7 @@
     <!-- <script src="https://fabricjs.com/lib/fabric.js"></script> -->
     <script src="JS/fabric.min.js"></script>
     <script type="text/javascript" src="JS/fabricExtensions.js"></script>
-    <script type="text/javascript" src="JS/moment.js"></script>
+    <!-- <script type="text/javascript" src="JS/moment.js"></script> -->
 
     <!-- Biblioteca para escrever equação com LaTeX -->
     <!-- <script type="text/x-mathjax-config">
@@ -45,7 +45,7 @@
 
 </head>
 
-<body onload="canvasincial();startcanvas();">
+<body onload="canvasincial();">
 
     <nav class="navbar navbar-inverse">
         <div class="container-fluid">
@@ -100,7 +100,7 @@
                     </li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="#" style="font-size: 18px">#### Vigas Simuladas!</a></li>
+                    <!-- <li><a href="#" style="font-size: 18px">#### Vigas Simuladas!</a></li> -->
                     <!-- <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
               <ul class="dropdown-menu">
@@ -178,15 +178,15 @@
 
                                 <div id="tamanhoDiv2" class="col-sm-12">
                                     <button class="btn btn-default btn-no-border">
-                                        <img id="tamIcone4" src="Img/PIcone.png" alt="..." onclick="addForca()">
+                                        <img id="tamIcone4" src="Img/PIcone.png" alt="..." onclick="addEsforco(1)">
                                     </button>
 
                                     <button class="btn btn-default btn-no-border">
-                                        <img id="tamIcone5" src="Img/carregamentoIcone.png" alt="..." onclick="addCarreg()">
+                                        <img id="tamIcone5" src="Img/carregamentoIcone.png" alt="..." onclick="addEsforco(2)">
                                     </button>
 
                                     <button class="btn btn-default btn-no-border">
-                                        <img id="tamIcone6" src="Img/momento SH Icone.png" alt="..." onclick="addMoment()">
+                                        <img id="tamIcone6" src="Img/momento SH Icone.png" alt="..." onclick="addEsforco(3)">
                                     </button>
                                 </div>
 
@@ -313,8 +313,9 @@
                         </div> -->
                                     </p>
 
-                                    <p><button class="btn btn-primary btn-block btn-lg" type="button" name="button" onclick="LimpaCanvas();canvasincial();DesenhaProblemaProposto();">Desenhe
-                                            sua Viga!</button></p>
+                                    <p><button class="btn btn-primary btn-block btn-lg" type="button" name="button" onclick="DesenhaViga();">
+                                        Desenhe sua Viga!
+                                    </button></p>
 
                                 </li>
                                 <!-- <li class="list-group-item">
@@ -451,13 +452,6 @@
                         <div role="tabpanel" class="tab-pane" id="Viga Retangular Tubular">...</div>
                     </div>
                 </div>
-
-                <script>
-                    $('#myTabs a').click(function (e) {
-                        e.preventDefault()
-                        $(this).tab('show')
-                    })
-                </script>
 
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -655,7 +649,7 @@
                 resizeCanvas();
             })();
     </script>
-    <script src="https://unpkg.com/jspdf@latest/dist/jspdf.min.js"></script>
+    <!-- <script src="https://unpkg.com/jspdf@latest/dist/jspdf.min.js"></script> -->
 
 </body>
 

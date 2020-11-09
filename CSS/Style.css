@@ -123,11 +123,15 @@ h1 {
     margin: 1px;
 }
 .input-group-addon{
-    width: 73.6px;
+    width: 80px;
 }
 .input-group-addon>img{
     width: unset !important;
-    height: 19px !important;
+    height: 20px !important;
+}
+.input-group-addon>img.big{
+    width: unset !important;
+    height: 47px !important;
 }
 .perc100-px {
     width: calc(100% - 1px);

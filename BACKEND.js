@@ -5,7 +5,7 @@ var numApoios1Grau = 0;
 var numApoios2Grau = 0;
 var numApoios3Grau = 0;
 
-var numForcasAplic = 0;
+var numForcaAplic = 0;
 var numCarregAplic = 0;
 var numMomentAplic = 0;
 
@@ -55,6 +55,12 @@ function decimalPlaces(num) {
 		- (match[2] ? +match[2] : 0));
 }
 
+function DesenhaViga(){
+	LimpaCanvas();
+	canvasincial();
+	DesenhaProblemaProposto();
+}
+
 function LimpaCanvas() {
 	canvas.clear();
 }
@@ -75,7 +81,7 @@ function LimpaApoios() {
 
 function LimpaCargas() {
 
-	numForcasAplic = 0;
+	numForcaAplic = 0;
 	numCarregAplic = 0;
 	numMomentAplic = 0;
 	ArrayForcaPos = [];
@@ -141,137 +147,16 @@ function removerApoio(valor, grau) {
 	this['numApoios'] = this['numApoios'] - 1;
 }
 
-function addForca() {
-	numEsforc++;
-	numForcasAplic++;
-	let dom = `<div class="input-group" id="inputGroupForca-${numForcasAplic}">
-		<div class="input-group-addon" id="inputGroupAddForca-${numForcasAplic}">
-			<img width="47" height="47" alt="..." src="Img/PIcone.png" id="FotoForca-${numForcasAplic}">
-		</div>
-		<input id="EntradaPosiçãoForca-${numForcasAplic}" style="font-size: 12px;" width="50%" class="form-control" type="Number" placeholder="Posição da Carga">
-		<input id="EntradaIntensiForca-${numForcasAplic}" style="font-size: 12px;" width="50%" class="form-control" type="Number" placeholder="Intensid. da Carga">
-		<span class="input-group-btn" id="SpanForca-${numForcasAplic}">
-			<button class="btn btn-default" id="RemoveForca-${numForcasAplic}" onclick="removerForca(this.id);">
-				<span class="glyphicon-2linhas glyphicon-remove"></span>
-			</button>
-		</span>
-	</div>`;
-	$('#divCargas').append(dom);
-}
-
-function removerForca(valor) {
-	var IDindexRemover = $("#" + valor).closest("div").attr('id'); //RECEBE A ID DA DIV QUE CONTEM OS APOIOS
-	var stringLength = IDindexRemover.length; // CALCULA TAMANHO DO ID PARA USAR NA FUNÇÃO ABAIXO
-	var lastChar = IDindexRemover.charAt(stringLength - 1); //REMOVE TODOS OS CARACTERES MENOSO ULTIMO
-
-	$("#" + IDindexRemover).remove(); //REMOVE A DIV ESPECIFICADA
-
-	for (i = lastChar; i <= numForcasAplic; i++) {
-		$("#inputGroupForca-" + (i)).attr("id", "inputGroupForca-" + (i - 1));
-		$("#inputGroupAddForca-" + (i)).attr("id", "inputGroupAddForca-" + (i - 1));
-		$("#FotoForca-" + (i)).attr("id", "FotoForca-" + (i - 1));
-		$("#EntradaPosiçãoForca-" + (i)).attr("id", "EntradaPosiçãoForca-" + (i - 1));
-		$("#EntradaIntensiForca-" + (i)).attr("id", "EntradaIntensiForca-" + (i - 1));
-		$("#SpanForca-" + (i)).attr("id", "SpanForca-" + (i - 1));
-		$("#RemoveForca-" + (i)).attr("id", "RemoveForca-" + (i - 1));
-	}
-	numForcasAplic = numForcasAplic - 1;
-	numEsforc = numEsforc - 1;
-}
-
-function addCarreg() {
-
-	numCarregAplic++;
-	numEsforc++;
-
-	let dom = `<div class="input-group" id="inputGroupCarreg-1">
-		<div class="input-group-addon" id="inputGroupAddCarreg-1">
-			<img width="47" height="47" alt="..." src="Img/carregamentoIcone.png" id="FotoCarreg-${numCarregAplic}">
-		</div>
-		<input id="EntradaPosiçãoICarreg-${numCarregAplic}" style="font-size: 12px;" width="50%" class="form-control-50" type="Number" placeholder="Posição I">
-		<input id="EntradaPosiçãoFCarreg-${numCarregAplic}" style="font-size: 12px;" width="50%" class="form-control-50" type="Number" placeholder="Posição F">
-		<input id="EntradaIntensiICarreg-${numCarregAplic}" style="font-size: 12px;" width="50%" class="form-control-50" type="Number" placeholder="Intensid. I">
-		<input id="EntradaIntensiFCarreg-${numCarregAplic}" style="font-size: 12px;" width="50%" class="form-control-50" type="Number" placeholder="Intensid. F">
-		<span class="input-group-btn" id="SpanCarreg-${numCarregAplic}">
-			<button class="btn btn-default" id="RemoveCarreg-${numCarregAplic}" onclick="removerCarreg(this.id);">
-				<span class="glyphicon-2linhas glyphicon-remove"></span>
-			</button>
-		</span>
-	</div>`;
-	$('#divCargas').append(dom);
-}
-
-function removerCarreg(valor) {
-	var IDindexRemover = $("#" + valor).closest("div").attr('id'); //RECEBE A ID DA DIV QUE CONTEM OS APOIOS
-	var stringLength = IDindexRemover.length; // CALCULA TAMANHO DO ID PARA USAR NA FUNÇÃO ABAIXO
-	var lastChar = IDindexRemover.charAt(stringLength - 1); //REMOVE TODOS OS CARACTERES MENOSO ULTIMO
-
-	$("#" + IDindexRemover).remove(); //REMOVE A DIV ESPECIFICADA
-
-	for (i = lastChar; i <= numCarregAplic; i++) {
-		$("#inputGroupCarreg-" + (i)).attr("id", "inputGroupCarreg-" + (i - 1));
-		$("#inputGroupAddCarreg-" + (i)).attr("id", "inputGroupAddCarreg-" + (i - 1));
-		$("#FotoCarreg-" + (i)).attr("id", "FotoCarreg-" + (i - 1));
-		$("#EntradaPosiçãoICarreg-" + (i)).attr("id", "EntradaPosiçãoICarreg-" + (i - 1));
-		$("#EntradaPosiçãoFCarreg-" + (i)).attr("id", "EntradaPosiçãoFCarreg-" + (i - 1));
-		$("#EntradaIntensiICarreg-" + (i)).attr("id", "EntradaIntensiICarreg-" + (i - 1));
-		$("#EntradaIntensiFCarreg-" + (i)).attr("id", "EntradaIntensiFCarreg-" + (i - 1));
-		$("#SpanCarreg-" + (i)).attr("id", "SpanCarreg-" + (i - 1));
-		$("#RemoveCarreg-" + (i)).attr("id", "RemoveCarreg-" + (i - 1));
-	}
-	numCarregAplic = numCarregAplic - 1;
-	numEsforc = numEsforc - 1;
-}
-
-function addMoment() {
-
-	numEsforc++;
-	numMomentAplic++;
-
-	let dom = `<div class="input-group" id="inputGroupMoment-${numMomentAplic}">
-		<div class="input-group-addon" id="inputGroupAddMoment-${numMomentAplic}">
-			<img width="47" height="47" alt="..." src="Img/momento SH Icone.png" id="FotoMoment-${numMomentAplic}">
-		</div>
-		<input id="EntradaPosiçãoMoment-${numMomentAplic}" width="50%" style="font-size: 12px;" class="form-control" type="Number" placeholder="Posição da Carga">
-		<input id="EntradaIntensiMoment-${numMomentAplic}" width="50%" style="font-size: 12px;" class="form-control" type="Number" placeholder="Intensid. da Carga">
-		<span class="input-group-btn" id="SpanMoment-${numMomentAplic}">]
-			<button class="btn btn-default" id="RemoveMoment-${numMomentAplic}" onclick="removerMoment(this.id);">
-				<span class="glyphicon-2linhas glyphicon-remove"></span>
-			</button>
-		</span>
-	</div>`;
-	$('#divCargas').append(dom);
-}
-
-function removerMoment(valor) {
-	var IDindexRemover = $("#" + valor).closest("div").attr('id'); //RECEBE A ID DA DIV QUE CONTEM OS APOIOS
-	var stringLength = IDindexRemover.length; // CALCULA TAMANHO DO ID PARA USAR NA FUNÇÃO ABAIXO
-	var lastChar = IDindexRemover.charAt(stringLength - 1); //REMOVE TODOS OS CARACTERES MENOSO ULTIMO
-
-	$("#" + IDindexRemover).remove(); //REMOVE A DIV ESPECIFICADA
-
-	for (i = lastChar; i <= numMomentAplic; i++) {
-		$("#inputGroupMoment-" + (i)).attr("id", "inputGroupMoment-" + (i - 1));
-		$("#inputGroupAddMoment-" + (i)).attr("id", "inputGroupAddMoment-" + (i - 1));
-		$("#FotoMoment-" + (i)).attr("id", "FotoMoment-" + (i - 1));
-		$("#EntradaPosiçãoMoment-" + (i)).attr("id", "EntradaPosiçãoMoment-" + (i - 1));
-		$("#EntradaIntensiMoment-" + (i)).attr("id", "EntradaIntensiMoment-" + (i - 1));
-		$("#SpanMoment-" + (i)).attr("id", "SpanMoment-" + (i - 1));
-		$("#RemoveMoment-" + (i)).attr("id", "RemoveMoment-" + (i - 1));
-	}
-	numMomentAplic = numMomentAplic - 1;
-	numEsforc = numEsforc - 1;
-}
-
-
 function addEsforco(grau) {
 
 	let tipo = '';
 	let valor;
 	let input = '';
+	let imagem = '';
 	switch (grau) {
 		case 1: 
-			tipo = 'Forcas';
+			tipo = 'Forca';
+			imagem = 'PIcone';
 			this[`num${tipo}Aplic`] = this[`num${tipo}Aplic`] + 1;
 			valor = this[`num${tipo}Aplic`];
 			input = `
@@ -281,6 +166,7 @@ function addEsforco(grau) {
 			break;
 		case 2: 
 			tipo = 'Carreg';
+			imagem = 'carregamentoIcone';
 			this[`num${tipo}Aplic`] = this[`num${tipo}Aplic`] + 1;
 			valor = this[`num${tipo}Aplic`];
 			input = `
@@ -292,6 +178,7 @@ function addEsforco(grau) {
 			break;
 		case 3: 
 			tipo = 'Moment';
+			imagem = 'momento SH Icone';
 			this[`num${tipo}Aplic`] = this[`num${tipo}Aplic`] + 1;
 			valor = this[`num${tipo}Aplic`];
 			input = `
@@ -304,13 +191,13 @@ function addEsforco(grau) {
 
 	this['numEsforc'] = this['numEsforc'] + 1;
 
-	let dom = `<div class="input-group" id="inputGroupCarreg-1">
-		<div class="input-group-addon" id="inputGroupAddCarreg-1">
-			<img width="47" height="47" alt="..." src="Img/carregamentoIcone.png" id="FotoCarreg-${valor}">
+	let dom = `<div class="input-group" id="inputGroup${tipo}-1">
+		<div class="input-group-addon" id="inputGroupAdd${tipo}-1">
+			<img class="big" width="47" height="47" alt="..." src="Img/${imagem}.png" id="Foto${tipo}-${valor}">
 		</div>
 		${input}
-		<span class="input-group-btn" id="SpanCarreg-${valor}">
-			<button class="btn btn-default" id="RemoveCarreg-${valor}" onclick="removerCarreg(this.id);">
+		<span class="input-group-btn" id="Span${tipo}-${valor}">
+			<button class="btn btn-default" id="Remove${tipo}-${valor}" onclick="removerEsforco(this.id,${grau});">
 				<span class="glyphicon-2linhas glyphicon-remove"></span>
 			</button>
 		</span>
@@ -318,10 +205,40 @@ function addEsforco(grau) {
 	$('#divCargas').append(dom);
 }
 
+function removerEsforco(valor, grau) {
+
+	let tipo = '';
+	switch (grau) {
+		case 1: tipo = 'Forca';  break;
+		case 2: tipo = 'Carreg'; break;
+		case 3: tipo = 'Moment'; break;
+		default: break;
+	}
+
+	var IDindexRemover = $("#" + valor).closest("div").attr('id'); //RECEBE A ID DA DIV QUE CONTEM OS APOIOS
+	var stringLength = IDindexRemover.length; // CALCULA TAMANHO DO ID PARA USAR NA FUNÇÃO ABAIXO
+	var lastChar = IDindexRemover.charAt(stringLength - 1); //REMOVE TODOS OS CARACTERES MENOSO ULTIMO
+
+	$("#" + IDindexRemover).remove(); //REMOVE A DIV ESPECIFICADA
+
+	for (i = lastChar; i <= this[`num${tipo}Aplic`]; i++) {
+		$(`#inputGroup${tipo}-` + (i)).attr(`id`, `inputGroup${tipo}-` + (i - 1));
+		$(`#inputGroupAdd${tipo}-` + (i)).attr(`id`, `inputGroupAdd${tipo}-` + (i - 1));
+		$(`#Foto${tipo}-` + (i)).attr(`id`, `Foto${tipo}-` + (i - 1));
+		$(`#EntradaPosição${tipo}-` + (i)).attr(`id`, `EntradaPosição${tipo}-` + (i - 1));
+		$(`#EntradaIntensi${tipo}-` + (i)).attr(`id`, `EntradaIntensi${tipo}-` + (i - 1));
+		$(`#Span${tipo}-` + (i)).attr(`id`, `Span${tipo}-` + (i - 1));
+		$(`#Remove${tipo}-` + (i)).attr(`id`, `Remove${tipo}-` + (i - 1));
+	}
+	this[`num${tipo}Aplic`] = this[`num${tipo}Aplic`] - 1;
+	this['numEsforc'] = this['numEsforc'] - 1;
+}
+
+
 ///////////////////////////////////////////// PARTE DE INICIO DE CÁLCULOS ///////////////////////////
 
 function canvasincial() {
-	fabric.Image.fromURL('Img/viga I.png', function (oImg) {
+	fabric.Image.fromURL('./Img/viga I.png', function (oImg) {
 		var widthcanvas = $('#canvas').width();
 		var heightcanvas = $('#canvas').height();
 
@@ -352,16 +269,12 @@ function AvaliaCondicoesIniciaisDaViga() {
 			} else {
 				console.log("Problema inVálido")
 			}
-
 		default:
 			console.log("ERRADO")
-
-
 	}
 }
 
 function DesenhaProblemaProposto() {
-
 
 	//VARIAVEIS UTILIZADAS
 	var ArrayZero = []; //VER, SE CONSIGO RETIRAR ESSA ARRAY.
@@ -377,7 +290,6 @@ function DesenhaProblemaProposto() {
 	imgObj.src = 'Img/viga I.png';
 	var imgObj2 = new Image();
 	imgObj2.src = 'Img/P.png'
-
 
 	var widthcanvas = $('#canvas').width();
 	var heightcanvas = $('#canvas').height();
@@ -396,9 +308,6 @@ function DesenhaProblemaProposto() {
 	ArrayCarrPosF = [];
 	ArrayCarrIntI = [];
 	ArrayCarrIntF = [];
-
-
-
 	//
 
 	//FUNÇÕES INICIADAS
@@ -423,6 +332,7 @@ function DesenhaProblemaProposto() {
 				} else {
 					Array1GrauPos.push(0);
 				}
+				adicionaEmLoopRolete(i);
 			}
 		}
 
@@ -437,6 +347,7 @@ function DesenhaProblemaProposto() {
 					Array2GrauPos.push(0);
 					// console.log(Array2GrauPos[j])
 				}
+				adicionaEmLoop2Grau(j);
 			}
 		}
 
@@ -449,20 +360,8 @@ function DesenhaProblemaProposto() {
 				} else {
 					Array3GrauPos.push(0);
 				}
+				adicionaEmLoopEngaste(k);
 			}
-		}
-
-
-		for (var i = 0; i < numApoios1Grau; i++) {
-			adicionaEmLoopRolete(i)
-		}
-
-		for (var j = 0; j < numApoios2Grau; j++) {
-			adicionaEmLoop2Grau(j)
-		}
-
-		for (var k = 0; k < numApoios3Grau; k++) {
-			adicionaEmLoopEngaste(k)
 		}
 
 		function adicionaEmLoopRolete(i) {
@@ -533,8 +432,8 @@ function DesenhaProblemaProposto() {
 
 	function preencheArrayEDesenhaForcas() {
 
-		if (numForcasAplic != 0) {
-			for (var i = 0; i < numForcasAplic; i++) {
+		if (numForcaAplic != 0) {
+			for (var i = 0; i < numForcaAplic; i++) {
 				var PosiçãoForca1 = Number(document.getElementById("EntradaPosiçãoForca-" + (i + 1)).value);
 				var IntensidadeForca1 = Number(document.getElementById("EntradaIntensiForca-" + (i + 1)).value);
 				if (PosiçãoForca1 != "") {
@@ -589,7 +488,6 @@ function DesenhaProblemaProposto() {
 
 		if (ArrayReduzidaForcasPos.length != 0) {
 			GiroGeraReduzida()
-
 		}
 
 		function GiroGeraReduzida() {
@@ -884,11 +782,11 @@ function DesenhaProblemaProposto() {
 	function RepeticaoPreencheArray(ArrayDivVigaSemRepeticao) {
 		//ESSA FUNÇÃO, PEGA A ArrayForcasEMomentosAplicados, E SOMA AS FORÇAS E MOMENTOS APLICADOS NOS NÓS
 
-		if (numForcasAplic != 0 || numMomentAplic != 0) {
+		if (numForcaAplic != 0 || numMomentAplic != 0) {
 
 			for (var i = 0; i < ArrayDivVigaSemRepeticao.length; i++) {
-				if (numForcasAplic != 0) {
-					for (var j = 0; j < numForcasAplic; j++) {
+				if (numForcaAplic != 0) {
+					for (var j = 0; j < numForcaAplic; j++) {
 						if (ArrayDivVigaSemRepeticao[i] == ArrayForcaPos[j]) {
 							ArrayForcasEMomentosAplicados[(2 * i)] = math.add(ArrayForcasEMomentosAplicados[(2 * i)], ArrayForcaInt[j]);
 						}
@@ -1629,3 +1527,8 @@ function zoomUp(idSelecionado) {
 		$("#" + idSelecionado).children(".MathJax_SVG_Display").children("span").children("svg").css("max-width", "none")
 	}
 }
+
+$('#myTabs a').click(function (e) {
+	e.preventDefault()
+	$(this).tab('show')
+})
