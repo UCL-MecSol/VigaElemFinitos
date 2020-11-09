@@ -111,7 +111,7 @@ function addApoio(grau) {
 		<div class="input-group-addon" id="inputGroupAdd${grau}Grau-${valorEntrada}">
 			<img width="47" height="19" alt="..." src="Img/${imagem}.png" id="Foto${grau}Grau-${valorEntrada}">
 		</div>
-		<input id="Entrada${grau}Grau-${valorEntrada}" class="form-control block-geral" type="Number" placeholder="Posição do Apoio">
+		<input id="Entrada${grau}Grau-${valorEntrada}" style="font-size: 12px;" class="form-control block-geral" type="Number" placeholder="Posição do Apoio">
 		<span class="input-group-btn" id="Span${grau}Grau-${valorEntrada}">
 			<button class="btn btn-default" onclick="removerApoio(this.id, ${grau});" id="Remove${grau}Grau-${valorEntrada}">
 				<span class="glyphicon glyphicon-remove" id="${valorEntrada}"></span>
@@ -148,8 +148,8 @@ function addForca() {
 		<div class="input-group-addon" id="inputGroupAddForca-${numForcasAplic}">
 			<img width="47" height="47" alt="..." src="Img/PIcone.png" id="FotoForca-${numForcasAplic}">
 		</div>
-		<input id="EntradaPosiçãoForca-${numForcasAplic}" width="50%" class="form-control" type="Number" placeholder="Posição da Carga">
-		<input id="EntradaIntensiForca-${numForcasAplic}" width="50%" class="form-control" type="Number" placeholder="Intensid. da Carga">
+		<input id="EntradaPosiçãoForca-${numForcasAplic}" style="font-size: 12px;" width="50%" class="form-control" type="Number" placeholder="Posição da Carga">
+		<input id="EntradaIntensiForca-${numForcasAplic}" style="font-size: 12px;" width="50%" class="form-control" type="Number" placeholder="Intensid. da Carga">
 		<span class="input-group-btn" id="SpanForca-${numForcasAplic}">
 			<button class="btn btn-default" id="RemoveForca-${numForcasAplic}" onclick="removerForca(this.id);">
 				<span class="glyphicon-2linhas glyphicon-remove"></span>
@@ -188,10 +188,10 @@ function addCarreg() {
 		<div class="input-group-addon" id="inputGroupAddCarreg-1">
 			<img width="47" height="47" alt="..." src="Img/carregamentoIcone.png" id="FotoCarreg-${numCarregAplic}">
 		</div>
-		<input id="EntradaPosiçãoICarreg-${numCarregAplic}" width="50%" class="form-control-50" type="Number" placeholder="Posição I">
-		<input id="EntradaPosiçãoFCarreg-${numCarregAplic}" width="50%" class="form-control-50" type="Number" placeholder="Posição F">
-		<input id="EntradaIntensiICarreg-${numCarregAplic}" width="50%" class="form-control-50" type="Number" placeholder="Intensid. I">
-		<input id="EntradaIntensiFCarreg-${numCarregAplic}" width="50%" class="form-control-50" type="Number" placeholder="Intensid. F">
+		<input id="EntradaPosiçãoICarreg-${numCarregAplic}" style="font-size: 12px;" width="50%" class="form-control-50" type="Number" placeholder="Posição I">
+		<input id="EntradaPosiçãoFCarreg-${numCarregAplic}" style="font-size: 12px;" width="50%" class="form-control-50" type="Number" placeholder="Posição F">
+		<input id="EntradaIntensiICarreg-${numCarregAplic}" style="font-size: 12px;" width="50%" class="form-control-50" type="Number" placeholder="Intensid. I">
+		<input id="EntradaIntensiFCarreg-${numCarregAplic}" style="font-size: 12px;" width="50%" class="form-control-50" type="Number" placeholder="Intensid. F">
 		<span class="input-group-btn" id="SpanCarreg-${numCarregAplic}">
 			<button class="btn btn-default" id="RemoveCarreg-${numCarregAplic}" onclick="removerCarreg(this.id);">
 				<span class="glyphicon-2linhas glyphicon-remove"></span>
@@ -232,8 +232,8 @@ function addMoment() {
 		<div class="input-group-addon" id="inputGroupAddMoment-${numMomentAplic}">
 			<img width="47" height="47" alt="..." src="Img/momento SH Icone.png" id="FotoMoment-${numMomentAplic}">
 		</div>
-		<input id="EntradaPosiçãoMoment-${numMomentAplic}" width="50%" class="form-control" type="Number" placeholder="Posição da Carga">
-		<input id="EntradaIntensiMoment-${numMomentAplic}" width="50%" class="form-control" type="Number" placeholder="Intensid. da Carga">
+		<input id="EntradaPosiçãoMoment-${numMomentAplic}" width="50%" style="font-size: 12px;" class="form-control" type="Number" placeholder="Posição da Carga">
+		<input id="EntradaIntensiMoment-${numMomentAplic}" width="50%" style="font-size: 12px;" class="form-control" type="Number" placeholder="Intensid. da Carga">
 		<span class="input-group-btn" id="SpanMoment-${numMomentAplic}">]
 			<button class="btn btn-default" id="RemoveMoment-${numMomentAplic}" onclick="removerMoment(this.id);">
 				<span class="glyphicon-2linhas glyphicon-remove"></span>
@@ -275,8 +275,8 @@ function addEsforco(grau) {
 			this[`num${tipo}Aplic`] = this[`num${tipo}Aplic`] + 1;
 			valor = this[`num${tipo}Aplic`];
 			input = `
-				<input id="EntradaPosiçãoForca-${valor}" width="50%" class="form-control" type="Number" placeholder="Posição da Carga">
-				<input id="EntradaIntensiForca-${valor}" width="50%" class="form-control" type="Number" placeholder="Intensid. da Carga">
+				<input id="EntradaPosiçãoForca-${valor}" style="font-size: 12px !important;" width="50%" class="form-control" type="Number" placeholder="Posição da Carga">
+				<input id="EntradaIntensiForca-${valor}" style="font-size: 12px !important;" width="50%" class="form-control" type="Number" placeholder="Intensid. da Carga">
 			`;
 			break;
 		case 2: 
@@ -284,10 +284,10 @@ function addEsforco(grau) {
 			this[`num${tipo}Aplic`] = this[`num${tipo}Aplic`] + 1;
 			valor = this[`num${tipo}Aplic`];
 			input = `
-				<input id="EntradaPosiçãoICarreg-${valor}" width="50%" class="form-control-50" type="Number" placeholder="Posição I">
-				<input id="EntradaPosiçãoFCarreg-${valor}" width="50%" class="form-control-50" type="Number" placeholder="Posição F">
-				<input id="EntradaIntensiICarreg-${valor}" width="50%" class="form-control-50" type="Number" placeholder="Intensid. I">
-				<input id="EntradaIntensiFCarreg-${valor}" width="50%" class="form-control-50" type="Number" placeholder="Intensid. F">
+				<input id="EntradaPosiçãoICarreg-${valor}" style="font-size: 12px !important;" width="50%" class="form-control-50" type="Number" placeholder="Posição I">
+				<input id="EntradaPosiçãoFCarreg-${valor}" style="font-size: 12px !important;" width="50%" class="form-control-50" type="Number" placeholder="Posição F">
+				<input id="EntradaIntensiICarreg-${valor}" style="font-size: 12px !important;" width="50%" class="form-control-50" type="Number" placeholder="Intensid. I">
+				<input id="EntradaIntensiFCarreg-${valor}" style="font-size: 12px !important;" width="50%" class="form-control-50" type="Number" placeholder="Intensid. F">
 			`;
 			break;
 		case 3: 
@@ -295,8 +295,8 @@ function addEsforco(grau) {
 			this[`num${tipo}Aplic`] = this[`num${tipo}Aplic`] + 1;
 			valor = this[`num${tipo}Aplic`];
 			input = `
-				<input id="EntradaPosiçãoMoment-${valor}" width="50%" class="form-control" type="Number" placeholder="Posição da Carga">
-				<input id="EntradaIntensiMoment-${valor}" width="50%" class="form-control" type="Number" placeholder="Intensid. da Carga">
+				<input id="EntradaPosiçãoMoment-${valor}" style="font-size: 12px !important;" width="50%" class="form-control" type="Number" placeholder="Posição da Carga">
+				<input id="EntradaIntensiMoment-${valor}" style="font-size: 12px !important;" width="50%" class="form-control" type="Number" placeholder="Intensid. da Carga">
 			`;
 			break;
 		default: break;
