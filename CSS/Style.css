@@ -210,3 +210,17 @@ canvas {
 	margin: auto;
 	z-index: -1;
 }
+.menor991 {
+    display: none;
+}
+.maior991 {
+    display: block;
+}
+@media screen and (max-width: 991px) {
+    .menor991 {
+        display: block;
+    }
+    .maior991 {
+        display: none;
+    }
+}

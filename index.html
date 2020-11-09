@@ -41,7 +41,9 @@
 
     <script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML">
     </script>
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.5/jspdf.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
+    
 
 </head>
 
@@ -90,7 +92,7 @@
                             aria-expanded="false">Opções <span class="caret"></span></a>
                         <ul class="dropdown-menu">
                             <li><a href="#">Baixar Imagem da Viga</a></li>
-                            <li><a href="#">Baixar PDF de Resultados</a></li>
+                            <li><a href="#" id="btnPDF">Baixar PDF de Resultados</a></li>
                             <!-- <li><a href="#">Something else here</a></li> -->
                             <!-- <li role="separator" class="divider"></li>
                 <li><a href="#">Separated link</a></li>
@@ -122,7 +124,7 @@
 
         <div class="row">
 
-            <div class="col-md-3 colunaLateral esq">
+            <div class="col-md-3 col-xs-12 colunaLateral esq">
                 <div class="panel-group" role="tablist" aria-multiselectable="true">
                     <div class="panel panel-default">
                         <div class="panel-heading bg-info" role="tab" id="headingOne">
@@ -224,31 +226,7 @@
                 </div>
             </div>
 
-            <div class="col-md-6 colunaPrincipal">
-                <div class="panel-group" role="tablist" aria-multiselectable="true">
-                    <div class="panel panel-default">
-                        <div class="panel-heading bg-info" role="tab" id="heading2">
-                            <h4 class="panel-title">
-                                <a role="button" data-toggle="collapse" href="#collapse2" aria-expanded="true" aria-controls="collapse2">
-                                    <b>Montagem da viga</b>
-                                </a>
-                            </h4>
-                        </div>
-                        <div id="collapse2" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="heading2">
-                            <div id="PainelDaCanvas" class="panel-body">
-
-                                <canvas id="canvas" style='position:absolute;'></canvas>
-                                <a href="#row2headingOne" class="btn btn-primary btn-block" style="border-top-right-radius: 0px;border-top-left-radius: 0px;" type="button" name="button" onclick="CalculaProblemaProposto()">
-                                    <b> Resolver! </b>
-                                </a>
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-3 colunaLateral dir">
+            <div class="col-md-3 col-md-push-6 col-xs-12 colunaLateral dir">
                 <div class="panel-group" role="tablist" aria-multiselectable="true">
                     <div class="panel panel-default">
                         <div class="panel-heading bg-info" role="tab" id="heading3">
@@ -327,7 +305,7 @@
                         </div>
                     </div>
 
-                    <div class="panel panel-default">
+                    <div class="panel panel-default maior991">
                         <div class="panel-heading bg-info" role="tab" id="heading4">
                             <h4 class="panel-title">
                                 <a role="button" data-toggle="collapse" href="#collapse4" aria-expanded="true" aria-controls="collapse4">
@@ -369,6 +347,72 @@
                     </div>
                 </div>
             </div>
+
+            <div class="col-md-6 col-md-pull-3 col-xs-12 colunaPrincipal">
+                <div class="panel-group" role="tablist" aria-multiselectable="true">
+                    <div class="panel panel-default">
+                        <div class="panel-heading bg-info" role="tab" id="heading2">
+                            <h4 class="panel-title">
+                                <a role="button" data-toggle="collapse" href="#collapse2" aria-expanded="true" aria-controls="collapse2">
+                                    <b>Montagem da viga</b>
+                                </a>
+                            </h4>
+                        </div>
+                        <div id="collapse2" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="heading2">
+                            <div id="PainelDaCanvas" class="panel-body">
+
+                                <canvas id="canvas" style='position:absolute;'></canvas>
+                                <a href="#row2headingOne" class="btn btn-primary btn-block" style="border-top-right-radius: 0px;border-top-left-radius: 0px;" type="button" name="button" onclick="CalculaProblemaProposto()">
+                                    <b> Resolver! </b>
+                                </a>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="panel panel-default menor991">
+                    <div class="panel-heading bg-info" role="tab" id="heading4">
+                        <h4 class="panel-title">
+                            <a role="button" data-toggle="collapse" href="#collapse4" aria-expanded="true" aria-controls="collapse4">
+                                <b>Rolagem para Seção</b>
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="collapse4" class="panel-collapse collapse in" role="tabpanel"
+                        aria-labelledby="heading4">
+                        <ul class="list-group">
+                            <li class="list-group-item btn-group-vertical">
+                                <!-- <p> -->
+                                <a href="#matriz1" class="btn btn-default btn-sm btn-block" type="button" name="button">
+                                    Matriz Global
+                                </a>
+                                <a href="#matriz3" class="btn btn-default btn-sm btn-block" type="button" name="button">
+                                    Esforços
+                                </a>
+                                <a href="#matriz6" class="btn btn-default btn-sm btn-block" type="button" name="button">
+                                    Matriz de Coeficientes
+                                </a>
+                                <a href="#container" class="btn btn-default btn-sm btn-block" type="button" name="button">
+                                    Gráfico de Deslocamentos [ v(x) ]
+                                </a>
+                                <a href="#container2" class="btn btn-default btn-sm btn-block" type="button" name="button">
+                                    Gráfico de Inclinação [ v'(x) ]
+                                </a>
+                                <a href="#container3" class="btn btn-default btn-sm btn-block" type="button" name="button">
+                                    Gráfico de Momentos Aplicados [ v''(x) ]
+                                </a>
+                                <a href="#container4" class="btn btn-default btn-sm btn-block" type="button" name="button">
+                                    Matriz de Esforços Cortantes [ v'''(x) ]
+                                </a>
+                                <!-- </p> -->
+                            </li>
+                        </ul>
+                        <!-- </div> -->
+                    </div>
+                </div>
+            </div>
+
         </div>
 
         <div class="row">
@@ -648,6 +692,32 @@
                 // resize on init
                 resizeCanvas();
             })();
+            
+        $(document).ready(function(){
+            $('#btnPDF').click(function() {
+                savePDF(document.querySelector('#collapseOne'));
+            });
+        });
+
+        function savePDF(codigoHTML) {
+            var doc = new jsPDF('portrait', 'pt', 'a4'),
+                data = new Date();
+                margins = {
+                top: 40,
+                bottom: 60,
+                left: 40,
+                width: 1000
+                };
+            doc.fromHTML(
+                codigoHTML,
+                margins.left, // x coord
+                margins.top, { pagesplit: true },
+                function(dispose){
+                    doc.save("Relatorio - "+data.getDate()+"/"+data.getMonth()+"/"+data.getFullYear()+".pdf");
+                }
+            );
+        }
+    
     </script>
     <!-- <script src="https://unpkg.com/jspdf@latest/dist/jspdf.min.js"></script> -->
 
