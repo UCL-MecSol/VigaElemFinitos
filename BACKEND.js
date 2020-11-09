@@ -234,6 +234,21 @@ function removerEsforco(valor, grau) {
 	this['numEsforc'] = this['numEsforc'] - 1;
 }
 
+function geraJSON(){
+	DesenhaProblemaProposto();
+	// preencheArrayEDesenhaForcas();
+	console.log({Array1GrauPos});
+	console.log({Array2GrauPos});
+	console.log({Array3GrauPos});
+	console.log({ArrayForcaPos});
+	console.log({ArrayForcaInt});
+	console.log({ArrayMomenPos});
+	console.log({ArrayMomenInt});
+	console.log({ArrayCarrPosI});
+	console.log({ArrayCarrPosF});
+	console.log({ArrayCarrIntI});
+	console.log({ArrayCarrIntF});
+}
 
 ///////////////////////////////////////////// PARTE DE INICIO DE CÁLCULOS ///////////////////////////
 
@@ -942,11 +957,12 @@ function CalculaProblemaProposto() {
 		Elast = Number((document.getElementById("inputElasticidade").value) * 1000000000);
 		Inerc = Number(document.getElementById("inputInercia").value);
 		var tudoB = Elast * Inerc / (LTrech * LTrech * LTrech);
-		var KLocal = [[12 * tudoB, 6 * tudoB * LTrech, -12 * tudoB, 6 * tudoB * LTrech],
-		[6 * tudoB * LTrech, 4 * tudoB * LTrech * LTrech, -6 * tudoB * LTrech, 2 * tudoB * LTrech * LTrech],
-		[-12 * tudoB, -6 * tudoB * LTrech, 12 * tudoB, -6 * tudoB * LTrech],
-		[6 * tudoB * LTrech, 2 * tudoB * LTrech * LTrech, -6 * tudoB * LTrech, 4 * tudoB * LTrech * LTrech]]
-			;
+		var KLocal = [
+			[12 * tudoB, 6 * tudoB * LTrech, -12 * tudoB, 6 * tudoB * LTrech],
+			[6 * tudoB * LTrech, 4 * tudoB * LTrech * LTrech, -6 * tudoB * LTrech, 2 * tudoB * LTrech * LTrech],
+			[-12 * tudoB, -6 * tudoB * LTrech, 12 * tudoB, -6 * tudoB * LTrech],
+			[6 * tudoB * LTrech, 2 * tudoB * LTrech * LTrech, -6 * tudoB * LTrech, 4 * tudoB * LTrech * LTrech]
+		];
 		//
 
 		//GERA A KGlobal ZERADA
@@ -959,12 +975,12 @@ function CalculaProblemaProposto() {
 		for (var l = 0; l < (ArrayDivVigaSemRepeticao.length - 1); l++) {
 			LTrech = ArrayDivVigaSemRepeticao[(l + 1)] - ArrayDivVigaSemRepeticao[l];
 			tudoB = Elast * Inerc / (LTrech * LTrech * LTrech);
-			KLocal = [[12 * tudoB, 6 * tudoB * LTrech, -12 * tudoB, 6 * tudoB * LTrech],
-			[6 * tudoB * LTrech, 4 * tudoB * LTrech * LTrech, -6 * tudoB * LTrech, 2 * tudoB * LTrech * LTrech],
-			[-12 * tudoB, -6 * tudoB * LTrech, 12 * tudoB, -6 * tudoB * LTrech],
-			[6 * tudoB * LTrech, 2 * tudoB * LTrech * LTrech, -6 * tudoB * LTrech, 4 * tudoB * LTrech * LTrech]]
-				;
-
+			KLocal = [
+				[12 * tudoB, 6 * tudoB * LTrech, -12 * tudoB, 6 * tudoB * LTrech],
+				[6 * tudoB * LTrech, 4 * tudoB * LTrech * LTrech, -6 * tudoB * LTrech, 2 * tudoB * LTrech * LTrech],
+				[-12 * tudoB, -6 * tudoB * LTrech, 12 * tudoB, -6 * tudoB * LTrech],
+				[6 * tudoB * LTrech, 2 * tudoB * LTrech * LTrech, -6 * tudoB * LTrech, 4 * tudoB * LTrech * LTrech]
+			];
 			for (var i = 0; i < 4; i++) {
 				for (var j = 0; j < 4; j++) {
 					var ValorK = math.subset(KGlobal, math.index((i + 2 * l), (j + 2 * l)));
@@ -1047,17 +1063,20 @@ function CalculaProblemaProposto() {
 	function CalculaCoeficientes(ArrayDivVigaSemRepeticao) {
 		MatrizCoeficientesDasEquacoes = math.matrix();
 		for (var l = 0; l < (ArrayDivVigaSemRepeticao.length - 1); l++) {
-			var LTrech = 1;
-			LTrech = ArrayDivVigaSemRepeticao[(l + 1)] - ArrayDivVigaSemRepeticao[l];
-			var MatrizValoresA = [[1, 0, 0, 0],
-			[0, 1, 0, 0],
-			[1, LTrech, LTrech * LTrech, LTrech * LTrech * LTrech],
-			[0, 1, 2 * LTrech, 3 * LTrech * LTrech]]
-				;
-			var MatrizLocalDeDeslocamentosEInclinações = [];
-			MatrizLocalDeDeslocamentosEInclinações = [[math.subset(ArrayDeDeslocamentosEInclinacoes, math.index((2 * l), 0))], [math.subset(ArrayDeDeslocamentosEInclinacoes, math.index((2 * l + 1), 0))], [math.subset(ArrayDeDeslocamentosEInclinacoes, math.index((2 * l + 2), 0))], [math.subset(ArrayDeDeslocamentosEInclinacoes, math.index((2 * l + 3), 0))]]
-			var ArrayLocalDeCoeficientesParaGerarEquacoes = math.matrix();
-			ArrayLocalDeCoeficientesParaGerarEquacoes = math.lusolve(MatrizValoresA, MatrizLocalDeDeslocamentosEInclinações);
+			var LTrech = ArrayDivVigaSemRepeticao[(l + 1)] - ArrayDivVigaSemRepeticao[l];
+			var MatrizValoresA = 
+				[[1, 0, 0, 0],
+				[0, 1, 0, 0],
+				[1, LTrech, LTrech * LTrech, LTrech * LTrech * LTrech],
+				[0, 1, 2 * LTrech, 3 * LTrech * LTrech]]
+			;
+			var MatrizLocalDeDeslocamentosEInclinações = [
+				[math.subset(ArrayDeDeslocamentosEInclinacoes, math.index((2 * l), 0))], 
+				[math.subset(ArrayDeDeslocamentosEInclinacoes, math.index((2 * l + 1), 0))], 
+				[math.subset(ArrayDeDeslocamentosEInclinacoes, math.index((2 * l + 2), 0))], 
+				[math.subset(ArrayDeDeslocamentosEInclinacoes, math.index((2 * l + 3), 0))]
+			];
+			var ArrayLocalDeCoeficientesParaGerarEquacoes = math.lusolve(MatrizValoresA, MatrizLocalDeDeslocamentosEInclinações);
 
 			for (var j = 0; j < 4; j++) {
 				var valorDeGirodoFor = math.subset(ArrayLocalDeCoeficientesParaGerarEquacoes, math.index(j, 0));
@@ -1069,7 +1088,20 @@ function CalculaProblemaProposto() {
 		//
 		// console.log("KGlobalModificada  = "+KGlobalModificada)
 		// console.log("IndexParaGerarKGlobalDoTamanhoCerto  = "+IndexParaGerarKGlobalDoTamanhoCerto)
-		explicacao += ("<div style='display: inline-flex;width: 100%;margin-top: 20px;'><div style='width: 100%;'><center><b style='font-size: large;'>A MATRIZ GLOBAL ORIGINAL ABAIXO: </b></center></div><button class='btn btn-default btn-zoom-up'><span class='glyphicon glyphicon-plus'></span></button><button class='btn btn-default btn-zoom-down'><span class='glyphicon glyphicon-minus'></span></button></div>")
+
+		// Para inicio dos cálculos, é gerada a Matriz Global do Sistema, definida pela soma das submatrizes K Local de cada elemento. Assim <br>
+		explicacao += (`
+		<div style='display: inline-flex;width: 100%;margin-top: 20px;'>
+			<div style='width: 100%;'>
+				<center>
+					<b style='font-size: large;'>
+						A MATRIZ GLOBAL ORIGINAL ABAIXO:
+					</b>
+				</center>
+			</div>
+			<button class='btn btn-default btn-zoom-up'> <span class='glyphicon glyphicon-plus'></span> </button>
+			<button class='btn btn-default btn-zoom-down'> <span class='glyphicon glyphicon-minus'></span> </button>
+		</div>`)
 		explicacao += ("<div style='border: 1px solid #ccc;margin-top: 5px;overflow: auto;' id='matriz1'> $$  \K_g = \\begin{bmatrix} ")
 		for (var i = 0; i <= IndexParaGerarKGlobalDoTamanhoCerto; i++) {
 			for (var j = 0; j <= IndexParaGerarKGlobalDoTamanhoCerto; j++) {
